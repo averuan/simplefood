@@ -21,6 +21,7 @@
 
 .logo {
   display: inline-block;
+  flex-grow: 1;
 }
 
 .logo,
@@ -42,6 +43,8 @@
 
 .menu {
   display: flex;
+  justify-content: end;
+  flex-grow: 4;
 
   &__item:not(:last-child) {
     margin-right: 45px;
@@ -102,6 +105,8 @@
 
 .user-nav {
   display: flex;
+  justify-content: end;
+  flex-grow: 1;
 }
 
 .search {
@@ -124,23 +129,17 @@
   &__order {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     font-size: 10px;
     line-height: 1.2;
     color: #ffffff;
-    
-      ::after {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: blue;
-        width: 14px;
-        height: 14px;
-        border-radius: 100%;
-    }
+    background-color: #ff6838;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    transform: translate(50%, -25%);
   }
 }
-
 
 .hero,
 .range {
