@@ -1,6 +1,7 @@
 @import 'reset';
 @import 'fonts';
 @import 'vars';
+@import 'libs';
 @import 'global';
 
 .header {
@@ -249,6 +250,236 @@
     color: #363853;
     width: 181px;
     height: 70px;
+  }
+}
+
+.delivery {
+  &__inner {
+    display: flex;
+  }
+
+  &__img {
+    margin-right: 120px;
+  }
+}
+
+.benefits {
+  &____text {
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    font-size: 24px;
+    line-height: 1.5;
+    color: #363853;
+    margin-bottom: 30px;
+  }
+
+  &__item:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.restaurant {
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+
+  &__item {
+    background-color: #ffffff;
+  }
+
+  &__img {
+    margin-bottom: 15px;
+  }
+
+  &__name {
+    display: block;
+    font-size: 24px;
+    padding-left: 20px;
+    margin-bottom: 20px;
+  }
+
+  &__content {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__business-hours {
+    font-size: 18px;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  &__business-hours::before {
+    content: '';
+    position: absolute;
+    background-image: url(../images/timer.svg);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+}
+
+.button__restaurant {
+  border-radius: 20px;
+  position: relative;
+  padding: 17px 40px;
+
+  &::before {
+  content: '';
+  position: absolute;
+  background-image: url(../images/arrow-restaurant.svg);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 12px;
+  width: 14px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  }
+}
+
+.reviews .reviews__inner {
+  display: flex;
+  justify-content: center;
+}
+
+.reviews {
+  &__img {
+  border-radius: 50%;
+  margin-right: 40px;
+  }
+}
+
+.blockquote {
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  padding-top: 31px;
+  max-width: 650px;
+
+  &__text {
+  position: relative;
+  padding: 0 40px;
+  margin-bottom: 30px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      height: 24px;
+      width: 19px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+    }
+
+    &::before {
+      background-image: url(../images/quotes_start.svg);
+      top: 0;
+      left: 0;
+    }
+
+    &::after {
+      background-image: url(../images/quotes_end.svg);
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &__author {
+    display: block;
+    font-style: normal;  
+    font-weight: 500;
+    color: #ff6838;
+    padding: 0 40px;
+  }
+
+  &__author-description {
+    display: block;
+    font-size: 14px;
+    padding-top: 15px;
+    color: #31352b;
+  }
+}
+
+.slick-dots {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+.slick-dots li+li {
+  margin-left: 20px;
+}
+
+.slick-dots button {
+  font-size: 0;
+  border: none;
+  padding: 0;
+  width: 15px;
+  height: 15px;
+  background: #c2c2c2;
+  border-radius: 50%;
+  outline: none;
+}
+
+.mobile-app {
+
+  &__inner {
+    display: flex;
+  }
+
+  &__content {
+    margin-right: 62px;
+  }
+
+  &__text {
+    line-height: 1.5;
+    margin-bottom: 30px;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    position: relative;
+  }
+
+  &__link {
+    content: '';
+    position: absolute;
+    height: 40px;
+    width: 120px;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    &--app {
+      background-image: url(../images/app_store.svg);
+    }
+
+    &--google {
+      background-image: url(../images/google_play.svg);
+    }
   }
 }
 

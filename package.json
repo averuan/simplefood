@@ -18,6 +18,12 @@
     "gulp-sass": "^5.0.0",
     "gulp-uglify": "^3.0.2",
     "jquery": "^3.6.0",
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "slick-carousel": "^1.8.1"
+  },
+  "dependencies": {
+    "-": "0.0.1",
+    "mixitup": "^3.3.1",
+    "save-dev": "0.0.1-security"
   }
 }

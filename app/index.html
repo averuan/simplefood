@@ -74,24 +74,24 @@
   
         <ul class="filter">
           <li class="filter__category">
-            <button class="button filter__button" type="button">Бургеры</button>
+            <button class="button filter__button" data-filter=".category-burgers" type="button">Бургеры</button>
           </li>
           <li class="filter__category">
-            <button class="button filter__button" type="button">Пицца</button>
+            <button class="button filter__button" data-filter=".category-pizza" type="button">Пицца</button>
           </li>
           <li class="filter__category">
-            <button class="button filter__button" type="button">Сендвичи</button>
+            <button class="button filter__button" data-filter=".category-sandwiches" type="button">Сендвичи</button>
           </li>
           <li class="filter__category">
-            <button class="button filter__button" type="button">Азиатская кухня</button>
+            <button class="button filter__button" data-filter=".category-asian" type="button">Азиатская кухня</button>
           </li>
           <li class="filter__category">
-            <button class="button filter__button" type="button">Сеты</button>
+            <button class="button filter__button" data-filter=".category-sets" type="button">Сеты</button>
           </li>
         </ul>
   
         <ul class="range__content">
-          <li class="range__item">
+          <li class="range__item mix category-sandwiches">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/cheeseburger-lettuce.png" alt="Чизбургер с листьями салата">
               <p class="range__product">Чизбургер с листьями салата</p>
@@ -99,7 +99,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-pizza">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/bifburger.png" alt="Бифбургер">
               <p class="range__product">Бифбургер</p>
@@ -107,7 +107,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-burgers">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/royal-cheeseburger.png" alt="Королевский чизбургер">
               <p class="range__product">Королевский чизбургер</p>
@@ -115,7 +115,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-sets">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/black-hamburger.png" alt="Черный гамбургер">
               <p class="range__product">Черный гамбургер</p>
@@ -123,7 +123,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-asian">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/chicken-burger.png" alt="Чикен бургер">
               <p class="range__product">Чикен бургер</p>
@@ -131,7 +131,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-sandwiches">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/cheeseburger-lettuce.png" alt="Чизбургер с листьями салата">
               <p class="range__product">Чизбургер с листьями салата</p>
@@ -139,7 +139,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-pizza">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/bifburger.png" alt="Бифбургер">
               <p class="range__product">Бифбургер</p>
@@ -147,7 +147,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-burgers">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/royal-cheeseburger.png" alt="Королевский чизбургер">
               <p class="range__product">Королевский чизбургер</p>
@@ -155,7 +155,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-sets">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/black-hamburger.png" alt="Черный гамбургер">
               <p class="range__product">Черный гамбургер</p>
@@ -163,7 +163,7 @@
               <button class="button range__button" type="button">В корзину</button>
             </a>
           </li>
-          <li class="range__item">
+          <li class="range__item mix category-asian ">
             <a class="range__link" href="#">
               <img class="range__image" src="images/range/chicken-burger.png" alt="Чикен бургер">
               <p class="range__product">Чикен бургер</p>
@@ -177,11 +177,218 @@
       </div>
     </section>
   
+    <section class="delivery">
+      <div class="container">
+        <div class="delivery__inner">
+        
+          <img class="delivery__img" src="images/delivery.png" alt="Безопасная доставка">
+        
+          <div class="benefits">
+            <h2 class="title">Оставайтесь дома,
+              а мы позаботимся о еде</h2>
+            <p class="benefits__text">У нас есть вкусная еда и мы готовы доставить её к вам домой!
+              Воспользуйтесь нашей доставкой прямо сейчас и получите скиидку!
+            </p>
+
+            <ul class="benefits__list">
+              <li class="benefits__item">Быстрая доставка за 15 минут</li>
+              <li class="benefits__item">Вежливые курьеры</li>
+              <li class="benefits__item">Более 500 заведений</li>
+            </ul>
+
+            <button class="button" type="button">Подробнее</button>
+          </div>
+        
+        </div>
+      </div>
+    </section>
+        
+    <section class="restaurant">
+      <div class="container">
+        <h1 class="title">Лучшие рестораны</h2>
+        
+          <ul class="restaurant__list">
+            <li class="restaurant__item">
+              <img class="restaurant__img" src="images/restaurant/blaze_pizza.jpg" alt="Blaze Pizza">
+              <span class="restaurant__name">Blaze Pizza</span>
+              <div class="restaurant__content">
+                <span class="restaurant__business-hours">11:00 - 22:00</span>
+                <button class="button button__restaurant" type="button">
+                  <span class="visually-hidden">Вперед</span>
+                </button>
+              </div>
+            </li>
+            <li class="restaurant__item">
+              <img class="restaurant__img" src="images/restaurant/pizza_runcho.jpg" alt="Pizza Runcho">
+              <span class="restaurant__name">Pizza Runcho</span>
+              <div class="restaurant__content">
+                <span class="restaurant__business-hours">12:00 - 21:00</span>
+                <button class="button button__restaurant" type="button">
+                  <span class="visually-hidden">Вперед</span>
+                </button>
+              </div>
+            </li>
+            <li class="restaurant__item">
+              <img class="restaurant__img" src="images/restaurant/pizza_hut.jpg" alt="Pizza Hut">
+              <span class="restaurant__name">Pizza Hut</span>
+              <div class="restaurant__content">
+                <span class="restaurant__business-hours">11:00 - 22:00</span>
+                <button class="button button__restaurant" type="button">
+                  <span class="visually-hidden">Вперед</span>
+                </button>
+              </div>
+            </li>
+            <li class="restaurant__item">
+              <img class="restaurant__img" src="images/restaurant/mcdonald`s.jpg" alt="McDonald`s">
+              <span class="restaurant__name">McDonald`s</span>
+              <div class="restaurant__content">
+                <span class="restaurant__business-hours">06:00 - 23:00</span>
+                <button class="button button__restaurant" type="button">
+                  <span class="visually-hidden">Вперед</span>
+                </button>
+              </div>
+            </li>
+            <li class="restaurant__item">
+              <img class="restaurant__img" src="images/restaurant/kfc.jpg" alt="KFC">
+              <span class="restaurant__name">KFC</span>
+              <div class="restaurant__content">
+                <span class="restaurant__business-hours">06:00 - 23:30</span>
+                <button class="button button__restaurant" type="button">
+                  <span class="visually-hidden">Вперед</span>
+                </button>
+              </div>
+            </li>
+            <li class="restaurant__item">
+              <img class="restaurant__img" src="images/restaurant/star_burgers.jpg" alt="Star Burgers">
+              <span class="restaurant__name">Star Burgers</span>
+              <div class="restaurant__content">
+                <span class="restaurant__business-hours">09:00 - 21:00</span>
+                <button class="button button__restaurant" type="button">
+                  <span class="visually-hidden">Вперед</span>
+                </button>
+              </div>
+            </li>
+          </ul>
+        
+      </div>
+    </section>
+        
+    <section class="reviews">
+      <div class="container">
+        <h2 class="title">Отзывы клиентов</h2>
+        <div class="slider">
+          <div class="reviews__inner">
+            <img class="reviews__img" src="images/darya_review.jpg" alt="Отзыв Дарьи">
+            <blockquote class="blockquote">
+              <div class="blockquote__text">
+                SimpleFood - одна из лучших служб доставки продуктов из ресторанов
+                в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы
+                и пунктуальны. Компания часто проводит акции и дарит скидки на
+                доставку - однозначно рекомендую!
+              </div>
+              <cite class="blockquote__author">
+                Дарья
+                <span class="blockquote__author-description">Ценитель вкусной еды</span>
+              </cite>
+            </blockquote>
+          </div>
+        
+          <div class="reviews__inner">
+            <img class="reviews__img" src="images/darya_review.jpg" alt="Отзыв Дарьи">
+            <blockquote class="blockquote">
+              <div class="blockquote__text">
+                SimpleFood - одна из лучших служб доставки продуктов из ресторанов
+                в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы
+                и пунктуальны. Компания часто проводит акции и дарит скидки на
+                доставку - однозначно рекомендую!
+              </div>
+              <cite class="blockquote__author">
+                Дарья
+                <span class="blockquote__author-description">Ценитель вкусной еды</span>
+              </cite>
+            </blockquote>
+          </div>
+        
+          <div class="reviews__inner">
+            <img class="reviews__img" src="images/darya_review.jpg" alt="Отзыв Дарьи">
+            <blockquote class="blockquote">
+              <div class="blockquote__text">
+                SimpleFood - одна из лучших служб доставки продуктов из ресторанов
+                в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы
+                и пунктуальны. Компания часто проводит акции и дарит скидки на
+                доставку - однозначно рекомендую!
+              </div>
+              <cite class="blockquote__author">
+                Дарья
+                <span class="blockquote__author-description">Ценитель вкусной еды</span>
+              </cite>
+            </blockquote>
+          </div>
+        
+          <div class="reviews__inner">
+            <img class="reviews__img" src="images/darya_review.jpg" alt="Отзыв Дарьи">
+            <blockquote class="blockquote">
+              <div class="blockquote__text">
+                SimpleFood - одна из лучших служб доставки продуктов из ресторанов
+                в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы
+                и пунктуальны. Компания часто проводит акции и дарит скидки на
+                доставку - однозначно рекомендую!
+              </div>
+              <cite class="blockquote__author">
+                Дарья
+                <span class="blockquote__author-description">Ценитель вкусной еды</span>
+              </cite>
+            </blockquote>
+          </div>
+        
+          <div class="reviews__inner">
+            <img class="reviews__img" src="images/darya_review.jpg" alt="Отзыв Дарьи">
+            <blockquote class="blockquote">
+              <div class="blockquote__text">
+                SimpleFood - одна из лучших служб доставки продуктов из ресторанов
+                в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы
+                и пунктуальны. Компания часто проводит акции и дарит скидки на
+                доставку - однозначно рекомендую!
+              </div>
+              <cite class="blockquote__author">
+                Дарья
+                <span class="blockquote__author-description">Ценитель вкусной еды</span>
+              </cite>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+        
+    <section class="mobile-app">
+      <div class="container">
+        <div class="mobile-app__inner">
+          <div class="mobile-app__content">
+            <h2 class="title">Скачайте мобильное приложение</h2>
+        
+            <p class="mobile-app__text">Рестораны, которые вы любите - в ваших руках.
+              Устанавливайте приложение и заказывайте еду в любом удобном месте.
+            </p>
+        
+            <ul class="mobile-app__list">
+              <li class="mobile-app__item">
+                <a class="mobile-app__link mobile-app__link--app">
+                  <span class="visually-hidden">Скачать приложение в App Store</span>
+                </a>
+              </li>
+              <li class="mobile-app__item">
+                <a class="mobile-app__link mobile-app__link--google">
+                  <span class="visually-hidden">Скачать приложение в Google Play</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        
+          <img class="mobile-app__img" src="images/mobile-app.jpg" alt="Заказ еды через мобильное приложение">
+        </div>
+      </div>
+    </section>
   </main>
-  
-  
-  
-  
   
   <footer class="footer">
     <div class="container">
