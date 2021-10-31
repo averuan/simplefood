@@ -46,6 +46,7 @@
   display: flex;
   justify-content: end;
   flex-grow: 4;
+  @extend %rubik-regular-400;
 
   &__item:not(:last-child) {
     margin-right: 45px;
@@ -55,7 +56,6 @@
     display: block;
     font-size: 18px;
     text-decoration: none;
-    font-weight: 600;
     border-bottom: 1px solid transparent;
     position: relative;
   }
@@ -159,10 +159,10 @@
   &__title {
     display: block;
     font-size: calc(40px + 26 * ((50vw - 320px) / (1920 - 320)));
-    font-weight: 500;
     text-transform: uppercase;
     color: #363853;
     margin-bottom: 20px;
+    @extend %rubik-medium-500;
   }
 
   &__title--color--orange {
@@ -216,10 +216,10 @@
 
   &__price {
     font-size: 15px;
-    font-weight: 500;
     line-height: 1.4;
     color: #363853;
     margin-bottom: 10px;
+    @extend %rubik-medium-500;
   }
 
   &__button {
@@ -317,6 +317,7 @@
     line-height: 1.6;
     position: relative;
     padding-left: 32px;
+    @extend %rubik-light-300;
   }
 
   &__business-hours::before {
@@ -355,10 +356,10 @@
 }
 
 .reviews .reviews__inner {
-  display: flex;
-  justify-content: center;
-}
-
+    display: flex;
+    justify-content: center;
+  }
+  
 .reviews {
   &__img {
   border-radius: 50%;
@@ -367,7 +368,6 @@
 }
 
 .blockquote {
-  font-style: italic;
   line-height: 1.5;
   margin-bottom: 30px;
   padding-top: 31px;
@@ -377,6 +377,7 @@
   position: relative;
   padding: 0 40px;
   margin-bottom: 30px;
+  @extend %rubik-italic-400;
 
     &::before,
     &::after {
@@ -404,8 +405,7 @@
 
   &__author {
     display: block;
-    font-style: normal;  
-    font-weight: 500;
+    @extend %rubik-regular-400;
     color: #ff6838;
     padding: 0 40px;
   }
