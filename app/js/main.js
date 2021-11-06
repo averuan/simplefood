@@ -4,6 +4,8 @@ $(function(){
     dots: true
   })
 
+  $('.reviews__inner').css('display','flex');
+
 
 
 

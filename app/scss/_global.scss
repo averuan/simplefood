@@ -6,9 +6,9 @@ body {
 body {
   font-size: 20px;
   line-height: 1.3;
-  color: #31352b;
-  background-color: #f9faff;
-  @extend %rubik-regular-400;
+  color: $default-color;
+  background-color: $body-bg;
+  @extend %rubik-400;
   display: flex;
   flex-direction: column;
 }
@@ -24,18 +24,18 @@ body {
 }
 
 .button {
-  width: 146px;
-  height: 47px;
+  padding: 12px 32px;
   font-size: 18px;
-  color: #ffffff;
-  background-color: #ff6838;
+  color: $white-color;
+  background-color: $accent-color;
   border-radius: 6px;
 }
 
 .title {
   font-size: 36px;
-  font-weight: 500;
-  margin-bottom: 60px;
+  @extend %rubik-500;
+  color: $title-color;
+  margin-bottom: 45px;
   text-align: center;
 }
 

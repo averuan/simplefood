@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Rubik-Italic', sans-serif;
+  font-family: 'Rubik-Italic';
   font-weight: 400;
   font-style: italic;
   src: local('Rubik-Italic'),
@@ -9,51 +9,31 @@
 }
 
 @font-face {
-  font-family: 'Rubik-Italic-VariableFont_wght', sans-serif;
-  font-weight: 400;
-  font-style: italic;
-  src: local('Rubik-Italic-VariableFont_wght'),
-       url('../Rubik-Italic-VariableFont_wght.woff') format('woff2'),
-       url('../Rubik-Italic-VariableFont_wght.woff') format('woff');
-       font-display: swap;
-}
-
-@font-face {
-  font-family: 'Rubik-Light', sans-serif;
+  font-family: 'Rubik-Light';
   font-weight: 300;
   font-style: normal;
   src: local('Rubik-Light'),
-       url('../Rubik-Light.woff') format('woff2'),
-       url('../Rubik-Light.woff') format('woff');
+       url('../fonts/Rubik-Light.woff') format('woff2'),
+       url('../fonts/Rubik-Light.woff') format('woff');
        font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik-Medium', sans-serif;
+  font-family: 'Rubik-Medium';
   font-weight: 500;
   font-style: normal;
   src: local('Rubik-Medium'),
-       url('../Rubik-Medium.woff') format('woff2'),
-       url('../Rubik-Medium.woff') format('woff');
+       url('../fonts/Rubik-Medium.woff') format('woff2'),
+       url('../fonts/Rubik-Medium.woff') format('woff');
        font-display: swap;
 }
 
 @font-face {
-  font-family: 'Rubik-Regular', sans-serif;
+  font-family: 'Rubik-Regular';
   font-weight: 400;
   font-style: normal;
   src: local('Rubik-Regular'),
-       url('../Rubik-Regular.woff') format('woff2'),
-       url('../Rubik-Regular.woff') format('woff');
-       font-display: swap;
-}
-
-@font-face {
-  font-family: 'Rubik-VariableFont_wght', sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  src: local('Rubik-VariableFont_wght'),
-       url('../Rubik-VariableFont_wght.woff') format('woff2'),
-       url('../Rubik-VariableFont_wght.woff') format('woff');
+       url('../fonts/Rubik-Regular.woff') format('woff2'),
+       url('../fonts/Rubik-Regular.woff') format('woff');
        font-display: swap;
 }

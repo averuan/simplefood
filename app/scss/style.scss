@@ -55,7 +55,6 @@
     display: block;
     font-size: 18px;
     text-decoration: none;
-    font-weight: 600;
     border-bottom: 1px solid transparent;
     position: relative;
   }
@@ -133,8 +132,8 @@
     right: 0;
     font-size: 10px;
     line-height: 1.2;
-    color: #ffffff;
-    background-color: #ff6838;
+    color: $white-color;
+    background-color: $accent-color;
     width: 14px;
     height: 14px;
     border-radius: 100%;
@@ -143,7 +142,11 @@
 }
 
 .hero,
-.range {
+.range,
+.delivery,
+.restaurant,
+.reviews,
+.mobile-app {
   padding: 60px 0;
 }
 
@@ -158,15 +161,16 @@
 
   &__title {
     display: block;
+    @extend %rubik-500;
     font-size: calc(40px + 26 * ((50vw - 320px) / (1920 - 320)));
     font-weight: 500;
     text-transform: uppercase;
-    color: #363853;
+    color: $title-color;
     margin-bottom: 20px;
   }
 
-  &__title--color--orange {
-    color: #ff6838;
+  &__title--orange {
+    color: $accent-color;
   }
 
   &__text {
@@ -176,17 +180,24 @@
 
   &__link {
     line-height: 1.5;
-    color: #363853;
-    margin-left: 34px;
+    color: $title-color;
   }
 
   &__image {
     max-width: 560px;
     max-height: 660px;
   }
+
+  &__button {
+    margin-right: 34px;
+  }
 }
 
 .range {
+
+  &__title {
+    margin-bottom: 60px;
+  }
   
   &__content {
     display: grid;
@@ -197,57 +208,62 @@
   }
 
   &__item {
-    background-color: #ffffff;
+    background-color: $white-color;
     border-radius: 5px;
     text-align: center;
-  }
-
-  &__image {
-    margin: 0 auto 10px;
-    padding-top: 20px;
-    margin-bottom: 10px;
-  }
-
-  &__product {
-    font-size: 15px;
-    line-height: 1.2;
-    margin-bottom: 28px;
-  }
-
-  &__price {
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: #363853;
-    margin-bottom: 10px;
-  }
-
-  &__button {
-    font-size: 14px;
-    width: 101px;
-    height: 32px;
   }
 
   &__add {
     display: block;
     margin: 0 auto;
     line-height: 1.5;
-    color: #363853;
+    color: $title-color;
     text-decoration: underline;
   }
 }
 
-.filter {
+.product {
+
+  &__image {
+    margin: 0 auto 10px;
+    padding-top: 20px;
+  }
+
+  &__title {
+    @extend %rubik-400;
+    font-size: 15px;
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  &__price {
+    display: block;
+    @extend %rubik-500;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: $title-color;
+    margin-bottom: 10px;
+  }
+
+  &__button {
+    font-size: 14px;
+    padding: 7px 16px;
+    margin-bottom: 20px;
+  }
+}
+
+.mix-filter {
   display: flex;
-  padding-bottom: 40px;
+  padding-bottom: 45px;
 
   &__category:not(:last-child) {
     margin-right: 20px;
   }
 
   &__button {
-    background-color: #ffffff;
-    color: #363853;
+    background-color: $white-color;
+    color: $title-color;
     width: 181px;
     height: 70px;
   }
@@ -264,7 +280,13 @@
 }
 
 .benefits {
-  &____text {
+  
+  & {
+    padding-top: 58px;
+    margin-bottom: 30px;
+  }
+
+  &__text {
     line-height: 1.5;
     margin-bottom: 30px;
   }
@@ -272,7 +294,7 @@
   &__list {
     font-size: 24px;
     line-height: 1.5;
-    color: #363853;
+    color: $title-color;
     margin-bottom: 30px;
   }
 
@@ -290,7 +312,7 @@
   }
 
   &__item {
-    background-color: #ffffff;
+    background-color: $white-color;
   }
 
   &__img {
@@ -314,6 +336,7 @@
 
   &__business-hours {
     font-size: 18px;
+    @extend %rubik-300;
     line-height: 1.6;
     position: relative;
     padding-left: 32px;
@@ -340,43 +363,43 @@
   padding: 17px 40px;
 
   &::before {
-  content: '';
-  position: absolute;
-  background-image: url(../images/arrow-restaurant.svg);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 12px;
-  width: 14px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
+    content: '';
+    position: absolute;
+    background-image: url(../images/arrow-restaurant.svg);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 12px;
+    width: 14px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
   }
 }
 
-.reviews .reviews__inner {
-  display: flex;
-  justify-content: center;
-}
-
 .reviews {
+  &__inner {
+    justify-content: center;
+    margin-bottom: 48px;
+  }
+
   &__img {
-  border-radius: 50%;
-  margin-right: 40px;
+    border-radius: 50%;
+    margin-right: 40px;
   }
 }
 
 .blockquote {
-  font-style: italic;
+  @extend %rubik-italic-400;
   line-height: 1.5;
   margin-bottom: 30px;
   padding-top: 31px;
   max-width: 650px;
 
   &__text {
-  position: relative;
-  padding: 0 40px;
-  margin-bottom: 30px;
+    position: relative;
+    padding: 0 40px;
+    margin-bottom: 30px;
 
     &::before,
     &::after {
@@ -404,17 +427,18 @@
 
   &__author {
     display: block;
-    font-style: normal;  
-    font-weight: 500;
-    color: #ff6838;
+    @extend %rubik-500;
+    font-style: normal;
+    color: $accent-color;
     padding: 0 40px;
   }
 
   &__author-description {
     display: block;
+    @extend %rubik-400;
     font-size: 14px;
     padding-top: 15px;
-    color: #31352b;
+    color: $default-color;
   }
 }
 
@@ -484,7 +508,8 @@
 }
 
 .footer {
-  
+  padding-top: 60px;
+
   &__inner {
     display: flex;
     padding-bottom: 60px;
@@ -504,8 +529,8 @@
 
   &__button {
     font-size: 14px;
-    width: 200px;
-    height: 44px;
+    padding: 13px 38px 13px 70px;
+    @extend %rubik-500;
     position: relative;
     text-align: start;
   
@@ -528,23 +553,20 @@
   }
 }
 
-.button__text {
-  padding-left: 70px;
-}
-
 .subscribe {
   max-width: 200px;
 
   &__input {
     font-size: 14px;  
-    border: 1px solid #c2c2c2;
+    border: 1px solid $form-color;
     border-radius: 5px;
     margin-bottom: 12px;
     padding: 13px 15px;
     width: 200px;
 
     &::placeholder {
-      color: rgba(194, 194, 194, 0.9);
+      color: $form-color;
+      opacity: 0.9;
     }
   }
 }
@@ -605,7 +627,7 @@
 
 .copyright {
   text-align: center;
-  border-top: 1px solid rgba(194, 194, 194, 0.2);
+  border-top: 1px solid $border-color;
   padding: 30px 0;
 
   &__text {

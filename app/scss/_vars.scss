@@ -1,30 +1,28 @@
+$accent-color: #ff6838;
+$default-color: #31352b;
+$body-bg: #f9faff;
+$white-color: #ffffff;
+$title-color: #363853;
+$form-color: #c2c2c2;
+$border-color: rgba(194, 194, 194, 0.2);
+
 
 %rubik-italic-400 {
-  font-family: 'Rubik-Italic', sans-serif;
+  font-family: 'Rubik-Italic';
   font-weight: 400;
 }
 
-%rubik-italic-variablefont_wght-400 {
-  font-family: 'Rubik-Italic-VariableFont_wght', sans-serif;
-  font-weight: 400;
-}
-
-%rubik-light-300 {
-  font-family: 'Rubik-Light', sans-serif;
+%rubik-300 {
+  font-family: 'Rubik-Light';
   font-weight: 300;
 }
 
-%rubik-medium-500 {
-  font-family: 'Rubik-Medium', sans-serif;
+%rubik-500 {
+  font-family: 'Rubik-Medium';
   font-weight: 500;
 }
 
-%rubik-regular-400 {
-  font-family: 'Rubik-Regular', sans-serif;
-  font-weight: 400;
-}
-
-%rubik-variablefont_wght-400 {
-  font-family: 'Rubik-VariableFont_wght', sans-serif;
+%rubik-400 {
+  font-family: 'Rubik-Regular';
   font-weight: 400;
 }
