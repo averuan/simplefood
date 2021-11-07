@@ -163,7 +163,6 @@
     display: block;
     @extend %rubik-500;
     font-size: calc(40px + 26 * ((50vw - 320px) / (1920 - 320)));
-    font-weight: 500;
     text-transform: uppercase;
     color: $title-color;
     margin-bottom: 20px;
@@ -240,7 +239,6 @@
     display: block;
     @extend %rubik-500;
     font-size: 15px;
-    font-weight: 500;
     line-height: 1.4;
     color: $title-color;
     margin-bottom: 10px;
