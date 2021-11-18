@@ -1,4 +1,23 @@
 $(function(){
+  
+  $(window).scroll(function () {
+
+    if ($(this).scrollTop() >= 90) {
+      $(".header").addClass("header--fix");
+    } else {
+      $(".header").removeClass("header--fix");
+    }
+  });
+  
+
+  
+  $('.menu__link').on('click', function () {
+    $('.menu__link').removeClass('menu__link--active');
+    $(this).addClass('menu__link--active');
+  });
+
+
+  
   $('.slider').slick({
     dots: true
   })

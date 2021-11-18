@@ -4,6 +4,39 @@
 @import 'libs';
 @import 'global';
 
+@mixin truncate($n, $lh) {
+    @if $n == 1 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: $lh;
+    } @else {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        -webkit-line-clamp: $n;
+        -moz-line-clamp: $n;
+        line-clamp: $n;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        overflow: hidden;
+        line-height: $lh;
+        height: $lh * $n;
+    }
+}
+ 
+/*p {
+    width: 200px;
+}
+p:not(:last-child) {
+    @include truncate(1, 24px);
+}
+p:last-child {
+    @include truncate(2, 24px);
+}*/
+
+
 .header {
   font-size: 18px;
   position: fixed;
@@ -20,9 +53,32 @@
   }
 }
 
+.header--fix {
+  padding-top: 0;
+  background-color: $header-bg;
+}
+
 .logo {
   display: inline-block;
   flex-grow: 1;
+}
+
+.animation-logo {
+  transition: opacity 0.5s, box-shadow 0.5s;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px $focus-color;
+    outline: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+    box-shadow: none;
+  }
 }
 
 .logo,
@@ -39,7 +95,7 @@
   padding: 0;
   overflow: hidden;
   border: 0;
-  clip: rect(0 0 0 0)
+  clip: rect(0 0 0 0);
 }
 
 .menu {
@@ -60,47 +116,29 @@
   }
 }
 
-.menu__link::after,
-.hero__link::after,
-.contact__link::after {
-  content: '';
-  position: absolute;
-  border-bottom: 1px solid #ffffff;
-  top: 21px;
-  left: 0;
-  width: 0;
-  transition: width 0.4s;
-}
+.animation-link {
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s;
 
-.menu__link:focus,
-.hero__link:focus,
-.contact__link:focus,
-.social__link:focus,
-.form__field:focus {
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
-  border-radius: 3px;
-  outline: 0;
-}
+  &:focus {
+    box-shadow: 0px 0px 0px 2px $focus-color;
+    outline: 0;
+  }
 
-.menu__link:hover::after,
-.hero__link:hover::after,
-.contact__link:hover::after {
-  width: 100%;
-}
+  &:hover {
+    color: $accent-color;
+    text-decoration: none;
+  }
 
-.menu__link:active,
-.hero__link:active,
-.hero__link:active::before,
-.contact__link:active,
-.social__link:hover {
-  opacity: 0.7;
+  &:active {
+    color: $default-color;
+    text-shadow: 2px 2px 5px $active-color;
+    box-shadow: none;
+  }
 }
-
-.menu__link:active::after,
-.hero__link:active::after,
-.contact__link:active::after {
-  width: 0;
-  transition: width 0.01s;
+/*не нашел другого способа усилить специфичность. Иначе не работает свойство box-shadow: none - оно перебивается свойством box-shadow, заданное на .animation-link:focus*/
+.menu__link.menu__link--active {
+  color: #ff6838;
+  box-shadow: none;
 }
 
 .user-nav {
@@ -193,10 +231,10 @@
     text-transform: uppercase;
     color: $title-color;
     margin-bottom: 20px;
-  }
 
-  &__title--orange {
-    color: $accent-color;
+    &--orange {
+      color: $accent-color;
+    }
   }
 
   &__text {
@@ -222,18 +260,57 @@
   }
 }
 
+.animation-btn {
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
+
+  &:focus {
+    color: $accent-color;
+    background-color: $focus-btn-color;
+    box-shadow: 0px 0px 0px 2px $focus-color;
+    outline: 0;
+  }
+
+  &:hover {
+    color: $accent-color;
+    background-color: $white-color;
+    box-shadow: 0px 0px 0px 2px $focus-color;
+  }
+
+  &:active {
+    color: $accent-color;
+    box-shadow: none;
+    border-color: $focus-btn-color;
+    background-color: $focus-btn-color;
+  }
+}
+
 .range {
 
   &__title {
     margin-bottom: 60px;
   }
-  
+
+  &__inner {
+    margin: 0 auto;
+    padding: 0 15px;
+    max-width: 1228px;
+  }
+
   &__content {
-    display: grid;
+    /*display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 30px;
-    grid-row-gap: 30px;
+    grid-row-gap: 30px;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-bottom: 60px;
+  }
+
+  &__item {
+    max-width: calc(20% - 30px);
+    width: 100%;
+    margin: 0 15px 30px;
   }
 
   &__add {
@@ -244,45 +321,47 @@
     text-decoration: underline;
   }
 }
-/*Вопросы по поводу блока product.
-1. Паддинги карточкам, про которые ты говорил во время проверки 12ДЗ,
-я вешал блоку product (т.е. на article), а не на li. Правильное ли это было решение?
-Просто у меня при изменении размера экрана скачет форматирование, а если
-ставить padding на li, такой проблемы нет.
-2.Карточки не проходят тест на переполнение (это видно сразу по первой карточке) - 
-если текста слишком много (например "Чизбургер с листьями салата" и он съезжает на
-вторую строку - карточка сразу становится больше остальных. И я никак не пойму, как
-сделать так, чтобы все карточки были одного размера, независимо от текста в них*/
-.product {
+
+.card {
+  display: flex;
+  flex-direction: column;
+
   background-color: $white-color;
   border-radius: 5px;
-  text-align: center;
   padding: 20px 15px;
+  min-height: 299px;
+  transition: box-shadow 0.5s;
 
-    &__image {
-      margin: 0 auto;
-    }
+  &__image {
+    margin: 0 auto;
+  }
 
-    &__title {
-      @extend %rubik-400;
-      font-size: 15px;
-      line-height: 1.2;
-      margin-bottom: 28px;
-    }
+  &__title {
+    @extend %rubik-400;
+    font-size: 15px;
+    line-height: 1.2;
+    margin: auto 0;
+    text-align: center;
+  }
 
-    &__price {
-      display: block;
-      @extend %rubik-500;
-      font-size: 15px;
-      line-height: 1.4;
-      color: $title-color;
-      margin-bottom: 10px;
-    }
+  &__price {
+    display: block;
+    @extend %rubik-500;
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.4;
+    color: $title-color;
+    margin-bottom: 10px;
+  }
+/*кнопка растягивается почему-то на весь контейнер*/
+  &__button {
+    font-size: 14px;
+    padding: 7px 16px;
+  }
 
-    &__button {
-      font-size: 14px;
-      padding: 7px 16px;
-    }
+  &:hover {
+    box-shadow: 0px 0px 0px 1px $accent-color;
+  }
 }
 
 .mix-filter {
@@ -294,11 +373,34 @@
   }
 
   &__button {
+    font-size: 20px;
     background-color: $white-color;
     color: $title-color;
-    width: 181px;
-    height: 70px;
+    box-shadow: 0px 0px 0px 1px $border-color;
+    border-radius: 5px;
+    padding: 22px 32px 22px 86px;
+    /*почему-то не работает focus, хотя hover и active работают*/
+    &:focus {
+      border-color: $accent-color;
+      outline: 0;
+    }
+
+    &:hover {
+      box-shadow: $focus-color;
+      color: $accent-color;
+      background-color: $focus-btn-color;
+    }
+
+    &:active {
+      color: $title-color;
+      box-shadow: inset 0px -5px 12px $filter-border-active;
+    }
   }
+}
+
+.mix-filter__button.mixitup-control-active {
+  color: $white-color;
+  background-color: $accent-color;
 }
 
 .delivery {
@@ -345,10 +447,17 @@
 
   &__item {
     background-color: $white-color;
+    border-radius: 10px;
+    transition: box-shadow 0.5s;
+
+    &:hover {
+      box-shadow: 0px 3px 15px $shadow-color;
+    }
   }
 
   &__img {
     margin-bottom: 15px;
+    border-radius: 10px 10px 0 0;
   }
 
   &__name {
@@ -473,24 +582,15 @@
     color: $default-color;
   }
 }
-/*Вопрос по поводу реализации стрелок слайдера.
-По умолчанию они расположены сбоку, а нам надо, чтобы были внизу, причем
-позиционирование напрашивается, что они должны быть в одном блоке со slick dots 
-(возможно, ошибаюсь). Я создал им собственные li в main.js, и переместил туда
-стрелки. Но мне не нравится:
-а) сама стилизация получается очень кривой и вообще не по БЭМ
-б) решение не проходит тест на переполнение - если добавить еще один блок с отзывом,
-стрелки сразу встают на свои прежние места и теряют форматирование*/
+
 .slick-dots {
   list-style: none;
   display: flex;
   justify-content: center;
 }
-
 .slick-dots li {
   margin-right: 15px;
 }
-
 .slick-dots button {
   font-size: 0;
   border: none;
@@ -501,11 +601,9 @@
   border-radius: 50%;
   outline: none;
 }
-
 li.arrow-slider-first {
   margin-right: 23px;
 }
-
 .arrow-slider-first .slick-prev,
 .arrow-slider .slick-next {
   height: 34px;
@@ -517,11 +615,9 @@ li.arrow-slider-first {
   background-position: center center;
   background-color: $body-bg;
 }
-
 .arrow-slider-first .slick-prev {
   background-image: url(../images/prev-arrow-slideer.svg);
 }
-
 .arrow-slider .slick-next {
   margin-left: 8px;
   background-image: url(../images/next-arrow-slideer.svg);
@@ -612,8 +708,20 @@ li.arrow-slider-first {
       background-position: center center;
     }
   }
+
   &__link {
     font-size: 18px;
+  }
+
+  &__copyright {
+    text-align: center;
+    border-top: 1px solid $border-color;
+    padding: 30px 0;
+  }
+  
+  &__copyright-text {
+    font-size: 14px;
+    line-height: 1;
   }
 }
 
@@ -631,7 +739,21 @@ li.arrow-slider-first {
     &::placeholder {
       color: $form-color;
       opacity: 0.9;
+      transition: color 0.5s;
     }
+  }
+}
+
+.animation-form {
+  transition: box-shadow 0.5s;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px $focus-color;
+    outline: 0;
+  }
+
+  &:hover::placeholder {
+  color: $title-color;
   }
 }
 
@@ -677,7 +799,7 @@ li.arrow-slider-first {
   }
 }
 
-.socials {
+.social {
   display: flex;
 
   &__link {
@@ -688,21 +810,3 @@ li.arrow-slider-first {
     background-size: contain;
   }
 }
-
-.copyright {
-  text-align: center;
-  border-top: 1px solid $border-color;
-  padding: 30px 0;
-
-  &__text {
-    font-size: 14px;
-    line-height: 1;
-  }
-}
-
-
-
-
-
-
-@import 'media';
