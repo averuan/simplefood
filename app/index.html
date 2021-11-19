@@ -54,9 +54,11 @@
     <h1 class="visually-hidden">
       Сервис быстрой доставки еды SimpleFood
     </h1>
+
 <svg>
-  <use xlink:href="images/sprite.svg#facebook"></use>
+  <use xlink:href="images/sprite.svg#search"></use>
 </svg>
+
     <section class="hero">
       <div class="container">
         <div class="hero__inner">
@@ -461,96 +463,89 @@
   
   <footer class="footer">
     <div class="container">
-      <nav class="footer__inner">
-  
-        <ul class="footer__content">
-          <li class="footer__item footer__item--logo">
-            <a class="logo animation-logo" href="#body">
-              <img class="logo__img" src="images/logo.svg" alt="Логотип">
-            </a>
-          </li>
-          <li class="footer__item">
-            <form class="subscribe" name="subscribe-form" method="post">
-              <label class="subscribe__label" for="subscribe-field">
-                <span class="visually-hidden">Ваш email</span>
-              </label>
-              <input class="subscribe__input animation-form" type="email" id="subscribe-field" name="subscribe" placeholder="Ваш email"
+      <div class="footer__inner">
+        <div class="footer__content">
+          
+          <a class="logo footer__logo animation-logo" href="#body">
+            <img class="logo__img" src="images/logo.svg" alt="Логотип">
+          </a>
+          
+          <form class="subscribe" name="subscribe-form" method="post">
+            <label class="subscribe__label" for="subscribe-field">
+              <span class="visually-hidden">Ваш email</span>
+            </label>
+            <input class="subscribe__input animation-form" type="email" id="subscribe-field" name="subscribe" placeholder="Ваш email"
                 required>
-              <button class="button footer__button animation-btn" type="submit" value="subscribe">
-                <span class="button__text">Подписаться</span>
-              </button>
-            </form>
-          </li>
-        </ul>
-  
-        <ul class="footer__content">
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Как это работает
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Продукты
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Блюда
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Меню
-            </a>
-          </li>
-        </ul>
-  
-        <ul class="footer__content">
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              О нас
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Новости
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Партнеры
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              ЧаВо
-            </a>
-          </li>
-        </ul>
-  
-        <ul class="footer__content">
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Скачать приложение
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Блог
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Что нового?
-            </a>
-          </li>
-          <li class="footer__item">
-            <a class="footer__link" href="#">
-              Карта сайта
-            </a>
-          </li>
-        </ul>
+            <button class="button footer__button animation-btn" type="submit" value="subscribe">
+              Подписаться
+            </button>
+          </form>
+        </div>
+        
+        <nav class="footer__nav">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Как это работает
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Продукты
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Блюда
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Меню
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                О нас
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Новости
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Партнеры
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                ЧаВо
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Скачать приложение
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Блог
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Что нового?
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link" href="#">
+                Карта сайта
+              </a>
+            </li>
+          </ul>
+        </nav>
   
         <adress class="contacts">
           <ul class="contacts__content">
@@ -585,10 +580,12 @@
             </li>
           </ul>
         </adress>
-      </nav>
+      </div>
   
       <div class="footer__copyright">
-        <span class="footer__copyright-text">&copy; 2021 Simple Food</span>
+        <span class="footer__copyright-text">
+          &copy; 2021 Simple Food
+        </span>
       </div>
     </div>
   </footer>
