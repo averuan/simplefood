@@ -22,7 +22,9 @@
   
       <nav class="header__inner">
         <a class="logo animation-logo" href="#body">
-          <img class="logo__img" src="images/logo.svg" alt="Логотип">
+          <svg class="logo__svg">
+            <use xlink:href="images/sprite.svg#logo"></use>
+          </svg>
         </a>
   
         <ul class="menu">
@@ -54,10 +56,6 @@
     <h1 class="visually-hidden">
       Сервис быстрой доставки еды SimpleFood
     </h1>
-
-<svg>
-  <use xlink:href="images/sprite.svg#search"></use>
-</svg>
 
     <section class="hero">
       <div class="container">
@@ -97,21 +95,21 @@
   
         <ul class="mix-filter">
           <li class="mix-filter__category">
-            <button class="button mix-filter__button" data-filter="all" type="button">
+            <button class="mix-filter__button mix-filter__button--burger" data-filter="all" type="button">
               Бургеры
             </button>
           </li>
           <li class="mix-filter__category">
-            <button class="button mix-filter__button" data-filter=".category-pizza" type="button">Пицца</button>
+            <button class="mix-filter__button mix-filter__button--pizza" data-filter=".category-pizza" type="button">Пицца</button>
           </li>
           <li class="mix-filter__category">
-            <button class="button mix-filter__button" data-filter=".category-sandwiches" type="button">Сендвичи</button>
+            <button class="mix-filter__button mix-filter__button--sandwiches" data-filter=".category-sandwiches" type="button">Сендвичи</button>
           </li>
           <li class="mix-filter__category">
-            <button class="button mix-filter__button" data-filter=".category-asian" type="button">Азиатская кухня</button>
+            <button class="mix-filter__button mix-filter__button--asian-cuisine" data-filter=".category-asian" type="button">Азиатская кухня</button>
           </li>
           <li class="mix-filter__category">
-            <button class="button mix-filter__button" data-filter=".category-sets" type="button">Сеты</button>
+            <button class="mix-filter__button mix-filter__button--sets" data-filter=".category-sets" type="button">Сеты</button>
           </li>
         </ul>
       </div>
@@ -270,18 +268,28 @@
               Оставайтесь дома,
               а мы позаботимся о еде
             </h3>
+
             <div class="benefits__text">
               <p>У нас есть вкусная еда и мы готовы доставить её к вам домой!
                 Воспользуйтесь нашей доставкой прямо сейчас и получите скиидку!
               </p>
             </div>
+
             <ul class="benefits__list">
-              <li class="benefits__item">Быстрая доставка за 15 минут</li>
-              <li class="benefits__item">Вежливые курьеры</li>
-              <li class="benefits__item">Более 500 заведений</li>
+              <li class="benefits__item benefits__item--timer">
+                Быстрая доставка за 15 минут
+              </li>
+              <li class="benefits__item benefits__item--delivery">
+                Вежливые курьеры
+              </li>
+              <li class="benefits__item benefits__item--resturent">
+                Более 500 заведений
+              </li>
             </ul>
 
-            <button class="button animation-btn" type="button">Подробнее</button>
+            <button class="button animation-btn" type="button">
+              Подробнее
+            </button>
           </div>
         
         </div>
@@ -467,7 +475,9 @@
         <div class="footer__content">
           
           <a class="logo footer__logo animation-logo" href="#body">
-            <img class="logo__img" src="images/logo.svg" alt="Логотип">
+            <svg class="logo__svg">
+              <use xlink:href="images/sprite.svg#logo"></use>
+            </svg>
           </a>
           
           <form class="subscribe" name="subscribe-form" method="post">

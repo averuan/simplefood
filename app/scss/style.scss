@@ -61,6 +61,12 @@ p:last-child {
 .logo {
   display: inline-block;
   flex-grow: 1;
+  max-width: 200px;
+
+  &__svg {
+    height: 39px;
+    width: 200px;
+  }
 }
 
 .animation-logo {
@@ -101,7 +107,7 @@ p:last-child {
 .menu {
   display: flex;
   justify-content: end;
-  flex-grow: 4;
+  flex-grow: 9;
 
   &__item:not(:last-child) {
     margin-right: 45px;
@@ -155,7 +161,7 @@ p:last-child {
 
   &::before {
     content: '';
-    background-image: url(../images/sprite.svg#search);
+    background-image: url(../images/sprite.svg#user--search);
     top: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -163,8 +169,8 @@ p:last-child {
     height: 24px;
     width: 24px;
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center center;
+    background-size: cover;
   }
 }
 
@@ -175,7 +181,7 @@ p:last-child {
 
   &::before {
     content: '';
-    background-image: url(../images/cart.svg);
+    background-image: url(../images/sprite.svg#user--cart);
     top: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -183,8 +189,8 @@ p:last-child {
     height: 24px;
     width: 24px;
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center center;
+    background-size: cover;
   }
 
   &__order {
@@ -297,10 +303,6 @@ p:last-child {
   }
 
   &__content {
-    /*display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 30px;
-    grid-row-gap: 30px;*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -376,9 +378,46 @@ p:last-child {
     font-size: 20px;
     background-color: $white-color;
     color: $title-color;
+    border-radius: 6px;
+    line-height: 1.3;
     box-shadow: 0px 0px 0px 1px $border-color;
     border-radius: 5px;
     padding: 22px 32px 22px 86px;
+c
+
+    &::before {
+      content: '';
+      top: 50%;
+      position: absolute;
+      transform: translateY(-50%);
+      left: 32px;
+      height: 44px;
+      width: 44px;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $title-color;
+    }
+
+    &--burger::before {
+      mask-image: url(../images/sprite.svg#button--burger);
+    }
+
+    &--pizza::before {
+      mask-image: url(../images/sprite.svg#button--pizza);
+    }
+
+    &--sandwiches::before {
+      mask-image: url(../images/sprite.svg#button--sandwiches);
+    }
+
+    &--asian-cuisine::before {
+      mask-image: url(../images/sprite.svg#button--asian-cuisine);
+    }
+
+    &--sets::before {
+      mask-image: url(../images/sprite.svg#button--sets);
+    }
     /*почему-то не работает focus, хотя hover и active работают*/
     &:focus {
       border-color: $accent-color;
@@ -389,6 +428,10 @@ p:last-child {
       box-shadow: $focus-color;
       color: $accent-color;
       background-color: $focus-btn-color;
+
+      &::before {
+        background-color: $accent-color;
+      }
     }
 
     &:active {
@@ -397,10 +440,14 @@ p:last-child {
     }
   }
 }
-
+/*не получается*/
 .mix-filter__button.mixitup-control-active {
   color: $white-color;
   background-color: $accent-color;
+}
+
+.mix-filter__button.mixitup-control-active::before {
+  background-color: $white-color;
 }
 
 .delivery {
@@ -430,6 +477,39 @@ p:last-child {
     line-height: 1.5;
     color: $title-color;
     margin-bottom: 30px;
+  }
+
+  &__item {
+    padding-left: 64px;
+    position: relative;
+
+    &::before {
+      content: '';
+      top: 50%;
+      position: absolute;
+      transform: translateY(-50%);
+      left: 0;
+      height: 34px;
+      width: 34px;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+    }
+
+    &--timer::before {
+      mask-image: url(../images/sprite.svg#delivery--timer);
+      background-color: $accent-color;
+    }
+
+    &--delivery::before {
+      mask-image: url(../images/sprite.svg#delivery--delivery);
+      background-color: $delivery-color;
+    }
+
+    &--resturent::before {
+      mask-image: url(../images/sprite.svg#delivery--resturent);
+      background-color: $resturent-color;
+    }
   }
 
   &__item:not(:last-child) {
@@ -486,15 +566,16 @@ p:last-child {
   &__business-hours::before {
     content: '';
     position: absolute;
-    background-image: url(../images/timer.svg);
+    mask-image: url(../images/sprite.svg#timer);
     top: 50%;
     transform: translateY(-50%);
     left: 0;
     height: 22px;
     width: 22px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: cover;
+    background-color: $default-color;
   }
 }
 
@@ -506,15 +587,40 @@ p:last-child {
   &::before {
     content: '';
     position: absolute;
-    background-image: url(../images/arrow-restaurant.svg);
+    mask-image: url(../images/sprite.svg#arrow-restaurant);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     height: 12px;
     width: 14px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: cover;
+    background-color: $white-color;
+    transition: transform 0.5s;
+  }
+
+  &:focus {
+
+    &::before {
+      background-color: $accent-color;
+    }
+  }
+
+  &:hover {
+
+    &::before {
+      transform: translate(12px, -50%);
+      background-color: $accent-color;
+    }
+  }
+
+  &:active {
+
+    &::before {
+      transform: translate(-50%, -50%);
+      background-color: $accent-color;
+    }
   }
 }
 
@@ -541,26 +647,27 @@ p:last-child {
     position: relative;
     padding: 0 40px;
     margin-bottom: 30px;
-
+/*не вписываются полностью*/
     &::before,
     &::after {
       content: '';
       position: absolute;
       height: 24px;
       width: 19px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center center;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $form-color;
     }
 
     &::before {
-      background-image: url(../images/quotes_start.svg);
+      mask-image: url(../images/sprite.svg#reviews-slider--quotes_start);
       top: 0;
       left: 0;
     }
 
     &::after {
-      background-image: url(../images/quotes_end.svg);
+      mask-image: url(../images/sprite.svg#reviews-slider--quotes_end);
       bottom: 0;
       right: 0;
     }
@@ -588,9 +695,11 @@ p:last-child {
   display: flex;
   justify-content: center;
 }
+
 .slick-dots li {
   margin-right: 15px;
 }
+
 .slick-dots button {
   font-size: 0;
   border: none;
@@ -601,26 +710,33 @@ p:last-child {
   border-radius: 50%;
   outline: none;
 }
+/* не работает для последней точки, не работает для стрелки next*/
+.slick-active button {
+  background-color: $accent-color;
+}
+
 li.arrow-slider-first {
   margin-right: 23px;
 }
+
 .arrow-slider-first .slick-prev,
 .arrow-slider .slick-next {
   height: 34px;
   width: 34px;
   top: 0;
   left: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center center;
-  background-color: $body-bg;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
 }
+
 .arrow-slider-first .slick-prev {
-  background-image: url(../images/prev-arrow-slideer.svg);
+  mask-image: url(../images/sprite.svg#reviews-slider--prev-arrow-slideer);
 }
+
 .arrow-slider .slick-next {
   margin-left: 8px;
-  background-image: url(../images/next-arrow-slideer.svg);
+  mask-image: url(../images/sprite.svg#reviews-slider--next-arrow-slideer);
 }
 
 .mobile-app {
@@ -644,25 +760,46 @@ li.arrow-slider-first {
 
   &__item {
     position: relative;
+    min-width: 120px;
+  }
+
+  &__item:not(:last-child) {
+    margin-right: 30px;
   }
 
   &__link {
     content: '';
     position: absolute;
-    height: 40px;
-    width: 120px;
     top: 0;
     left: 0;
     background-repeat: no-repeat;
-    background-size: contain;
     background-position: center center;
+    background-size: cover;
 
     &--app {
-      background-image: url(../images/app_store.svg);
+      background-image: url(../images/sprite.svg#mobile-app--app_store);
+      height: 40px;
+      width: 120px;
     }
 
     &--google {
-      background-image: url(../images/google_play.svg);
+      background-image: url(../images/sprite.svg#mobile-app--google_play);
+      height: 40px;
+      width: 135px;
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 26px;
+        width: 23px;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        background-image: url(../images/sprite.svg#mobile-app--google_play_logo);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+      }
     }
   }
 }
@@ -677,6 +814,10 @@ li.arrow-slider-first {
 
   &__content {
     margin-right: 70px;
+  }
+
+  &__logo {
+    margin-bottom: 30px;
   }
 
   &__nav {
@@ -789,20 +930,20 @@ li.arrow-slider-first {
       top: 0;
       left: 0;
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       background-position: center center;
     }
 
     &--location::before {
-      background-image: url(../images/contacts/location.svg);
+      background-image: url(../images/sprite.svg#contacts--location);
     }
 
     &--calling::before {
-      background-image: url(../images/contacts/calling.svg);
+      background-image: url(../images/sprite.svg#contacts--calling);
     }
 
     &--message::before {
-      background-image: url(../images/contacts/message.svg);
+      background-image: url(../images/sprite.svg#contacts--message);
     }
   }
 }
