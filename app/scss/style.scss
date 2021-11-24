@@ -3,40 +3,11 @@
 @import 'vars';
 @import 'libs';
 @import 'global';
+@import 'line';
 
-@mixin truncate($n, $lh) {
-    @if $n == 1 {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        line-height: $lh;
-    } @else {
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        -webkit-line-clamp: $n;
-        -moz-line-clamp: $n;
-        line-clamp: $n;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        box-orient: vertical;
-        overflow: hidden;
-        line-height: $lh;
-        height: $lh * $n;
-    }
-}
- 
-/*p {
-    width: 200px;
-}
-p:not(:last-child) {
-    @include truncate(1, 24px);
-}
-p:last-child {
-    @include truncate(2, 24px);
-}*/
-
-
+/*Сергей, миксин у меня находится в документе
+@import 'line' - не уверен, хороший ли я выбрал
+миксин?*/
 .header {
   font-size: 18px;
   position: fixed;
@@ -51,17 +22,18 @@ p:last-child {
     justify-content: space-between;
     align-items: center;
   }
-}
 
-.header--fix {
+  &--fix {
   padding-top: 0;
   background-color: $header-bg;
+  }
 }
 
 .logo {
   display: inline-block;
   flex-grow: 1;
   max-width: 200px;
+  z-index: 2;
 
   &__svg {
     height: 39px;
@@ -87,27 +59,11 @@ p:last-child {
   }
 }
 
-.logo,
-.menu,
-.hero__title {
-  z-index: 2;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  clip: rect(0 0 0 0);
-}
-
 .menu {
   display: flex;
   justify-content: end;
   flex-grow: 9;
+  z-index: 2;
 
   &__item:not(:last-child) {
     margin-right: 45px;
@@ -143,7 +99,7 @@ p:last-child {
 }
 /*не нашел другого способа усилить специфичность. Иначе не работает свойство box-shadow: none - оно перебивается свойством box-shadow, заданное на .animation-link:focus*/
 .menu__link.menu__link--active {
-  color: #ff6838;
+  color: $accent-color;
   box-shadow: none;
 }
 
@@ -151,46 +107,46 @@ p:last-child {
   display: flex;
   justify-content: end;
   flex-grow: 1;
-}
 
-.search {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  margin-right: 13px;
+  &__search {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    margin-right: 13px;
 
-  &::before {
-    content: '';
-    background-image: url(../images/sprite.svg#user--search);
-    top: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    height: 24px;
-    width: 24px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    &::before {
+      content: '';
+      background-image: url(../images/sprite.svg#user--search);
+      top: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      height: 24px;
+      width: 24px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
   }
-}
 
-.cart {
-  position: relative;
-  width: 44px;
-  height: 44px;
+  &__cart {
+    position: relative;
+    width: 44px;
+    height: 44px;
 
-  &::before {
-    content: '';
-    background-image: url(../images/sprite.svg#user--cart);
-    top: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    height: 24px;
-    width: 24px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    &::before {
+      content: '';
+      background-image: url(../images/sprite.svg#user--cart);
+      top: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      height: 24px;
+      width: 24px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
   }
 
   &__order {
@@ -208,17 +164,9 @@ p:last-child {
   }
 }
 
-.hero,
-.range,
-.delivery,
-.restaurant,
-.reviews,
-.mobile-app {
-  padding: 60px 0;
-}
-
 .hero {
   padding-top: 159px;
+  padding-bottom: 60px;
 
   &__inner {
     display: flex;
@@ -237,6 +185,7 @@ p:last-child {
     text-transform: uppercase;
     color: $title-color;
     margin-bottom: 20px;
+    z-index: 2;
 
     &--orange {
       color: $accent-color;
@@ -260,9 +209,113 @@ p:last-child {
     background-size: contain;
     background-position: center center;
   }
+}
 
-  &__button {
+.button {
+  padding: 12px 32px;
+  font-size: 18px;
+  line-height: 1.3;
+  color: $white-color;
+  background-color: $accent-color;
+  border-radius: 6px;
+
+  &--order {
     margin-right: 34px;
+  }
+
+  /*кнопка растягивается почему-то на весь контейнер (видно в браузере, не совпадает с макетом. Могу только макс.шириной отрегулировать, но не думаю, что для кнопки это правильно*/
+  &--card {
+    font-size: 14px;
+    padding: 7px 16px;
+  }
+
+  &--arrow {
+    border-radius: 20px;
+    position: relative;
+    padding: 17px 40px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      mask-image: url(../images/sprite.svg#arrow-restaurant);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 12px;
+      width: 14px;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $white-color;
+      transition: transform 0.5s;
+    }
+
+    &:focus {
+
+      &::before {
+        background-color: $accent-color;
+      }
+    }
+
+    &:hover {
+
+      &::before {
+        transform: translate(12px, -50%);
+        background-color: $accent-color;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        transform: translate(-50%, -50%);
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  &--form {
+    font-size: 14px;
+    padding: 13px 38px 13px 70px;
+    @extend %rubik-500;
+    position: relative;
+    text-align: start;
+  
+    &::before {
+      mask-image: url(../images/sprite.svg#frame);
+      content: '';
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      top: 50%;
+      left: 38px;
+      transform: translateY(-50%);
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $white-color;
+    }
+
+    &:focus {
+
+      &::before {
+        background-color: $accent-color;
+      }
+    }
+
+    &:hover {
+
+      &::before {
+        background-color: $accent-color;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        background-color: $accent-color;
+      }
+    }
   }
 }
 
@@ -291,6 +344,7 @@ p:last-child {
 }
 
 .range {
+  padding: 60px 0;
 
   &__title {
     margin-bottom: 60px;
@@ -327,7 +381,6 @@ p:last-child {
 .card {
   display: flex;
   flex-direction: column;
-
   background-color: $white-color;
   border-radius: 5px;
   padding: 20px 15px;
@@ -355,11 +408,6 @@ p:last-child {
     color: $title-color;
     margin-bottom: 10px;
   }
-/*кнопка растягивается почему-то на весь контейнер*/
-  &__button {
-    font-size: 14px;
-    padding: 7px 16px;
-  }
 
   &:hover {
     box-shadow: 0px 0px 0px 1px $accent-color;
@@ -374,7 +422,7 @@ p:last-child {
     margin-right: 20px;
   }
 
-  &__button {
+  &__btn {
     font-size: 20px;
     background-color: $white-color;
     color: $title-color;
@@ -383,7 +431,7 @@ p:last-child {
     box-shadow: 0px 0px 0px 1px $border-color;
     border-radius: 5px;
     padding: 22px 32px 22px 86px;
-c
+    position: relative;
 
     &::before {
       content: '';
@@ -440,17 +488,19 @@ c
     }
   }
 }
-/*не получается*/
-.mix-filter__button.mixitup-control-active {
+/*не получается реализовать без вот такого повышения специфичности*/
+.mix-filter__btn.mixitup-control-active {
   color: $white-color;
   background-color: $accent-color;
 }
 
-.mix-filter__button.mixitup-control-active::before {
+.mix-filter__btn.mixitup-control-active::before {
   background-color: $white-color;
 }
 
 .delivery {
+  padding: 60px 0;
+
   &__inner {
     display: flex;
   }
@@ -518,6 +568,8 @@ c
 }
 
 .restaurant {
+  padding: 60px 0;
+
   &__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -579,52 +631,9 @@ c
   }
 }
 
-.button__restaurant {
-  border-radius: 20px;
-  position: relative;
-  padding: 17px 40px;
-
-  &::before {
-    content: '';
-    position: absolute;
-    mask-image: url(../images/sprite.svg#arrow-restaurant);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 12px;
-    width: 14px;
-    mask-repeat: no-repeat;
-    mask-position: center center;
-    mask-size: cover;
-    background-color: $white-color;
-    transition: transform 0.5s;
-  }
-
-  &:focus {
-
-    &::before {
-      background-color: $accent-color;
-    }
-  }
-
-  &:hover {
-
-    &::before {
-      transform: translate(12px, -50%);
-      background-color: $accent-color;
-    }
-  }
-
-  &:active {
-
-    &::before {
-      transform: translate(-50%, -50%);
-      background-color: $accent-color;
-    }
-  }
-}
-
 .reviews {
+  padding: 60px 0;
+  
   &__inner {
     justify-content: center;
     margin-bottom: 48px;
@@ -647,7 +656,7 @@ c
     position: relative;
     padding: 0 40px;
     margin-bottom: 30px;
-/*не вписываются полностью*/
+/*кавычки не вписываются полностью, видно в браузере*/
     &::before,
     &::after {
       content: '';
@@ -740,6 +749,7 @@ li.arrow-slider-first {
 }
 
 .mobile-app {
+  padding: 60px 0;
 
   &__inner {
     display: flex;
@@ -836,28 +846,6 @@ li.arrow-slider-first {
     margin-bottom: 30px;
   }
 
-  &__button {
-    font-size: 14px;
-    padding: 13px 38px 13px 70px;
-    @extend %rubik-500;
-    position: relative;
-    text-align: start;
-  
-    &::before {
-      background-image: url(../images/frame.svg);
-      content: '';
-      position: absolute;
-      height: 24px;
-      width: 24px;
-      top: 50%;
-      left: 38px;
-      transform: translateY(-50%);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center center;
-    }
-  }
-
   &__link {
     font-size: 18px;
   }
@@ -952,10 +940,31 @@ li.arrow-slider-first {
   display: flex;
 
   &__link {
-    padding-right: 47px;
-    padding-bottom: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 13px;
-    background-repeat: no-repeat;
-    background-size: contain;
+    border-radius: 100%;
+    height: 39px;
+    width: 39px;
+    background-color: $border-color;
+  }
+
+  &__svg {
+
+    &--facebook {
+      height: 21px;
+      width: 10px;
+    }
+
+    &--twitter {
+      height: 21px;
+      width: 17px;
+    }
+
+    &--instagram {
+      height: 20px;
+      width: 20px;
+    }
   }
 }
