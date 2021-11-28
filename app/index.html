@@ -40,10 +40,11 @@
         </ul>
   
         <div class="user-nav">
-          <button class="user-nav__search" type="button" value="search">
-            <span class="visually-hidden">Поиск</span>
+          <button class="user-nav__btn user-nav__btn--search" type="button" value="search">
+            <span class="visually-hidden">Открыть поиск</span>
           </button>
-          <button class="user-nav__cart" type="button" value="cart">
+          
+          <button class="user-nav__btn user-nav__btn--cart" type="button" value="cart">
             <span class="user-nav__order">4</span>
             <span class="visually-hidden">Корзина</span>
           </button>
@@ -52,6 +53,7 @@
   
     </div>
   </header>
+
   <main class="main">
     <h1 class="visually-hidden">
       Сервис быстрой доставки еды SimpleFood
@@ -91,7 +93,7 @@
     <section class="range">
       <div class="container">
   
-        <h3 class="title range__title">Популярные категории</h3>
+        <h2 class="title range__title">Популярные категории</h2>
   
         <ul class="mix-filter">
           <li class="mix-filter__category">
@@ -117,14 +119,14 @@
           <ul class="range__content">
 
             <li class="range__item mix category-sandwiches">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/cheeseburger-lettuce.png" style="width: 140px; height: 140px" alt="Чизбургер с листьями салата">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width: "140" height: "140" alt="Чизбургер с листьями салата">
                 </a>
-                  <h4 class="card__title">
+                  <h3 class="main-card__title">
                     Чизбургер с листьями салата
-                  </h4>
-                  <span class="card__price">160 <span>руб.</span></span>
+                  </h3>
+                  <span class="main-card__price">160 <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
                     В корзину
                   </button>
@@ -132,12 +134,12 @@
             </li>
 
             <li class="range__item mix category-pizza">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/bifburger.png" style="width: 140px; height: 140px" alt="Бифбургер">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/bifburger.png" width: "140" height: "140" alt="Бифбургер">
                 </a>
-                <h4 class="card__title">Бифбургер</h4>
-                <span class="card__price">190 <span>руб.</span></span>
+                <h3 class="main-card__title">Бифбургер</h3>
+                <span class="main-card__price">190 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -145,12 +147,12 @@
             </li>
 
             <li class="range__item mix category-pizza">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/royal-cheeseburger.png" style="width: 140px; height: 140px" alt="Королевский чизбургер">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width: "140" height: "140" alt="Королевский чизбургер">
                 </a>
-                <h4 class="card__title">Королевский чизбургер</h4>
-                <span class="card__price">260 <span>руб.</span></span>
+                <h3 class="main-card__title">Королевский чизбургер</h3>
+                <span class="main-card__price">260 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -158,12 +160,12 @@
             </li>
 
             <li class="range__item mix category-sets">
-              <article class="card">
+              <article class="main-card">
                 <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/black-hamburger.png" style="width: 140px; height: 140px" alt="Черный гамбургер">
+                  <img class="main-card__image" src="images/cards/black-hamburger.png" width: "140" height: "140" alt="Черный гамбургер">
                 </a>
-                <h4 class="card__title">Черный гамбургер</h4>
-                <span class="card__price">199 <span>руб.</span></span>
+                <h3 class="main-card__title">Черный гамбургер</h3>
+                <span class="main-card__price">199 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -171,12 +173,12 @@
             </li>
 
             <li class="range__item mix category-asian">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/chicken-burger.png" style="width: 140px; height: 140px" alt="Чикен бургер">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/chicken-burger.png" width: "140" height: "140" alt="Чикен бургер">
                 </a>
-                <h4 class="card__title">Чикен бургер</h4>
-                <span class="card__price">180 <span>руб.</span></span>
+                <h3 class="main-card__title">Чикен бургер</h3>
+                <span class="main-card__price">180 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -184,14 +186,14 @@
             </li>
 
             <li class="range__item mix category-sandwiches">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/cheeseburger-lettuce.png" style="width: 140px; height: 140px" alt="Чизбургер с листьями салата">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width: "140" height: "140" alt="Чизбургер с листьями салата">
                 </a>
-                <h4 class="card__title">
+                <h3 class="main-card__title">
                   Чизбургер с листьями салата
-                </h4>
-                <span class="card__price">160 <span>руб.</span></span>
+                </h3>
+                <span class="main-card__price">160 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -199,12 +201,12 @@
             </li>
 
             <li class="range__item mix category-pizza">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/bifburger.png" style="width: 140px; height: 140px" alt="Бифбургер">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/bifburger.png" width: "140" height: "140" alt="Бифбургер">
                 </a>
-                <h4 class="card__title">Бифбургер</h4>
-                <span class="card__price">190 <span>руб.</span></span>
+                <h3 class="main-card__title">Бифбургер</h3>
+                <span class="main-card__price">190 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -212,14 +214,14 @@
             </li>
 
             <li class="range__item mix category-sets">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/royal-cheeseburger.png" style="width: 140px; height: 140px" alt="Королевский чизбургер">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width: "140" height: "140" alt="Королевский чизбургер">
                 </a>
-                <h4 class="card__title">
+                <h3 class="main-card__title">
                   Королевский чизбургер
-                </h4>
-                <span class="card__price">260 <span>руб.</span></span>
+                </h3>
+                <span class="main-card__price">260 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -227,12 +229,12 @@
             </li>
 
             <li class="range__item mix category-sets">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/black-hamburger.png" style="width: 140px; height: 140px" alt="Черный гамбургер">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/black-hamburger.png" width: "140" height: "140" alt="Черный гамбургер">
                 </a>
-                <h4 class="card__title">Черный гамбургер</h4>
-                <span class="card__price">199 <span>руб.</span></span>
+                <h3 class="main-card__title">Черный гамбургер</h3>
+                <span class="main-card__price">199 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -240,12 +242,12 @@
             </li>
 
             <li class="range__item mix category-asian">
-              <article class="card">
-                <a class="card__link" href="#">
-                  <img class="card__image" src="images/cards/chicken-burger.png" style="width: 140px; height: 140px" alt="Чикен бургер">
+              <article class="main-card">
+                <a class="main-card__link" href="#">
+                  <img class="main-card__image" src="images/cards/chicken-burger.png" width: "140" height: "140" alt="Чикен бургер">
                 </a>
-                <h4 class="card__title">Чикен бургер</h4>
-                <span class="card__price">180 <span>руб.</span></span>
+                <h3 class="main-card__title">Чикен бургер</h3>
+                <span class="main-card__price">180 <span>руб.</span></span>
                 <button class="button button--card animation-btn" type="button">
                   В корзину
                 </button>
@@ -264,10 +266,10 @@
           <img class="delivery__img" src="images/delivery.png" alt="Безопасная доставка">
         
           <div class="benefits">
-            <h3 class="title benefits__title">
+            <h2 class="title benefits__title">
               Оставайтесь дома,
               а мы позаботимся о еде
-            </h3>
+            </h2>
 
             <div class="benefits__text">
               <p>У нас есть вкусная еда и мы готовы доставить её к вам домой!
@@ -298,7 +300,7 @@
         
     <section class="restaurant">
       <div class="container">
-        <h3 class="title">Лучшие рестораны</h3>
+        <h2 class="title">Лучшие рестораны</h2>
         
           <ul class="restaurant__list">
             <li class="restaurant__item">
@@ -368,7 +370,7 @@
         
     <section class="reviews">
       <div class="container">
-        <h3 class="title">Отзывы клиентов</h3>
+        <h2 class="title">Отзывы клиентов</h2>
         <div class="slider">
           <div class="reviews__inner">
             <img class="reviews__img" src="images/darya_review.jpg" alt="Отзыв Дарьи">
@@ -441,7 +443,7 @@
       <div class="container">
         <div class="mobile-app__inner">
           <div class="mobile-app__content">
-            <h3 class="title">Скачайте мобильное приложение</h3>
+            <h2 class="title mobile-app__title">Скачайте мобильное приложение</h2>
         
             <div class="mobile-app__text">
               <p>Рестораны, которые вы любите - в ваших руках.

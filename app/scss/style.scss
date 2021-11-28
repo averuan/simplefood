@@ -45,7 +45,7 @@
   transition: opacity 0.5s, box-shadow 0.5s;
 
   &:focus {
-    box-shadow: 0px 0px 0px 2px $focus-color;
+    box-shadow: 0 0 0 2px $focus-color;
     outline: 0;
   }
 
@@ -55,6 +55,26 @@
 
   &:active {
     opacity: 0.5;
+    box-shadow: none;
+  }
+}
+
+.animation-link {
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $focus-color;
+    outline: 0;
+  }
+
+  &:hover {
+    color: $accent-color;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $default-color;
+    text-shadow: 2px 2px 5px $active-color;
     box-shadow: none;
   }
 }
@@ -75,32 +95,13 @@
     text-decoration: none;
     border-bottom: 1px solid transparent;
     position: relative;
-  }
-}
 
-.animation-link {
-  transition: color 0.5s, box-shadow 0.5s, border 0.5s;
-
-  &:focus {
-    box-shadow: 0px 0px 0px 2px $focus-color;
-    outline: 0;
+    &--active {
+      color: $accent-color;
+      box-shadow: none;
+      /*сделал здесь как в предыдущем разборе ДЗ, но все равно box-shadow: none не работает - свойство идет с focus и рамка отменяется только если убрать фокус с элемента*/
+    }
   }
-
-  &:hover {
-    color: $accent-color;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: $default-color;
-    text-shadow: 2px 2px 5px $active-color;
-    box-shadow: none;
-  }
-}
-/*не нашел другого способа усилить специфичность. Иначе не работает свойство box-shadow: none - оно перебивается свойством box-shadow, заданное на .animation-link:focus*/
-.menu__link.menu__link--active {
-  color: $accent-color;
-  box-shadow: none;
 }
 
 .user-nav {
@@ -108,15 +109,13 @@
   justify-content: end;
   flex-grow: 1;
 
-  &__search {
+  &__btn {
     position: relative;
     width: 44px;
     height: 44px;
-    margin-right: 13px;
 
     &::before {
       content: '';
-      background-image: url(../images/sprite.svg#user--search);
       top: 50%;
       position: absolute;
       transform: translate(-50%, -50%);
@@ -127,25 +126,14 @@
       background-position: center center;
       background-size: cover;
     }
-  }
 
-  &__cart {
-    position: relative;
-    width: 44px;
-    height: 44px;
+    &--search::before {
+      background-image: url(../images/sprite.svg#user--search);
+      margin-right: 13px;
+    }
 
-    &::before {
-      content: '';
+    &--cart::before {
       background-image: url(../images/sprite.svg#user--cart);
-      top: 50%;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      height: 24px;
-      width: 24px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
     }
   }
 
@@ -181,7 +169,7 @@
   &__title {
     display: block;
     @extend %rubik-500;
-    font-size: calc(40px + 26 * ((50vw - 320px) / (1920 - 320)));
+    font-size: calc(40px + 26 * ((100vw - 320px) / (1920 - 320)));
     text-transform: uppercase;
     color: $title-color;
     margin-bottom: 20px;
@@ -325,14 +313,14 @@
   &:focus {
     color: $accent-color;
     background-color: $focus-btn-color;
-    box-shadow: 0px 0px 0px 2px $focus-color;
+    box-shadow: 0 0 0 2px $focus-color;
     outline: 0;
   }
 
   &:hover {
     color: $accent-color;
     background-color: $white-color;
-    box-shadow: 0px 0px 0px 2px $focus-color;
+    box-shadow: 0 0 0 2px $focus-color;
   }
 
   &:active {
@@ -378,7 +366,7 @@
   }
 }
 
-.card {
+.main-card {
   display: flex;
   flex-direction: column;
   background-color: $white-color;
@@ -386,6 +374,7 @@
   padding: 20px 15px;
   min-height: 299px;
   transition: box-shadow 0.5s;
+  align-items: center;
 
   &__image {
     margin: 0 auto;
@@ -410,7 +399,7 @@
   }
 
   &:hover {
-    box-shadow: 0px 0px 0px 1px $accent-color;
+    box-shadow: 0 0 0 1px $accent-color;
   }
 }
 
@@ -428,10 +417,11 @@
     color: $title-color;
     border-radius: 6px;
     line-height: 1.3;
-    box-shadow: 0px 0px 0px 1px $border-color;
+    box-shadow: 0 0 0 1px $border-color;
     border-radius: 5px;
     padding: 22px 32px 22px 86px;
     position: relative;
+    transition: box-shadow 0.5s, color 0.5s, background-color 0.5s;
 
     &::before {
       content: '';
@@ -466,9 +456,9 @@
     &--sets::before {
       mask-image: url(../images/sprite.svg#button--sets);
     }
-    /*почему-то не работает focus, хотя hover и active работают*/
+
     &:focus {
-      border-color: $accent-color;
+      box-shadow: 0 0 0 2px $focus-color;
       outline: 0;
     }
 
@@ -484,18 +474,18 @@
 
     &:active {
       color: $title-color;
-      box-shadow: inset 0px -5px 12px $filter-border-active;
+      box-shadow: inset 0 -5px 12px $filter-border-active;
+    }
+
+    &.mixitup-control-active {
+      color: $white-color;
+      background-color: $accent-color;
+
+      &::before {
+        background-color: $white-color;
+      }
     }
   }
-}
-/*не получается реализовать без вот такого повышения специфичности*/
-.mix-filter__btn.mixitup-control-active {
-  color: $white-color;
-  background-color: $accent-color;
-}
-
-.mix-filter__btn.mixitup-control-active::before {
-  background-color: $white-color;
 }
 
 .delivery {
@@ -503,6 +493,7 @@
 
   &__inner {
     display: flex;
+    justify-content: center;
   }
 
   &__img {
@@ -511,10 +502,12 @@
 }
 
 .benefits {
+  max-width: 470px;
+  padding-top: 58px;
+  margin-bottom: 30px;
   
-  & {
-    padding-top: 58px;
-    margin-bottom: 30px;
+  &__title {
+    text-align: start;
   }
 
   &__text {
@@ -583,7 +576,7 @@
     transition: box-shadow 0.5s;
 
     &:hover {
-      box-shadow: 0px 3px 15px $shadow-color;
+      box-shadow: 0 3px 15px $shadow-color;
     }
   }
 
@@ -613,21 +606,21 @@
     line-height: 1.6;
     position: relative;
     padding-left: 32px;
-  }
 
-  &__business-hours::before {
-    content: '';
-    position: absolute;
-    mask-image: url(../images/sprite.svg#timer);
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    height: 22px;
-    width: 22px;
-    mask-repeat: no-repeat;
-    mask-position: center center;
-    mask-size: cover;
-    background-color: $default-color;
+    &::before {
+      content: '';
+      position: absolute;
+      mask-image: url(../images/sprite.svg#timer);
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      height: 22px;
+      width: 22px;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $default-color;
+    }
   }
 }
 
@@ -717,7 +710,7 @@
   height: 15px;
   background-color: $form-color;
   border-radius: 50%;
-  outline: none;
+  outline: 0;
 }
 /* не работает для последней точки, не работает для стрелки next*/
 .slick-active button {
@@ -756,7 +749,12 @@ li.arrow-slider-first {
   }
 
   &__content {
+    padding-top: 41px;
     margin-right: 62px;
+  }
+
+  &__title {
+    text-align: start;
   }
 
   &__text {
@@ -819,31 +817,27 @@ li.arrow-slider-first {
 
   &__inner {
     display: flex;
+    justify-content: space-between;
     padding-bottom: 60px;
-  }
-
-  &__content {
-    margin-right: 70px;
   }
 
   &__logo {
     margin-bottom: 30px;
   }
 
-  &__nav {
-    margin-right: 70px;
-  }
-
   &__list {
     column-count: 3;
   }
 
-  &__item:not(:last-child) {
-    margin-bottom: 20px;
-  }
+  &__item {
 
-  &__item.footer__item--logo {
-    margin-bottom: 30px;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &.footer__item--logo {
+      margin-bottom: 30px;
+    }
   }
 
   &__link {
@@ -885,7 +879,7 @@ li.arrow-slider-first {
   transition: box-shadow 0.5s;
 
   &:focus {
-    box-shadow: 0px 0px 0px 2px $focus-color;
+    box-shadow: 0 0 0 2px $focus-color;
     outline: 0;
   }
 
