@@ -113,6 +113,7 @@
     position: relative;
     width: 44px;
     height: 44px;
+    border-radius: 5px;
 
     &::before {
       content: '';
@@ -122,18 +123,33 @@
       left: 50%;
       height: 24px;
       width: 24px;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
+      background-color: $title-color;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
     }
 
     &--search::before {
-      background-image: url(../images/sprite.svg#user--search);
+      mask-image: url(../images/sprite.svg#user--search);
       margin-right: 13px;
     }
 
     &--cart::before {
-      background-image: url(../images/sprite.svg#user--cart);
+      mask-image: url(../images/sprite.svg#user--cart);
+    }
+
+    &:hover {
+
+      &::before {
+        background-color: $white-color;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        background-color: $title-color;
+      }
     }
   }
 
@@ -149,6 +165,37 @@
     height: 14px;
     border-radius: 100%;
     transform: translate(50%, -25%);
+
+    &:hover {
+      color: $accent-color;
+      background-color: $white-color;
+    }
+
+    &:active {
+      color: $white-color;
+      background-color: $accent-color;
+    }
+  }
+}
+
+.animation-icon {
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
+
+  &:focus {
+    background-color: $icons-color;
+    box-shadow: 0 0 0 2px $focus-color;
+    outline: 0;
+  }
+
+  &:hover {
+    color: $white-color;
+    background-color: $icons-bg-color;
+  }
+
+  &:active {
+    color: $accent-color;
+    box-shadow: none;
+    background-color: $icons-color;
   }
 }
 
@@ -348,7 +395,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
 
   &__item {
@@ -508,6 +555,11 @@
   
   &__title {
     text-align: start;
+    margin-bottom: 30px;
+  }
+
+  &__title-text {
+    display: block;
   }
 
   &__text {
@@ -649,13 +701,15 @@
     position: relative;
     padding: 0 40px;
     margin-bottom: 30px;
-/*кавычки не вписываются полностью, видно в браузере*/
+    color: $default-color;
+    @extend %rubik-italic-400;
+
     &::before,
     &::after {
       content: '';
       position: absolute;
-      height: 24px;
-      width: 19px;
+      height: 19px;
+      width: 24px;
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
@@ -717,12 +771,11 @@
   background-color: $accent-color;
 }
 
-li.arrow-slider-first {
+/*li.arrow-slider-first {
   margin-right: 23px;
-}
+}*/
 
-.arrow-slider-first .slick-prev,
-.arrow-slider .slick-next {
+/*.slick-arrow {
   height: 34px;
   width: 34px;
   top: 0;
@@ -732,14 +785,14 @@ li.arrow-slider-first {
   mask-size: cover;
 }
 
-.arrow-slider-first .slick-prev {
+.slick-prev {
   mask-image: url(../images/sprite.svg#reviews-slider--prev-arrow-slideer);
 }
 
-.arrow-slider .slick-next {
+.slick-next {
   margin-left: 8px;
   mask-image: url(../images/sprite.svg#reviews-slider--next-arrow-slideer);
-}
+}*/
 
 .mobile-app {
   padding: 60px 0;
@@ -817,12 +870,15 @@ li.arrow-slider-first {
 
   &__inner {
     display: flex;
+    /*Установил, как и было предложено, justify-content: space-between. После этого последний блок adress уехал в край страницы, чтобы этого избежать пришлось footer__inner установить max-width: 1090px. После этого pixel perfect перестал сходиться, flex-grow не помогает*/
+    max-width: 1090px;
     justify-content: space-between;
     padding-bottom: 60px;
   }
 
   &__logo {
     margin-bottom: 30px;
+    line-height: 0;
   }
 
   &__list {
@@ -830,6 +886,7 @@ li.arrow-slider-first {
   }
 
   &__item {
+    letter-spacing: 0.01em;
 
     &:not(:last-child) {
       margin-bottom: 20px;
@@ -848,11 +905,8 @@ li.arrow-slider-first {
     text-align: center;
     border-top: 1px solid $border-color;
     padding: 30px 0;
-  }
-  
-  &__copyright-text {
-    font-size: 14px;
     line-height: 1;
+    font-size: 14px;
   }
 }
 
@@ -911,21 +965,37 @@ li.arrow-slider-first {
       width: 24px;
       top: 0;
       left: 0;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center center;
+      mask-repeat: no-repeat;
+      mask-size: cover;
+      mask-position: center center;
+      background-color: $default-color;
+      transition: background-color 0.5s;
     }
 
     &--location::before {
-      background-image: url(../images/sprite.svg#contacts--location);
+      mask-image: url(../images/sprite.svg#contacts--location);
     }
 
     &--calling::before {
-      background-image: url(../images/sprite.svg#contacts--calling);
+      mask-image: url(../images/sprite.svg#contacts--calling);
     }
 
     &--message::before {
-      background-image: url(../images/sprite.svg#contacts--message);
+      mask-image: url(../images/sprite.svg#contacts--message);
+    }
+
+    &:hover {
+
+      &::before {
+        background-color: $accent-color;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        background-color: $default-color;
+      }
     }
   }
 }
@@ -942,9 +1012,20 @@ li.arrow-slider-first {
     height: 39px;
     width: 39px;
     background-color: $border-color;
+    
   }
 
   &__svg {
+    fill: $default-color;
+    transition: fill 0.5s;
+
+    &:hover {
+      fill: $white-color;
+    }
+
+    &:active {
+      fill: $icons-bg-color;
+    }
 
     &--facebook {
       height: 21px;

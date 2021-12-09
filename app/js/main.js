@@ -19,14 +19,17 @@ $(function(){
 
   
   $('.slider').slick({
-    dots: true
+    dots: true,
+    arrows: true,
+    prevArrow: "<img src='https://svgshare.com/i/6Ei.svg' class='prev' alt='1'>",
+    nextArrow: "<img src='../images/sprite.svg#reviews-slider--next-arrow-slideer' class='next' alt='2'>"
   })
 
-  $('<li class="arrow-slider-first"></li>').prependTo('.slick-dots');
-  $('.slick-prev').prependTo('.arrow-slider-first');
+  //$('<div class="arrow-slider-first"></div>').prependTo('.slick-dots');
+  //$('.slick-prev').prependTo('.arrow-slider-first');
 
-  $('<li class="arrow-slider"></li>').appendTo('.slick-dots');
-  $('.slick-next').appendTo('.arrow-slider');
+  //$('<div class="arrow-slider"></div>').appendTo('.slick-dots');
+  //$('.slick-next').appendTo('.arrow-slider');
 
 
   $('.reviews__inner').css('display','flex');
