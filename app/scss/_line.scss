@@ -1,31 +1,12 @@
-@mixin truncate($n, $lh) {
-    @if $n == 1 {
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        line-height: $lh;
-    } @else {
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        -webkit-line-clamp: $n;
-        -moz-line-clamp: $n;
-        line-clamp: $n;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        box-orient: vertical;
-        overflow: hidden;
-        line-height: $lh;
-        height: $lh * $n;
-    }
+@mixin line-clamp($lines) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
 }
+
+/**p {
+    @include line-clamp(6);
+}*/
  
-/*p {
-    width: 200px;
-}*/
-/*p:not(:last-child) {
-    @include truncate(1, 24px);
-}*/
-/*p:last-child {
-    @include truncate(2, 30px);
-}*/

@@ -6,9 +6,10 @@ body {
 body {
   font-size: 20px;
   line-height: 1.3;
-  color: $default-color;
-  background-color: $body-bg;
-  @extend %rubik-400;
+  color: $dark;
+  background-color: $silver-100;
+  /*@extend %rubik-400;*/
+  font-family: "Rubik-Regular", sans-serif;
   display: flex;
   flex-direction: column;
 }
@@ -25,10 +26,20 @@ body {
 
 .title {
   font-size: 36px;
-  @extend %rubik-500;
-  color: $title-color;
+  /*@extend %rubik-500;*/
+  font-family: "Rubik-Medium", sans-serif;
+  font-weight: 500;
+  color: $darkBlue-900;
   margin-bottom: 45px;
   text-align: center;
+
+  &--left {
+    text-align: start;
+  }
+
+  &--bottom {
+    margin-bottom: 30px;
+  }
 }
 
 .visually-hidden {

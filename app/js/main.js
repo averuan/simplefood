@@ -21,9 +21,32 @@ $(function(){
   $('.slider').slick({
     dots: true,
     arrows: true,
-    prevArrow: "<img src='https://svgshare.com/i/6Ei.svg' class='prev' alt='1'>",
-    nextArrow: "<img src='../images/sprite.svg#reviews-slider--next-arrow-slideer' class='next' alt='2'>"
-  })
+    prevArrow: "<div class='prev'></div>",
+    nextArrow: "<div class='next'></div>",
+  });
+
+
+  $('<div class="slider-management"></div>').appendTo('.slider');
+  $('.slick-dots').appendTo('.slider-management');
+  $('.prev').prependTo('.slider-management');
+  $('.next').appendTo('.slider-management');
+
+  $('.discounts__list').slick({
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    dots: false,
+    arrows: false,
+    rows: 0,
+  });
+
+
+
+
+
+
+
 
   //$('<div class="arrow-slider-first"></div>').prependTo('.slick-dots');
   //$('.slick-prev').prependTo('.arrow-slider-first');

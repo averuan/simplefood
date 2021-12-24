@@ -25,7 +25,7 @@
 
   &--fix {
   padding-top: 0;
-  background-color: $header-bg;
+  background-color: $darkBlue-600;
   }
 }
 
@@ -33,19 +33,16 @@
   display: inline-block;
   flex-grow: 1;
   max-width: 200px;
-  z-index: 2;
+  transition: opacity 0.5s, box-shadow 0.5s;
+  /*z-index: 2;*/
 
-  &__svg {
+  &__img {
     height: 39px;
     width: 200px;
   }
-}
-
-.animation-logo {
-  transition: opacity 0.5s, box-shadow 0.5s;
 
   &:focus {
-    box-shadow: 0 0 0 2px $focus-color;
+    box-shadow: 0 0 0 2px $orange-600;
     outline: 0;
   }
 
@@ -63,19 +60,19 @@
   transition: color 0.5s, box-shadow 0.5s, border 0.5s;
 
   &:focus {
-    box-shadow: 0 0 0 2px $focus-color;
+    box-shadow: 0 0 0 2px $orange-600;
     border-radius: 5px;
     outline: 0;
   }
 
   &:hover {
-    color: $accent-color;
+    color: $orange-900;
     text-decoration: none;
   }
 
   &:active {
-    color: $default-color;
-    text-shadow: 2px 2px 5px $active-color;
+    color: $dark;
+    text-shadow: 2px 2px 5px $silver-700;
     box-shadow: none;
   }
 }
@@ -98,7 +95,7 @@
     position: relative;
 
     &--active {
-      color: $accent-color;
+      color: $orange-900;
       box-shadow: none;
       /*сделал здесь как в предыдущем разборе ДЗ, но все равно box-shadow: none не работает - свойство идет с focus и рамка отменяется только если убрать фокус с элемента*/
     }
@@ -124,7 +121,7 @@
       left: 50%;
       height: 24px;
       width: 24px;
-      background-color: $title-color;
+      background-color: $darkBlue-900;
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
@@ -142,14 +139,14 @@
     &:hover {
 
       &::before {
-        background-color: $white-color;
+        background-color: $white;
       }
     }
 
     &:active {
 
       &::before {
-        background-color: $title-color;
+        background-color: $darkBlue-900;
       }
     }
   }
@@ -160,21 +157,21 @@
     right: 10px;
     font-size: 10px;
     line-height: 1.2;
-    color: $white-color;
-    background-color: $accent-color;
+    color: $white;
+    background-color: $orange-900;
     width: 14px;
     height: 14px;
     border-radius: 100%;
     transform: translate(50%, -25%);
 
     &:hover {
-      color: $accent-color;
-      background-color: $white-color;
+      color: $orange-900;
+      background-color: $white;
     }
 
     &:active {
-      color: $white-color;
-      background-color: $accent-color;
+      color: $white;
+      background-color: $orange-900;
     }
   }
 }
@@ -183,20 +180,20 @@
   transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
 
   &:focus {
-    background-color: $icons-color;
-    box-shadow: 0 0 0 2px $focus-color;
+    background-color: $orange-200;
+    box-shadow: 0 0 0 2px $orange-600;
     outline: 0;
   }
 
   &:hover {
-    color: $white-color;
-    background-color: $icons-bg-color;
+    color: $white;
+    background-color: $orange-700;
   }
 
   &:active {
-    color: $accent-color;
+    color: $orange-900;
     box-shadow: none;
-    background-color: $icons-color;
+    background-color: $orange-200;
   }
 }
 
@@ -216,26 +213,28 @@
 
   &__title {
     display: block;
-    @extend %rubik-500;
+    /*@extend %rubik-500;*/
+    font-family: "Rubik-Medium", sans-serif;
+    font-weight: 500;
     font-size: calc(40px + 26 * ((100vw - 320px) / (1920 - 320)));
     text-transform: uppercase;
-    color: $title-color;
+    color: $darkBlue-900;
     margin-bottom: 20px;
-    z-index: 2;
 
     &--orange {
-      color: $accent-color;
+      color: $orange-900;
     }
   }
 
   &__text {
     line-height: 1.5;
     margin-bottom: 20px;
+    @include line-clamp(6);
   }
 
   &__link {
     line-height: 1.5;
-    color: $title-color;
+    color: $darkBlue-900;
   }
 
   &__img {
@@ -251,8 +250,8 @@
   padding: 12px 32px;
   font-size: 18px;
   line-height: 1.3;
-  color: $white-color;
-  background-color: $accent-color;
+  color: $white;
+  background-color: $orange-900;
   border-radius: 6px;
 
   &--order {
@@ -282,14 +281,14 @@
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
-      background-color: $white-color;
+      background-color: $white;
       transition: transform 0.5s;
     }
 
     &:focus {
 
       &::before {
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
 
@@ -297,7 +296,7 @@
 
       &::before {
         transform: translate(12px, -50%);
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
 
@@ -305,7 +304,7 @@
 
       &::before {
         transform: translate(-50%, -50%);
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
   }
@@ -313,7 +312,9 @@
   &--form {
     font-size: 14px;
     padding: 13px 38px 13px 70px;
-    @extend %rubik-500;
+    /*@extend %rubik-500;*/
+    font-family: "Rubik-Medium", sans-serif;
+    font-weight: 500;
     position: relative;
     text-align: start;
   
@@ -329,27 +330,27 @@
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
-      background-color: $white-color;
+      background-color: $white;
     }
 
     &:focus {
 
       &::before {
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
 
     &:hover {
 
       &::before {
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
 
     &:active {
 
       &::before {
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
   }
@@ -359,23 +360,23 @@
   transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
 
   &:focus {
-    color: $accent-color;
-    background-color: $focus-btn-color;
-    box-shadow: 0 0 0 2px $focus-color;
+    color: $orange-900;
+    background-color: $orange-300;
+    box-shadow: 0 0 0 2px $orange-600;
     outline: 0;
   }
 
   &:hover {
-    color: $accent-color;
-    background-color: $white-color;
-    box-shadow: 0 0 0 2px $focus-color;
+    color: $orange-900;
+    background-color: $white;
+    box-shadow: 0 0 0 2px $orange-600;
   }
 
   &:active {
-    color: $accent-color;
+    color: $orange-900;
     box-shadow: none;
-    border-color: $focus-btn-color;
-    background-color: $focus-btn-color;
+    border-color: $orange-300;
+    background-color: $orange-300;
   }
 }
 
@@ -386,30 +387,36 @@
     margin-bottom: 60px;
   }
 
-  &__inner {
+  /*&__inner {
     margin: 0 auto;
     padding: 0 15px;
     max-width: 1228px;
-  }
+  }*/
 
   &__content {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    margin-bottom: 60px;
+
+    /*display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 30px;*/
   }
 
-  &__item {
-    max-width: calc(20% - 30px);
-    width: 100%;
-    margin: 0 15px 30px;
-  }
+  /*&__item {
+    /*max-width: calc(20% - 30px);*/
+    /*width: 100%;*/
+    /*margin: 0 15px 30px;
+  }*/
 
   &__add {
     display: block;
     margin: 0 auto;
     line-height: 1.5;
-    color: $title-color;
+    color: $darkBlue-900;
     text-decoration: underline;
   }
 }
@@ -417,12 +424,13 @@
 .main-card {
   display: flex;
   flex-direction: column;
-  background-color: $white-color;
+  background-color: $white;
   border-radius: 5px;
   padding: 20px 15px;
   min-height: 299px;
   transition: box-shadow 0.5s;
   align-items: center;
+  
 
   &__image {
     margin: 0 auto;
@@ -430,25 +438,30 @@
   }
 
   &__title {
-    @extend %rubik-400;
+    /*@extend %rubik-400;*/
+    font-family: "Rubik-Regular", sans-serif;
+    font-weight: 400;
     font-size: 15px;
     line-height: 1.2;
     margin: auto 0;
     text-align: center;
+    @include line-clamp(3);
   }
 
   &__price {
     display: block;
-    @extend %rubik-500;
+    /*@extend %rubik-500;*/
+    font-family: "Rubik-Medium", sans-serif;
+    font-weight: 500;
     text-align: center;
     font-size: 15px;
     line-height: 1.4;
-    color: $title-color;
+    color: $darkBlue-900;
     margin-bottom: 10px;
   }
 
   &:hover {
-    box-shadow: 0 0 0 1px $accent-color;
+    box-shadow: 0 0 0 1px $orange-900;
   }
 }
 
@@ -462,11 +475,11 @@
 
   &__btn {
     font-size: 20px;
-    background-color: $white-color;
-    color: $title-color;
+    background-color: $white;
+    color: $darkBlue-900;
     border-radius: 6px;
     line-height: 1.3;
-    box-shadow: 0 0 0 1px $border-color;
+    box-shadow: 0 0 0 1px $silver-200;
     border-radius: 5px;
     padding: 22px 32px 22px 86px;
     position: relative;
@@ -483,7 +496,7 @@
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
-      background-color: $title-color;
+      background-color: $darkBlue-900;
     }
 
     &--burger::before {
@@ -507,31 +520,31 @@
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px $focus-color;
+      box-shadow: 0 0 0 2px $orange-600;
       outline: 0;
     }
 
     &:hover {
-      box-shadow: $focus-color;
-      color: $accent-color;
-      background-color: $focus-btn-color;
+      box-shadow: $orange-600;
+      color: $orange-900;
+      background-color: $orange-300;
 
       &::before {
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
 
     &:active {
-      color: $title-color;
-      box-shadow: inset 0 -5px 12px $filter-border-active;
+      color: $darkBlue-900;
+      box-shadow: inset 0 -5px 12px $orange-100;
     }
 
     &.mixitup-control-active {
-      color: $white-color;
-      background-color: $accent-color;
+      color: $white;
+      background-color: $orange-900;
 
       &::before {
-        background-color: $white-color;
+        background-color: $white;
       }
     }
   }
@@ -547,8 +560,6 @@
 
   &__img {
     margin-right: 120px;
-    max-width: 440px;
-    max-height: 585px;
     object-fit: cover;
   }
 }
@@ -558,30 +569,28 @@
   padding-top: 58px;
   margin-bottom: 30px;
   
-  &__title {
-    text-align: start;
-    margin-bottom: 30px;
-  }
-
   &__title-text {
     display: block;
+    margin-bottom: 30px;
   }
 
   &__text {
     line-height: 1.5;
     margin-bottom: 30px;
+    @include line-clamp(6);
   }
 
   &__list {
     font-size: 24px;
     line-height: 1.5;
-    color: $title-color;
+    color: $darkBlue-900;
     margin-bottom: 30px;
   }
 
   &__item {
     padding-left: 64px;
     position: relative;
+    @include line-clamp(1);
 
     &::before {
       content: '';
@@ -598,17 +607,17 @@
 
     &--timer::before {
       mask-image: url(../images/sprite.svg#delivery--timer);
-      background-color: $accent-color;
+      background-color: $orange-900;
     }
 
     &--delivery::before {
       mask-image: url(../images/sprite.svg#delivery--delivery);
-      background-color: $delivery-color;
+      background-color: $blue-500;
     }
 
     &--resturent::before {
       mask-image: url(../images/sprite.svg#delivery--resturent);
-      background-color: $resturent-color;
+      background-color: $red-500;
     }
   }
 
@@ -628,12 +637,12 @@
   }
 
   &__item {
-    background-color: $white-color;
+    background-color: $white;
     border-radius: 10px;
     transition: box-shadow 0.5s;
 
     &:hover {
-      box-shadow: 0 3px 15px $shadow-color;
+      box-shadow: 0 3px 15px $orange-400;
     }
   }
 
@@ -648,6 +657,7 @@
     font-size: 24px;
     padding-left: 20px;
     margin-bottom: 20px;
+    @include line-clamp(1);
   }
 
   &__content {
@@ -660,7 +670,9 @@
 
   &__business-hours {
     font-size: 18px;
-    @extend %rubik-300;
+    /*@extend %rubik-300;*/
+    font-family: "Rubik-Light", sans-serif;
+    font-weight: 300;
     line-height: 1.6;
     position: relative;
     padding-left: 32px;
@@ -677,16 +689,20 @@
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
-      background-color: $default-color;
+      background-color: $dark;
     }
   }
 }
 
 .reviews {
   padding: 60px 0;
-  
-  &__inner {
+
+  &__wrapper {
+    display: flex;
     justify-content: center;
+  }
+  
+  &__item {
     margin-bottom: 48px;
   }
 
@@ -695,21 +711,40 @@
     margin-right: 40px;
     object-fit: cover
   }
-}
 
-.blockquote {
-  @extend %rubik-italic-400;
-  line-height: 1.5;
-  margin-bottom: 30px;
-  padding-top: 31px;
-  max-width: 650px;
+  &__content {
+    margin-bottom: 30px;
+    padding-top: 31px;
+    max-width: 650px;
+  }
 
-  &__text {
+  &__author {
+    display: block;
+    /*@extend %rubik-500;*/
+    font-family: "Rubik-Medium", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: $orange-900;
+    padding: 0 40px;
+  }
+
+  &__author-description {
+    display: block;
+    /*@extend %rubik-400;*/
+    font-family: "Rubik-Regular", sans-serif;
+    font-size: 14px;
+    padding-top: 15px;
+    color: $dark;
+  }
+
+  &__blockquote {
+    /*@extend %rubik-italic-400;*/
+    font-family: "Rubik-Italic", sans-serif;
+    line-height: 1.5;
     position: relative;
     padding: 0 40px;
     margin-bottom: 30px;
-    color: $default-color;
-    @extend %rubik-italic-400;
+    color: $dark;
 
     &::before,
     &::after {
@@ -720,7 +755,7 @@
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
-      background-color: $form-color;
+      background-color: $gray;
     }
 
     &::before {
@@ -735,22 +770,11 @@
       right: 0;
     }
   }
+}
 
-  &__author {
-    display: block;
-    @extend %rubik-500;
-    font-style: normal;
-    color: $accent-color;
-    padding: 0 40px;
-  }
-
-  &__author-description {
-    display: block;
-    @extend %rubik-400;
-    font-size: 14px;
-    padding-top: 15px;
-    color: $default-color;
-  }
+.slider-management {
+  display: flex;
+  justify-content: center;
 }
 
 .slick-dots {
@@ -761,6 +785,10 @@
 
 .slick-dots li {
   margin-right: 15px;
+
+  &:last-child {
+    margin-right: 23px;
+  }
 }
 
 .slick-dots button {
@@ -769,13 +797,102 @@
   padding: 0;
   width: 15px;
   height: 15px;
-  background-color: $form-color;
+  background-color: $gray;
   border-radius: 50%;
   outline: 0;
 }
 /* не работает для последней точки, не работает для стрелки next*/
 .slick-active button {
-  background-color: $accent-color;
+  background-color: $orange-900;
+}
+
+
+
+.slick-arrow {
+  height: 34px;
+  width: 34px;
+  border: 3px solid $gray;
+  border-radius: 50%;
+  position: relative;
+
+  /*Нет фокуса у стрелок и кнопок слайдера вообще, не реагирует на нажатие клавиши tab*/
+  &:focus {
+    box-shadow: 0 0 0 2px $orange-600;
+  }
+
+  &:hover {
+    background-color: $orange-200;
+    border-color: $orange-500;
+  }
+
+  &:active {
+    border: none;
+  }
+
+  &.prev {
+    margin-right: 23px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 19px;
+      width: 11px;
+      mask-image: url(../images/sprite.svg#reviews-slider--prev);
+      background-color: $gray;
+      mask-repeat: no-repeat;/*здесь понимаю, что пишу по два раза одни и те свойства, но если их не прописать вот так КАЖДОМУ элементу, то ничего не работает*/
+      mask-position: center center;
+      mask-size: cover;
+    }
+
+    &:hover {
+
+      &::after {
+       background-color: $orange-500;
+      }
+    }
+
+    &:active {
+
+      &::after {
+        background-color: $orange-700;
+      }
+    }
+  }
+
+  &.next {
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 19px;
+      width: 11px;
+      mask-image: url(../images/sprite.svg#reviews-slider--next);
+      background-color: $gray;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+    }
+
+    &:hover {
+
+      &::after {
+       background-color: $orange-500;
+      }
+    }
+    
+    &:active {
+
+      &::after {
+        background-color: $orange-700;
+      }
+    }
+  }
 }
 
 /*li.arrow-slider-first {
@@ -843,6 +960,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    border-radius: 5px;
 
     &--app {
       background-image: url(../images/sprite.svg#mobile-app--app_store);
@@ -881,10 +999,14 @@
 
   &__inner {
     display: flex;
-    /*Установил, как и было предложено, justify-content: space-between. После этого последний блок adress уехал в край страницы, чтобы этого избежать пришлось footer__inner установить max-width: 1090px. После этого pixel perfect перестал сходиться, flex-grow не помогает*/
-    max-width: 1090px;
-    justify-content: space-between;
+     /*Установил, как и было предложено, justify-content: space-between. После этого последний блок adress уехал в край страницы (а в макете он не по краю), чтобы этого избежать пришлось footer__inner установить max-width: 1090px. После этого pixel perfect перестал сходиться, flex-grow не помогает.*/
+    /*max-width: 1090px;*/
+    /*justify-content: space-between;*/
     padding-bottom: 60px;
+  }
+
+  &__content {
+    margin-right: 70px;
   }
 
   &__logo {
@@ -893,7 +1015,11 @@
   }
 
   &__list {
-    column-count: 3;
+      /*Не работает свойство column-width - все колонки автоматически имеют ширину самой большой колонки - 187px, в то время как в макете ширина у всех колонок разная. Так же, независимо от того, ставим мы свойство column-gap или нет, pixel perfect все равно не работает */
+    /*column-count: 3;
+    column-width: 91px;
+    column-gap: 70px;*/
+    margin-right: 70px;
   }
 
   &__item {
@@ -914,7 +1040,7 @@
 
   &__copyright {
     text-align: center;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid $silver-200;
     padding: 30px 0;
     line-height: 1;
     font-size: 14px;
@@ -926,14 +1052,14 @@
 
   &__input {
     font-size: 14px;  
-    border: 1px solid $form-color;
+    border: 1px solid $gray;
     border-radius: 5px;
     margin-bottom: 12px;
     padding: 13px 15px;
     width: 200px;
 
     &::placeholder {
-      color: $form-color;
+      color: $gray;
       opacity: 0.9;
       transition: color 0.5s;
     }
@@ -944,12 +1070,12 @@
   transition: box-shadow 0.5s;
 
   &:focus {
-    box-shadow: 0 0 0 2px $focus-color;
+    box-shadow: 0 0 0 2px $orange-600;
     outline: 0;
   }
 
   &:hover::placeholder {
-  color: $title-color;
+  color: $darkBlue-900;
   }
 }
 
@@ -979,7 +1105,7 @@
       mask-repeat: no-repeat;
       mask-size: cover;
       mask-position: center center;
-      background-color: $default-color;
+      background-color: $dark;
       transition: background-color 0.5s;
     }
 
@@ -998,14 +1124,14 @@
     &:hover {
 
       &::before {
-        background-color: $accent-color;
+        background-color: $orange-900;
       }
     }
 
     &:active {
 
       &::before {
-        background-color: $default-color;
+        background-color: $dark;
       }
     }
   }
@@ -1022,20 +1148,20 @@
     border-radius: 100%;
     height: 39px;
     width: 39px;
-    background-color: $border-color;
+    background-color: $silver-200;
     
   }
 
   &__svg {
-    fill: $default-color;
+    fill: $dark;
     transition: fill 0.5s;
 
     &:hover {
-      fill: $white-color;
+      fill: $white;
     }
 
     &:active {
-      fill: $icons-bg-color;
+      fill: $orange-700;
     }
 
     &--facebook {
@@ -1052,5 +1178,41 @@
       height: 20px;
       width: 20px;
     }
+  }
+}
+
+
+
+.discounts {
+
+  &__container {
+    max-width: 1210px;
+    padding: 0 7px;
+    margin: 0 auto;
+  }
+
+  &__item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    transition: box-shadow 0.5s;
+
+    &:hover {
+    box-shadow: 0px 3px 15px rgba(255, 104, 56, 0.5);
+    }
+
+    &.slick-slide {
+      margin: 0 15px;
+      border-radius: 10px;
+    }
+  }
+
+  &__img {
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__text {
+    font-size: 24px;
+    line-height: 1.3;
+    padding: 15px 20px;
   }
 }
