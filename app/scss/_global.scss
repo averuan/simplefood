@@ -13,7 +13,7 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+/*ngh*/
 .main {
   flex-grow: 1;
 }
@@ -35,6 +35,10 @@ body {
 
   &--left {
     text-align: start;
+  }
+
+  &--bottom-60 {
+    margin-bottom: 60px;
   }
 
   &--bottom {
