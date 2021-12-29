@@ -1190,6 +1190,7 @@
   &__inner {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
   &__filtres {
@@ -1220,68 +1221,34 @@
     line-height: 1.2;
     margin-bottom: 40px;
     letter-spacing: 0.03em;
+    border-bottom: 1px solid $silver-200;
   }
 }
 
 .filter-category {
+  background-color: $white;
+
   &__label {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 12px;
+    display: block;
 
-    &+.filter-category__label {
-      padding-top: 20px;
-    }
-
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
+    &:not(:last-child) {
+      margin-bottom: 15px;
     }
   }
 
   &__input {
     @extend %checkbox-hidden;
-    &:checked+.filter-category__checkbox
-
-    /* если он выбран, то для его соседа применяется(то есть для спана) */
-      {
-      background-image: url('../images/icons/checked.svg');
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-size: contain;
+    &:checked+.filter-category__checkbox {
+      background-color: $orange-700;
+      color: $white;
     }
   }
 
   &__checkbox {
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    margin-left: -16px;
-    margin-top: 7px;
-  }
-
-  &__checkbox--blue {
-    background-color: #00aeef;
-  }
-
-  &__checkbox--red {
-    background-color: #f52574;
-  }
-
-  &__checkbox--green {
-    background-color: #24d4ac;
-  }
-
-  &__checkbox--orange {
-    background-color: #ff7e00;
-  }
-
-  &__checkbox--black {
-    background-color: #000000;
-  }
-
-  &__checkbox--purple {
-    background-color: #923899;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    transition: background-color 0.5s, color 0.5s;
   }
 }
 
