@@ -1232,7 +1232,7 @@
     display: block;
 
     &:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
     }
   }
 
@@ -1247,7 +1247,7 @@
   &__checkbox {
     display: flex;
     justify-content: space-between;
-    padding: 16px 20px;
+    padding-bottom: 6px;
     transition: background-color 0.5s, color 0.5s;
   }
 }
@@ -1257,6 +1257,124 @@
   justify-content: space-between;
 }
 
+.filter-suggestions {
+  &__label {
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  &__input {
+    @extend %checkbox-hidden;
+
+    &:checked+.filter-suggestions__checkbox {
+      /*background-image: url('../images/icons/checked-pink.svg');*/
+      background-image: url(../images/sprite.svg#checked);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100% 100%;
+      border-color: $darkBlue-900;
+      /*background-color: $darkBlue-900;*/
+    }
+  }
+
+  &__checkbox {
+    width: 24px;
+    height: 24px;
+    border: 1px solid $silver-200;
+    border-radius: 3px;
+    position: absolute;
+    background-color: $orange-450;
+  }
+
+  &__text {
+    padding-left: 36px;
+  }
+}
+
+.filter-price {
+
+  &__form {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    /*justify-content: space-between;*/
+    font-size: 16px;
+    line-height: 1.2;
+    color: $gray;
+    letter-spacing: 0.03em;
+
+    &>* {
+      margin-right: 5px;
+    }
+  }
+
+  &__from+span {
+    margin-right: 20px;
+  }
+}
+
+.input-price {
+  width: 70px;
+  line-height: 1;
+  color: $dark;
+  background-color: $orange-450;
+  border: 1px solid $silver-200;
+  border-radius: 3px;
+  padding: 12px 15px 12px 16px;
+}
+
+.irs {
+
+  &--round .irs-line {
+    top: 34px;
+    height: 2px;
+    background-color: $gray;
+    border-radius: 0;
+  }
+
+  &--round .irs-handle {
+    width: 18px;
+    height: 18px;
+    border: none;
+    background-color: $orange-900;
+    border-radius: 24px;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $darkBlue-200;
+    }
+  }
+
+  &--round .irs-bar {
+    top: 34px;
+    height: 2px;
+    background-color: $orange-900;
+  }
+
+  &--round .irs-min {
+    display: none;
+  }
+
+  &--round .irs-max {
+    display: none;
+  }
+
+  &--round .irs-from {
+    display: none;
+  }
+
+  &--round .irs-to {
+    display: none;
+  }
+
+  &--round .irs-single {
+    display: none;
+  }
+}
 
 
 
@@ -1266,6 +1384,8 @@
 
 
 .discounts {
+
+  padding: 60px 0;
 
   &__container {
     max-width: 1210px;

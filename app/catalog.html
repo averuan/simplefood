@@ -172,7 +172,7 @@
                   <span class="filter-suggestions__text">Со скидкой</span>
                 </label>
                 <label class="filter-suggestions__label">
-                  <input class="filter-suggestions__input" type="checkbox">
+                  <input class="filter-suggestions__input" type="checkbox" checked>
                   <span class="filter-suggestions__checkbox"></span>
                   <span class="filter-suggestions__text">Новинка</span>
                 </label>
@@ -188,15 +188,18 @@
               <h3 class="filter__title">
                 Цена
               </h3>
+              
               <form class="filter-price__form" action="#">
-                <input class="filter-price__input" type="text" data-min="0" data-max="1500" data-from="100"
-                  data-to="1000">
+                <div class="filter-price__line">
+                  <input class="filter-price__input" type="text" value="" data-min="0" data-max="1300" data-from="100" data-to="1000" />
+                </div>
                 <label class="filter-price__label">
-                  <span>Price:
-                    $<span class="filter-price__from"></span>-
-                    $<span class="filter-price__to"></span>
-                  </span>
-                  <button class="filter-price__btn" type="submit">Filter</button>
+                  <span>от</span>
+                    <input class="filter-price__from input-price" type="text" value="0" />
+                    <span>₽</span>
+                    <span>до</span>
+                    <input class="filter-price__to input-price" type="text" value="0" />
+                    <span>₽</span>
                 </label>
               </form>
             </div>
@@ -218,7 +221,7 @@
               </article>
             </li>
 
-            <li class="range__catalog mix category-pizza">
+            <li class="catalog__item mix category-pizza">
                 <article class="main-card">
                   <a class="main-card__link" href="#">
                     <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
@@ -403,70 +406,70 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <section class="discounts">
-    <div class="discounts__container">
-      <h2 class="title title--left">
-        Акции и скидки
-      </h2>
+    <section class="discounts">
+      <div class="discounts__container">
+        <h2 class="title title--left">
+          Акции и скидки
+        </h2>
     
-      <ul class="discounts__list">
-        <li class="discounts__item">
-          <a class="discounts__link" href="#">
-            <img class="discounts__img" src="images/restaurant/blaze_pizza.jpg" width="370" height="300" alt="Скидка 50%!">
-            <div class="discounts__text">
-              <span>Скидка 50% на вторую пиццу</span>
-            </div>
-          </a>
-        </li>
+        <ul class="discounts__list">
+          <li class="discounts__item">
+            <a class="discounts__link" href="#">
+              <img class="discounts__img" src="images/restaurant/blaze_pizza.jpg" width="370" height="300" alt="Скидка 50%!">
+              <div class="discounts__text">
+                <span>Скидка 50% на вторую пиццу</span>
+              </div>
+            </a>
+          </li>
     
-        <li class="discounts__item">
-          <a class="discounts__link" href="#">
-            <img class="discounts__img" src="images/restaurant/kfc.jpg" width="370" height="300" alt="Картошка даром!">
-            <div class="discounts__text">
-              <span>Картошечка из KFC даром при заказе бургера</span>
-            </div>
-          </a>
-        </li>
+          <li class="discounts__item">
+            <a class="discounts__link" href="#">
+              <img class="discounts__img" src="images/restaurant/kfc.jpg" width="370" height="300" alt="Картошка даром!">
+              <div class="discounts__text">
+                <span>Картошечка из KFC даром при заказе бургера</span>
+              </div>
+            </a>
+          </li>
     
-        <li class="discounts__item">
-          <a class="discounts__link" href="#">
-            <img class="discounts__img" src="images/restaurant/star_burgers.jpg" width="370" height="300" alt="Черные бургеры">
-            <div class="discounts__text">
-              <span>Чёрные бургеры на чёрный день </span>
-            </div>
-          </a>
-        </li>
+          <li class="discounts__item">
+            <a class="discounts__link" href="#">
+              <img class="discounts__img" src="images/restaurant/star_burgers.jpg" width="370" height="300" alt="Черные бургеры">
+              <div class="discounts__text">
+                <span>Чёрные бургеры на чёрный день </span>
+              </div>
+            </a>
+          </li>
     
-        <li class="discounts__item">
-          <a class="discounts__link" href="#">
-            <img class="discounts__img" src="images/restaurant/blaze_pizza.jpg" width="370" height="300" alt="Скидка 50%!">
-            <div class="discounts__text">
-              <span>Скидка 50% на вторую пиццу</span>
-            </div>
-          </a>
-        </li>
-        <li class="discounts__item">
-          <a class="discounts__link" href="#">
-            <img class="discounts__img" src="images/restaurant/kfc.jpg" width="370" height="300" alt="Картошка даром!">
-            <div class="discounts__text">
-              <span>Картошечка из KFC даром при заказе бургера</span>
-            </div>
-          </a>
-        </li>
+          <li class="discounts__item">
+            <a class="discounts__link" href="#">
+              <img class="discounts__img" src="images/restaurant/blaze_pizza.jpg" width="370" height="300" alt="Скидка 50%!">
+              <div class="discounts__text">
+                <span>Скидка 50% на вторую пиццу</span>
+              </div>
+            </a>
+          </li>
+          <li class="discounts__item">
+            <a class="discounts__link" href="#">
+              <img class="discounts__img" src="images/restaurant/kfc.jpg" width="370" height="300" alt="Картошка даром!">
+              <div class="discounts__text">
+                <span>Картошечка из KFC даром при заказе бургера</span>
+              </div>
+            </a>
+          </li>
     
-        <li class="discounts__item">
-          <a class="discounts__link" href="#">
-            <img class="discounts__img" src="images/restaurant/star_burgers.jpg" alt="Черные бургеры">
-            <div class="discounts__text">
-              <span>Чёрные бургеры на чёрный день </span>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </section>
+          <li class="discounts__item">
+            <a class="discounts__link" href="#">
+              <img class="discounts__img" src="images/restaurant/star_burgers.jpg" alt="Черные бургеры">
+              <div class="discounts__text">
+                <span>Чёрные бургеры на чёрный день </span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
   
   <footer class="footer">
     <div class="container">
