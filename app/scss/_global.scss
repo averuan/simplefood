@@ -13,7 +13,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-/*ngh*/
 .main {
   flex-grow: 1;
 }
@@ -56,4 +55,47 @@ body {
   border: 0;
   clip: rect(0 0 0 0);
 }
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  &__list {
+    display: flex;
+  }
+
+  &__arrow {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: $darkBlue-900;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+    }
+
+    &--prev {
+
+      &::before {
+        mask-image: url(../images/sprite.svg#reviews-slider--prev);
+        left: 0;
+      }
+    }
+
+    &--next {
+
+      &::before {
+        mask-image: url(../images/sprite.svg#reviews-slider--next);
+        right: 0;
+      }
+    }
+  }
+}
+
 

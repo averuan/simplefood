@@ -1197,7 +1197,7 @@
     margin-right: 30px;
   }
 
-  &__content {
+  &__list {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 10px;
@@ -1257,6 +1257,98 @@
   justify-content: space-between;
 }
 
+.jq-selectbox:not(:last-child) {
+  margin-right: 15px;
+}
+
+.jq-selectbox__select {
+  height: auto;
+  padding: 15px 45px 15px 15px;
+  border: 1px solid $gray;
+  /*border-bottom-color: $gray;*/
+  border-radius: 4px;
+  background: transparent;
+  box-shadow: none;
+  font: 14px "Rubik-Regular",
+  sans-serif;
+  color: $dark;
+  text-shadow: none;
+
+  &:focus {
+    background: transparent;
+    outline: 0;
+    border-color: $orange-900;
+  }
+
+  &:hover {
+    background: transparent;
+    border-color: $orange-900;
+  }
+}
+.jq-selectbox.focused .jq-selectbox__select {
+  border-color: $orange-900;
+}
+
+
+/*.jq-selectbox__dropdown {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 2px 0 0;
+  padding: 0;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  background: #FFF;
+  -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
+  font: 14px/18px Arial, sans-serif;
+}*/
+
+.jq-selectbox__trigger-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+  width: 11px;
+  height: 6px;
+  border: none;
+  mask-image: url(../images/sprite.svg#chevron);
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+  background-color: $gray;
+
+  &:hover {
+    background-color: $orange-900;
+  }
+}
+
+.jq-selectbox__trigger {
+  border-left: none;
+}
+
+.jq-selectbox__select-text {
+  display: block;
+  width: 100%;
+  font-family: "Rubik-Regular",
+  sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  color: $dark;
+
+  &:hover {
+    color: $orange-900;
+  }
+}
+
+
+
+
+
+
+
 .filter-suggestions {
   &__label {
     display: block;
@@ -1301,7 +1393,6 @@
   &__label {
     display: flex;
     align-items: center;
-    /*justify-content: space-between;*/
     font-size: 16px;
     line-height: 1.2;
     color: $gray;
