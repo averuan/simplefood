@@ -4,11 +4,7 @@
 @import 'libs';
 @import 'global';
 @import 'line';
-/*dfg*/
 
-/*Сергей, миксин у меня находится в документе
-@import 'line' - не уверен, хороший ли я выбрал
-миксин?*/
 .header {
   font-size: 18px;
   position: fixed;
@@ -17,6 +13,9 @@
   z-index: 50;
   width: 100%;
   transition: padding-top 0.5s, background-color 0.5s;
+  @include max-w($xl) {
+    padding-top: 40px;
+  }
 
   &__inner {
     display: flex;
@@ -35,7 +34,6 @@
   flex-grow: 1;
   max-width: 200px;
   transition: opacity 0.5s, box-shadow 0.5s;
-  /*z-index: 2;*/
 
   &__img {
     height: 39px;
@@ -54,6 +52,9 @@
   &:active {
     opacity: 0.5;
     box-shadow: none;
+  }
+  @include max-w($xg) {
+    z-index: 30;
   }
 }
 
@@ -78,6 +79,44 @@
   }
 }
 
+
+/*
+.menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 120px 0 0;
+  background-color: #7792e0;
+  display: block;
+  text-align: center;
+  transform: translateY(-200%);
+  transition: transform 0.5s;
+  overflow: auto;
+  height: 100vh;
+  z-index: 10;
+}
+
+.menu--active {
+  transform: translateY(0);
+}
+
+.menu__item:not(:last-child) {
+  margin-right: 0;
+}
+
+.menu__item:last-child {
+  padding-bottom: 50px;
+}
+
+.menu__link {
+  display: block;
+  padding: 15px 0;
+}
+
+.menu__link--active:active {
+  background-color: #3c65df;
+}*/
 .menu {
   display: flex;
   justify-content: end;
@@ -86,6 +125,10 @@
 
   &__item:not(:last-child) {
     margin-right: 45px;
+    @include max-w($xg) {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
   }
 
   &__link {
@@ -98,8 +141,34 @@
     &--active {
       color: $orange-900;
       box-shadow: none;
-      /*сделал здесь как в предыдущем разборе ДЗ, но все равно box-shadow: none не работает - свойство идет с focus и рамка отменяется только если убрать фокус с элемента*/
+
+      &:focus {
+        box-shadow: none;
+      }
     }
+    @include max-w($xg) {
+      display: inline-block;
+    }
+  }
+
+  @include max-w($xg) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 80vw;
+    padding: 120px 15px 0;
+    background-color: #7792e0;
+    display: block;
+    transform: translateY(-200%);
+    transition: transform 0.5s;
+    overflow: auto;
+    height: 100vh;
+    z-index: 10;
+  }
+
+  &--active {
+    transform: translateY(0);
   }
 }
 
@@ -107,6 +176,9 @@
   display: flex;
   justify-content: end;
   flex-grow: 1;
+  @include max-w($xg) {
+    padding-right: 30px;
+  }
 
   &__btn {
     position: relative;
@@ -201,6 +273,10 @@
 .hero {
   padding-top: 159px;
   padding-bottom: 60px;
+  @include max-w($xl) {
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
 
   &__inner {
     display: flex;
@@ -214,7 +290,6 @@
 
   &__title {
     display: block;
-    /*@extend %rubik-500;*/
     font-family: "Rubik-Medium", sans-serif;
     font-weight: 500;
     font-size: calc(40px + 26 * ((100vw - 320px) / (1920 - 320)));
@@ -259,7 +334,6 @@
     margin-right: 34px;
   }
 
-  /*кнопка растягивается почему-то на весь контейнер (видно в браузере, не совпадает с макетом. Могу только макс.шириной отрегулировать, но не думаю, что для кнопки это правильно*/
   &--card {
     font-size: 14px;
     padding: 7px 16px;
@@ -313,7 +387,6 @@
   &--form {
     font-size: 14px;
     padding: 13px 38px 13px 70px;
-    /*@extend %rubik-500;*/
     font-family: "Rubik-Medium", sans-serif;
     font-weight: 500;
     position: relative;
@@ -383,12 +456,9 @@
 
 .range {
   padding: 60px 0;
-
-  /*&__inner {
-    margin: 0 auto;
-    padding: 0 15px;
-    max-width: 1228px;
-  }*/
+  @include max-w($xl) {
+    padding: 40px 0;
+  }
 
   &__content {
     display: grid;
@@ -396,18 +466,7 @@
     grid-column-gap: 30px;
     grid-row-gap: 30px;
     margin-bottom: 60px;
-
-    /*display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 30px;*/
   }
-
-  /*&__item {
-    /*max-width: calc(20% - 30px);*/
-    /*width: 100%;*/
-    /*margin: 0 15px 30px;
-  }*/
 
   &__add {
     display: block;
@@ -430,24 +489,22 @@
   
 
   &__image {
-    margin: 0 auto;
+    margin-bottom: 10px;
     object-fit: cover;
   }
 
   &__title {
-    /*@extend %rubik-400;*/
     font-family: "Rubik-Regular", sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 1.2;
-    margin: auto 0;
+    margin-bottom: auto;
     text-align: center;
-    @include line-clamp(3);
+    @include line-clamp(2);
   }
 
   &__price {
     display: block;
-    /*@extend %rubik-500;*/
     font-family: "Rubik-Medium", sans-serif;
     font-weight: 500;
     text-align: center;
@@ -465,9 +522,18 @@
 .mix-filter {
   display: flex;
   padding-bottom: 45px;
+  @include max-w($xl) {
+    flex-wrap: wrap;
+  }
 
-  &__category:not(:last-child) {
-    margin-right: 20px;
+  &__category {
+    @include max-w($xl) {
+      margin-bottom: 20px;
+    }
+
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
   }
 
   &__btn {
@@ -575,6 +641,9 @@
     line-height: 1.5;
     margin-bottom: 30px;
     @include line-clamp(6);
+    @include max-w($xl) {
+      font-size: 18px;
+    }
   }
 
   &__list {
@@ -582,12 +651,15 @@
     line-height: 1.5;
     color: $darkBlue-900;
     margin-bottom: 30px;
+    @include max-w($xl) {
+      font-size: 20px;
+    }
   }
 
   &__item {
     padding-left: 64px;
     position: relative;
-    @include line-clamp(1);
+    @include line-clamp(2);
 
     &::before {
       content: '';
@@ -667,7 +739,6 @@
 
   &__business-hours {
     font-size: 18px;
-    /*@extend %rubik-300;*/
     font-family: "Rubik-Light", sans-serif;
     font-weight: 300;
     line-height: 1.6;
@@ -717,17 +788,18 @@
 
   &__author {
     display: block;
-    /*@extend %rubik-500;*/
     font-family: "Rubik-Medium", sans-serif;
     font-weight: 500;
     font-style: normal;
     color: $orange-900;
     padding: 0 40px;
+    @include max-w($xl) {
+      font-size: 18px;
+    }
   }
 
   &__author-description {
     display: block;
-    /*@extend %rubik-400;*/
     font-family: "Rubik-Regular", sans-serif;
     font-size: 14px;
     padding-top: 15px;
@@ -735,13 +807,15 @@
   }
 
   &__blockquote {
-    /*@extend %rubik-italic-400;*/
     font-family: "Rubik-Italic", sans-serif;
     line-height: 1.5;
     position: relative;
     padding: 0 40px;
     margin-bottom: 30px;
     color: $dark;
+    @include max-w($xl) {
+      font-size: 18px;
+    }
 
     &::before,
     &::after {
@@ -798,7 +872,7 @@
   border-radius: 50%;
   outline: 0;
 }
-/* не работает для последней точки, не работает для стрелки next*/
+
 .slick-active button {
   background-color: $orange-900;
 }
@@ -839,7 +913,7 @@
       width: 11px;
       mask-image: url(../images/sprite.svg#reviews-slider--prev);
       background-color: $gray;
-      mask-repeat: no-repeat;/*здесь понимаю, что пишу по два раза одни и те свойства, но если их не прописать вот так КАЖДОМУ элементу, то ничего не работает*/
+      mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
     }
@@ -892,29 +966,6 @@
   }
 }
 
-/*li.arrow-slider-first {
-  margin-right: 23px;
-}*/
-
-/*.slick-arrow {
-  height: 34px;
-  width: 34px;
-  top: 0;
-  left: 0;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: cover;
-}
-
-.slick-prev {
-  mask-image: url(../images/sprite.svg#reviews-slider--prev-arrow-slideer);
-}
-
-.slick-next {
-  margin-left: 8px;
-  mask-image: url(../images/sprite.svg#reviews-slider--next-arrow-slideer);
-}*/
-
 .mobile-app {
   padding: 60px 0;
 
@@ -927,13 +978,12 @@
     margin-right: 62px;
   }
 
-  &__title {
-    text-align: start;
-  }
-
   &__text {
     line-height: 1.5;
     margin-bottom: 30px;
+    @include max-w($xl) {
+      font-size: 18px;
+    }
   }
 
   &__list {
@@ -996,14 +1046,14 @@
 
   &__inner {
     display: flex;
-     /*Установил, как и было предложено, justify-content: space-between. После этого последний блок adress уехал в край страницы (а в макете он не по краю), чтобы этого избежать пришлось footer__inner установить max-width: 1090px. После этого pixel perfect перестал сходиться, flex-grow не помогает.*/
-    /*max-width: 1090px;*/
-    /*justify-content: space-between;*/
     padding-bottom: 60px;
   }
 
   &__content {
     margin-right: 70px;
+    @include max-w($xl) {
+      margin-right: 40px;
+    }
   }
 
   &__logo {
@@ -1012,15 +1062,16 @@
   }
 
   &__list {
-      /*Не работает свойство column-width - все колонки автоматически имеют ширину самой большой колонки - 187px, в то время как в макете ширина у всех колонок разная. Так же, независимо от того, ставим мы свойство column-gap или нет, pixel perfect все равно не работает */
-    /*column-count: 3;
-    column-width: 91px;
-    column-gap: 70px;*/
     margin-right: 70px;
+    letter-spacing: 0.01em;
+    font-size: 18px;
+    @include max-w($xl) {
+      margin-right: 40px;
+      flex-basis: 130px;
+    }
   }
 
   &__item {
-    letter-spacing: 0.01em;
 
     &:not(:last-child) {
       margin-bottom: 20px;
@@ -1029,10 +1080,6 @@
     &.footer__item--logo {
       margin-bottom: 30px;
     }
-  }
-
-  &__link {
-    font-size: 18px;
   }
 
   &__copyright {
@@ -1178,12 +1225,6 @@
   }
 }
 
-
-/*fghg*/
-
-
-
-
 .catalog {
   padding: 60px 0;
 
@@ -1209,13 +1250,13 @@
 .filter {
 
   &__item {
-    padding: 15px 15px 25px;
+    padding: 15px 8px 25px 15px;
     border: 1px solid $silver-200;
-    margin-bottom: 30px;
+    background-color: $white;
+    margin-bottom: 29px;
   }
 
   &__title {
-    text-transform: uppercase;
     color: $darkBlue-900;
     font-size: 24px;
     line-height: 1.2;
@@ -1226,7 +1267,8 @@
 }
 
 .filter-category {
-  background-color: $white;
+  font-size: 18px;
+  letter-spacing: 0.03em;
 
   &__label {
     display: block;
@@ -1239,16 +1281,26 @@
   &__input {
     @extend %checkbox-hidden;
     &:checked+.filter-category__checkbox {
-      background-color: $orange-700;
-      color: $white;
+      color: $orange-900;
     }
   }
 
   &__checkbox {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 6px;
     transition: background-color 0.5s, color 0.5s;
+
+    &:focus {
+      outline: 0;
+      box-shadow: 0 0 0 2px $orange-800;
+    }
+
+    &:hover {
+      color: $orange-900;
+    }
+
+    &:active {
+      color: $dark;
+      text-shadow: 2px 2px 5px $darkBlue-700;
+    }
   }
 }
 
@@ -1258,14 +1310,13 @@
 }
 
 .jq-selectbox:not(:last-child) {
-  margin-right: 15px;
+  margin-right: 7px;/*должно было быть 15px. Что-то дает доп.расстояние*/
 }
 
 .jq-selectbox__select {
   height: auto;
-  padding: 15px 45px 15px 15px;
+  padding: 15px 41px 15px 15px;
   border: 1px solid $gray;
-  /*border-bottom-color: $gray;*/
   border-radius: 4px;
   background: transparent;
   box-shadow: none;
@@ -1288,21 +1339,6 @@
 .jq-selectbox.focused .jq-selectbox__select {
   border-color: $orange-900;
 }
-
-
-/*.jq-selectbox__dropdown {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 100%;
-  margin: 2px 0 0;
-  padding: 0;
-  border: 1px solid #CCC;
-  border-radius: 4px;
-  background: #FFF;
-  -webkit-box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
-  box-shadow: 0 2px 10px rgb(0 0 0 / 20%);
-  font: 14px/18px Arial, sans-serif;
-}*/
 
 .jq-selectbox__trigger-arrow {
   position: absolute;
@@ -1350,22 +1386,31 @@
 
 
 .filter-suggestions {
+  font-size: 18px;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+
   &__label {
     display: block;
-    margin-bottom: 12px;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    &:hover {
+      color: $orange-900;
+    }
   }
 
   &__input {
     @extend %checkbox-hidden;
 
     &:checked+.filter-suggestions__checkbox {
-      /*background-image: url('../images/icons/checked-pink.svg');*/
       background-image: url(../images/sprite.svg#checked);
       background-repeat: no-repeat;
       background-position: center center;
       background-size: 100% 100%;
       border-color: $darkBlue-900;
-      /*background-color: $darkBlue-900;*/
     }
   }
 
@@ -1376,6 +1421,15 @@
     border-radius: 3px;
     position: absolute;
     background-color: $orange-450;
+
+    &:focus {
+      outline: 0;
+      border: 1px solid $orange-900;
+    }
+
+    &:hover {
+      border: 1px solid $orange-900;
+    }
   }
 
   &__text {
@@ -1410,12 +1464,19 @@
 
 .input-price {
   width: 70px;
+  height: 40px;
+  text-align: center;
+  padding: 12px 0;
   line-height: 1;
   color: $dark;
   background-color: $orange-450;
   border: 1px solid $silver-200;
   border-radius: 3px;
-  padding: 12px 15px 12px 16px;
+
+  &:focus {
+    outline: 0;
+    border: 1px solid $orange-900;
+  }
 }
 
 .irs {
@@ -1467,13 +1528,6 @@
   }
 }
 
-
-
-
-
-
-
-
 .discounts {
 
   padding: 60px 0;
@@ -1490,7 +1544,7 @@
     transition: box-shadow 0.5s;
 
     &:hover {
-    box-shadow: 0px 3px 15px rgba(255, 104, 56, 0.5);
+    box-shadow: 0 3px 15px $orange-400;
     }
 
     &.slick-slide {

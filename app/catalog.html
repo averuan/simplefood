@@ -58,15 +58,17 @@
     </h1>
 
     <div class="breadcrumbs">
-      <div class="container">
-        <ul class="breadcrumbs__list">
-          <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="#">Главная</a>
-          </li>
-          <li class="breadcrumbs__item">
-            <a class="breadcrumbs__link" href="#">Каталог товаров</a>
-          </li>
-        </ul>
+      <div class="breadcrumbs__inner">
+        <div class="container">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="#">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="#">Каталог товаров</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -108,58 +110,42 @@
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Бургеры</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Бургеры</span>
                 </label>
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Пицца</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Пицца</span>
                 </label>
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Сендвичи</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Сендвичи</span>
                 </label>
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Азиатская кухня</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Азиатская кухня</span>
                 </label>
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Сеты</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Сеты</span>
                 </label>
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Европейская кухня</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Европейская кухня</span>
                 </label>
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Напитки</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Напитки</span>
                 </label>
 
                 <label class="filter-category__label">
                   <input class="filter-category__input" type="checkbox">
-                  <div class="filter-category__checkbox">
-                    <span class="filter-category__text">Алкоголь</span>
-                  </div>
+                  <span class="filter-category__checkbox" tabindex="0">Алкоголь</span>
                 </label>
               </form>
             </div>
@@ -169,17 +155,17 @@
               <form class="filter-suggestions__form" action="#">
                 <label class="filter-suggestions__label">
                   <input class="filter-suggestions__input" type="checkbox">
-                  <span class="filter-suggestions__checkbox"></span>
+                  <span class="filter-suggestions__checkbox" tabindex="0"></span>
                   <span class="filter-suggestions__text">Со скидкой</span>
                 </label>
                 <label class="filter-suggestions__label">
                   <input class="filter-suggestions__input" type="checkbox" checked>
-                  <span class="filter-suggestions__checkbox"></span>
+                  <span class="filter-suggestions__checkbox" tabindex="0"></span>
                   <span class="filter-suggestions__text">Новинка</span>
                 </label>
                 <label class="filter-suggestions__label">
                   <input class="filter-suggestions__input" type="checkbox">
-                  <span class="filter-suggestions__checkbox"></span>
+                  <span class="filter-suggestions__checkbox" tabindex="0"></span>
                   <span class="filter-suggestions__text">Хит</span>
                 </label>
               </form>
@@ -192,7 +178,7 @@
               
               <form class="filter-price__form" action="#">
                 <div class="filter-price__line">
-                  <input class="filter-price__input" type="text" value="" data-min="0" data-max="1300" data-from="100" data-to="1000" />
+                  <input class="filter-price__input" type="text" value="" data-min="0" data-max="1200" data-from="100" data-to="1000" />
                 </div>
                 <label class="filter-price__label">
                   <span>от</span>
@@ -210,9 +196,7 @@
             <ul class="catalog__list">
               <li class="catalog__item mix category-sandwiches">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
-                  </a>
+                  <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
                   <h3 class="main-card__title">
                     Чизбургер с листьями салата
                   </h3>
@@ -225,9 +209,7 @@
 
               <li class="catalog__item mix category-pizza">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
                   <h3 class="main-card__title">Бифбургер</h3>
                   <span class="main-card__price">190  <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
@@ -238,9 +220,7 @@
 
               <li class="catalog__item mix category-pizza">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
                   <h3 class="main-card__title">Королевский чизбургер</h3>
                   <span class="main-card__price">260  <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
@@ -251,9 +231,7 @@
 
               <li class="catalog__item mix category-sets">
                 <article class="main-card">
-                  <a class="card__link" href="#">
-                    <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
                   <h3 class="main-card__title">Черный гамбургер</h3>
                   <span class="main-card__price">199  <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
@@ -264,9 +242,7 @@
 
               <li class="catalog__item mix category-sandwiches">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
-                  </a>
+                  <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
                   <h3 class="main-card__title">
                     Чизбургер с листьями салата
                   </h3>
@@ -279,9 +255,7 @@
 
               <li class="catalog__item mix category-pizza">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
                   <h3 class="main-card__title">Бифбургер</h3>
                   <span class="main-card__price">190  <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
@@ -292,9 +266,7 @@
 
               <li class="catalog__item mix category-sets">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
                   <h3 class="main-card__title">
                     Королевский чизбургер
                   </h3>
@@ -307,9 +279,7 @@
 
               <li class="catalog__item mix category-sets">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
                   <h3 class="main-card__title">Черный гамбургер</h3>
                   <span class="main-card__price">199  <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
@@ -320,9 +290,7 @@
 
               <li class="catalog__item mix category-sandwiches">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
-                  </a>
+                  <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
                   <h3 class="main-card__title">
                     Чизбургер с листьями салата
                   </h3>
@@ -335,9 +303,7 @@
 
               <li class="catalog__item mix category-pizza">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
                   <h3 class="main-card__title">Бифбургер</h3>
                   <span class="main-card__price">190  <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
@@ -348,9 +314,7 @@
 
               <li class="catalog__item mix category-sets">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
                   <h3 class="main-card__title">
                     Королевский чизбургер
                   </h3>
@@ -363,9 +327,7 @@
 
               <li class="catalog__item mix category-sets">
                 <article class="main-card">
-                  <a class="main-card__link" href="#">
-                    <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
-                  </a>
+                  <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
                   <h3 class="main-card__title">Черный гамбургер</h3>
                   <span class="main-card__price">199  <span>руб.</span></span>
                   <button class="button button--card animation-btn" type="button">
@@ -381,23 +343,23 @@
 
               <ul class="pagination__list">
                 <li class="pagination__item">
-                  <a href="#" class="pagination__link">1</a>
+                  <a class="pagination__link pagination__link--active" href="#">1</a>
                 </li>
                 <li class="pagination__item">
-                  <a href="#" class="pagination__link">2</a>
+                  <a class="pagination__link" href="#">2</a>
                 </li>
                 <li class="pagination__item">
-                  <a href="#" class="pagination__link">...</a>
+                  <span class="pagination__link">...</span>
                 </li>
                 <li class="pagination__item">
-                  <a href="#" class="pagination__link">9</a>
+                  <a class="pagination__link" href="#">9</a>
                 </li>
                 <li class="pagination__item">
-                  <a href="#" class="pagination__link">10</a>
+                  <a class="pagination__link" href="#">10</a>
                 </li>
               </ul>
 
-              <a class="pagination__arrow pagination__arrow--next" href="#" target="_blank">
+              <a class="pagination__arrow pagination__arrow--next" href="#">
                 <span class="visually-hidden">Предыдущая страница</span>
               </a>
             </div>
@@ -438,11 +400,13 @@
     </section>
 
     <section class="discounts">
-      <div class="discounts__container">
-        <h2 class="title title--left">
+      <div class="container">
+        <h2 class="title title--left title--bottom-60">
           Акции и скидки
         </h2>
-    
+      </div>
+
+      <div class="discounts__container">
         <ul class="discounts__list">
           <li class="discounts__item">
             <a class="discounts__link" href="#">

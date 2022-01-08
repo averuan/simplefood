@@ -1,9 +1,10 @@
 $dark: #31352b;
 $white: #ffffff;
 $gray: #c2c2c2;
-$darkBlue-900: #363853;
+$black: #000000;
 
 $orange-900: #ff6838;
+$orange-800: #ffa285;
 $orange-700: #ff7a50;
 $orange-600: rgba($orange-900, 0.7);
 $orange-500: #ffae94;
@@ -13,10 +14,14 @@ $orange-300: rgba($orange-700, 0.1);
 $orange-200: #fff2ed;
 $orange-100: rgba($orange-900, 0.2);
 
+$darkBlue-900: #363853;
+$darkBlue-700: rgba($darkBlue-900, 0.5);
+$darkBlue-500: #505050;
 $darkBlue-200: #8592d4;
 $darkBlue-600: rgba($darkBlue-200, 0.5);
 
 $silver-700: rgba($dark, 0.5);
+$silver-500: rgba($black, 0.15);
 $silver-300: rgba($gray, 0.2);
 $silver-200: #ececec;
 $silver-100: #f9faff;
@@ -25,13 +30,12 @@ $blue-500: #00aaff;
 
 $red-500: #ff2222;
 
-%checkbox-hidden {
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  position: absolute;
-}
+
+
+$xl: 1200px;
+$xg: 992px;
+$md: 768px;
+$sm: 576px;
 
 
 
