@@ -11,6 +11,10 @@ $(function(){
     }
   });
 
+  $('.menu__link').on('click', function () {
+    $('.menu__link').removeClass('menu__link--active');
+    $(this).addClass('menu__link--active');
+  });
 
     $(".header__inner a, .hero__content a, footer a").on("click", function (event) {
     event.preventDefault();
@@ -23,7 +27,7 @@ $(function(){
   $('.burger').click(function (event) {
     $('.burger').toggleClass('burger--active');
     $('.menu').toggleClass('menu--active');
-    //$('.menu__link').toggleClass('menu__link--active');
+    //$('.menu__link').toggleClass('menu__link--adoptive');
     $('body').toggleClass('lock');
   });
 
@@ -32,13 +36,13 @@ $(function(){
     $('body').toggleClass('lock');
     $('.burger').toggleClass('burger--active');
   });
-  
+
+  $('.lock').click(function (event) {
+    $('.menu').removeClass('menu--active');
+  });
 
   
-  $('.menu__link').on('click', function () {
-    $('.menu__link').removeClass('menu__link--active');
-    $(this).addClass('menu__link--active');
-  });
+
 
 
   

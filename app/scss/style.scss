@@ -113,10 +113,8 @@
   display: block;
   padding: 15px 0;
 }
+*/
 
-.menu__link--active:active {
-  background-color: #3c65df;
-}*/
 .menu {
   display: flex;
   justify-content: end;
@@ -135,7 +133,6 @@
     display: block;
     font-size: 18px;
     text-decoration: none;
-    border-bottom: 1px solid transparent;
     position: relative;
 
     &--active {

@@ -20,6 +20,7 @@ body {
   &.lock {
     @include max-w($xg) {
       overflow: hidden;
+      background: rgba(0, 0, 0, 0.5);
     }
   }
 }
