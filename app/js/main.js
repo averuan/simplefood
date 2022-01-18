@@ -24,22 +24,54 @@ $(function(){
     $('body,html').animate({scrollTop: top}, 1500);
   });
 
-  $('.burger').click(function (event) {
-    $('.burger').toggleClass('burger--active');
-    $('.menu').toggleClass('menu--active');
-    //$('.menu__link').toggleClass('menu__link--adoptive');
-    $('body').toggleClass('lock');
+
+
+
+
+  $('<div class="sidebar"></div>').appendTo('.header');
+  $('<div class="sidebar__control"></div>').prependTo('.sidebar');
+  $('<div class="sidebar__nav"></div>').appendTo('.sidebar');
+
+
+  const burger = document.querySelector('.burger');
+  const sidebar = document.querySelector('.sidebar')
+
+  document.onclick = function(e) {
+    if(!(e.target.classList.contains('sidebar')) && !(e.target.classList.contains('burger'))) {
+        burger.classList.remove('burger--active');
+        sidebar.classList.remove('sidebar--active');
+    }
+  }
+
+
+  $('.burger').on('click', function (e) {
+  $('.burger').toggleClass('burger--active');
+  $('.sidebar').toggleClass('sidebar--active');
+  $('.sidebar__control').empty();
+
+  $('.logo--top').clone().prependTo('.sidebar__control');
+  //$('.close-btn').addClass('close-btn--active');
+//меню
+
+  $('<button class="close-btn"></button>').appendTo('.sidebar__control');
+  $('.close-btn').attr('type', 'button');
+  $('<span class="visually-hidden sidebar-close-description"></span>').appendTo('.close-btn');
+  $(".sidebar-close-description").text("закрыть меню");
+
+
+  $('.line').addClass('.line--silver-darker');
+  //$('.close-btn').appendTo('.sidebar__control');
+  $('.menu').appendTo('.sidebar');
+  $('.menu').toggleClass('menu--active');
+    //$('body').toggleClass('lock');
+
+    //$('.contacts').appendTo('.sidebar');
+    $('.sidebar').removeClass('.contacts');
+  $('.contacts').clone().appendTo('.sidebar');
   });
 
-  $('.menu__link').click(function (event) {
-    $('.menu').toggleClass('menu--active');
-    $('body').toggleClass('lock');
-    $('.burger').toggleClass('burger--active');
-  });
 
-  $('.lock').click(function (event) {
-    $('.menu').removeClass('menu--active');
-  });
+
 
   
 

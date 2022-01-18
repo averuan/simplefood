@@ -82,6 +82,71 @@ body {
   position: absolute;
 }
 
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: $silver-200;
+}
+
+.sidebar {
+  @include max-w($xg) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 80vw;
+    padding: 40px 25px 0 15px;
+    background-color: #7792e0;
+    display: block;
+    transform: translateX(-200%);
+    transition: transform 0.5s;
+    overflow: auto;
+    height: 100vh;
+    z-index: 10;
+  }
+
+  &--active {
+    transform: translateX(0);
+  }
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.burger {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  margin-right: 7px;
+  /*border-radius: 3px;*/
+  mask-image: url(../images/sprite.svg#burger-menu);
+  background-color: $darkBlue-900;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+
+  @include max-w($xg) {
+    display: block;
+  }
+}
+/*здесь добавил всякого*/
+.close-btn {
+  /*display: none;*/
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  margin-right: 7px;
+  mask-image: url(../images/sprite.svg#close-sadebar-btn);
+  background-color: $darkBlue-900;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+}
+
 .breadcrumbs {
   padding-top: 158px;
   color: $darkBlue-500;
@@ -246,22 +311,7 @@ body {
   }
 }
 
-.burger {
-  display: none;
-  position: relative;
-  width: 30px;
-  height: 20px;
-  margin-right: 7px;
-  /*border-radius: 3px;*/
-  mask-image: url(../images/sprite.svg#burger-menu);
-  background-color: $darkBlue-900;
-  mask-repeat: no-repeat;
-  mask-position: center center;
-  mask-size: cover;     
-  @include max-w($xg) {
-    display: block;
-  }
-}
+
 
 /*.burger__line,
 .burger::before,
