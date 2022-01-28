@@ -28,6 +28,7 @@
     "-": "0.0.1",
     "jquery-form-styler": "^2.0.2",
     "mixitup": "^3.3.1",
-    "save-dev": "0.0.1-security"
+    "save-dev": "0.0.1-security",
+    "swiper": "^7.4.1"
   }
 }

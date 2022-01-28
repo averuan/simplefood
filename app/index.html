@@ -18,25 +18,26 @@
 </head>
 <body>
   <header class="header">
+    
     <div class="container">
+      <div class="header__inner">
+        <nav class="header__navigation">
+          <a class="logo logo--top" href="#body">
+            <img class="logo__img" src="images/logo.svg" alt="Логотип">
+          </a>
   
-      <nav class="header__inner">
-        <a class="logo logo--top" href="#body">
-          <img class="logo__img" src="images/logo.svg" alt="Логотип">
-        </a>
-  
-        <ul class="menu">
-          <li class="menu__item">
-            <a class="menu__link menu__link--active animation-link" href="#home">Главная</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link animation-link" href="#popular">Блюда</a>
-          </li>
-          <li class="menu__item">
-            <a class="menu__link animation-link" href="#connection">Контакты</a>
-          </li>
-        </ul>
-
+          <ul data-da=".sidebar__nav, 992, 1 "class="menu">
+            <li class="menu__item">
+              <a class="menu__link menu__link--active animation-link" href="#home">Главная</a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link animation-link" href="#popular">Блюда</a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link animation-link" href="#connection">Контакты</a>
+            </li>
+          </ul>
+        </nav>
         <div class="user-nav">
           <button class="user-nav__btn user-nav__btn--search animation-icon" type="button" value="search">
             <span class="visually-hidden">Открыть поиск</span>
@@ -50,12 +51,19 @@
 
         <button class="burger" type="button">
           <span class="visually-hidden">Открыть меню</span>
-        </button>
-      </nav>
-  
+        </button> 
+      </div>
     </div>
   </header>
 
+  <div class="sidebar">
+    <div class="sidebar__control"></div>
+    <div class="line line--silver-darker"></div>
+    <div class="sidebar__nav"></div>
+    <div class="line line--silver-darker"></div>
+    <div class="sidebar__contacts"></div>
+  </div>
+  
   <main class="main">
     <h1 class="visually-hidden">
       Сервис быстрой доставки еды SimpleFood
@@ -63,7 +71,7 @@
 
     <section class="hero">
       <div class="container">
-        <div class="hero__inner">
+        <div class="hero__inner" style="background-image: url('images/scooterguy.png');">
           <div class="hero__content">
             <h2 class="hero__title">
               Доставка
@@ -83,11 +91,11 @@
             <a class="hero__link animation-link" href="#">Подробнее</a>
           </div>
   
-          <div class="hero__img" style="background-image: url('images/scooterguy.png')">
+          <!--<div class="hero__img" style="background-image: url('images/scooterguy.png')">
             <span class="visually-hidden">
               Доставщик еды на скутере
             </span>
-          </div>
+          </div>-->
         </div>
       </div>
     </section>
@@ -97,7 +105,7 @@
   
         <h2 class="title title--bottom-60">Популярные категории</h2>
   
-        <ul class="mix-filter">
+        <ul class="mix-filter" id="el">
           <li class="mix-filter__category">
             <button class="mix-filter__btn mix-filter__btn--burger" data-filter="all" type="button">
               Бургеры
@@ -258,7 +266,7 @@
         <button class="range__add animation-link" type="button">Показать еще</button>
       </div>
     </section>
-  
+  <!--
     <section class="delivery">
       <div class="container">
         <div class="delivery__inner">
@@ -299,7 +307,7 @@
         </div>
       </div>
     </section>
-        
+  -->
     <section class="restaurant">
       <div class="container">
         <h2 class="title">Лучшие рестораны</h2>
@@ -374,7 +382,7 @@
       <div class="container">
         <h2 class="title">Отзывы клиентов</h2>
 
-        <ul class="slider">
+        <ul class="reviews-slider">
 
           <li class="reviews__item">
             <div class="reviews__wrapper">
@@ -439,7 +447,7 @@
 
           <li class="reviews__item">
             <div class="reviews__wrapper">
-              <img class="reviews__img" src="images/darya_review.jpg" width="300" height="300" alt="Отзыв Дарьи">
+                <img class="reviews__img" src="images/darya_review.jpg" width="300" height="300" alt="Отзыв Дарьи">
               <div class="reviews__content">
                 <blockquote class="reviews__blockquote">
                   <p>
@@ -460,7 +468,29 @@
         </ul>
       </div>
     </section>
-        
+
+
+    <!-- Slider main container -->
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        ...
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+    
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    
+      <!-- If we need scrollbar -->
+      <div class="swiper-scrollbar"></div>
+    </div>
+        <!--
     <section class="mobile-app">
       <div class="container">
         <div class="mobile-app__inner">
@@ -634,8 +664,8 @@
         </span>
       </div>
     </div>
-  </footer>
-
+  </footer>-->
+  
   <script src="js/main.min.js"></script>
 </body>
 </html>

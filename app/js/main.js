@@ -1,96 +1,166 @@
 $(function(){
 
+//Фиксированный хэдер при скролле
   $('.select-style').styler();
   
   $(window).scroll(function () {
 
-    if ($(this).scrollTop() >= 90) {
+    if ($(this).scrollTop() >= 25) {
       $(".header").addClass("header--fix");
     } else {
       $(".header").removeClass("header--fix");
     }
   });
 
+
+  //Активный класс ссылкам меню
   $('.menu__link').on('click', function () {
     $('.menu__link').removeClass('menu__link--active');
     $(this).addClass('menu__link--active');
   });
 
-    $(".header__inner a, .hero__content a, footer a").on("click", function (event) {
+
+  //Навигация по странице при клике на ссылки
+  $(".header__inner a, .hero__content a, footer a").on("click", function (event) {
     event.preventDefault();
     var id  = $(this).attr('href'),
  
-      top = $(id).offset().top;
+    top = $(id).offset().top;
     $('body,html').animate({scrollTop: top}, 1500);
   });
 
 
+//устанавливает высоту в зависимости от ширины
+ // $(function () {
+   // $('.hero__img').height($('.hero__img').width() / 1.179);
+  //  $(window).resize(function () {
+  //    $('.hero__img').height($('.hero__img').width() / 0.85);
+  //  });
+ // });
 
 
-
-  $('<div class="sidebar"></div>').appendTo('.header');
-  $('<div class="sidebar__control"></div>').prependTo('.sidebar');
-  $('<div class="sidebar__nav"></div>').appendTo('.sidebar');
+//Добавляет слой-затемнение в DOM
+  $('<div class="overlay"></div>').prependTo('body');
 
 
+//Функция отключения Сайдбара по клику в любом месте страницы
+  const body = document.querySelector('body');
   const burger = document.querySelector('.burger');
-  const sidebar = document.querySelector('.sidebar')
+  const sidebar = document.querySelector('.sidebar');
+  const menu = document.querySelector('.menu');
+  const overlay = document.querySelector('.overlay');
 
   document.onclick = function(e) {
     if(!(e.target.classList.contains('sidebar')) && !(e.target.classList.contains('burger'))) {
-        burger.classList.remove('burger--active');
-        sidebar.classList.remove('sidebar--active');
+      burger.classList.remove('burger--active');
+      sidebar.classList.remove('sidebar--active');
+      body.classList.remove('lock');
+      menu.classList.remove('menu--active');
+      overlay.classList.remove('overlay--active');
     }
   }
 
 
+//События при клике на бургер - активация затемняющего слоя, класса .lock у body, активация сайдбара, наполнение сайдбара контентом
   $('.burger').on('click', function (e) {
-  $('.burger').toggleClass('burger--active');
-  $('.sidebar').toggleClass('sidebar--active');
-  $('.sidebar__control').empty();
-
-  $('.logo--top').clone().prependTo('.sidebar__control');
-  //$('.close-btn').addClass('close-btn--active');
-//меню
-
-  $('<button class="close-btn"></button>').appendTo('.sidebar__control');
-  $('.close-btn').attr('type', 'button');
-  $('<span class="visually-hidden sidebar-close-description"></span>').appendTo('.close-btn');
-  $(".sidebar-close-description").text("закрыть меню");
-
-
-  $('.line').addClass('.line--silver-darker');
-  //$('.close-btn').appendTo('.sidebar__control');
-  $('.menu').appendTo('.sidebar');
-  $('.menu').toggleClass('menu--active');
-    //$('body').toggleClass('lock');
-
-    //$('.contacts').appendTo('.sidebar');
-    $('.sidebar').removeClass('.contacts');
-  $('.contacts').clone().appendTo('.sidebar');
+    $('.overlay').toggleClass('overlay--active');
+    $('.burger').toggleClass('burger--active');
+    $('.sidebar').toggleClass('sidebar--active');
+    $('body').toggleClass('lock');
+    $('.menu').toggleClass('menu--active');
+    $('.sidebar__control').empty();
+    $('.logo--top').clone().prependTo('.sidebar__control');
+    $('<button class="close-btn"></button>').appendTo('.sidebar__control');
+    $('.close-btn').attr('type', 'button');
+    $('<span class="visually-hidden sidebar-close-description"></span>').appendTo('.close-btn');
+    $(".sidebar-close-description").text("закрыть меню");
+    $('.sidebar__contacts').empty();
+    $('.contacts').clone().prependTo('.sidebar__contacts');
   });
 
 
 
+  if (screen.width <= 992) {
+    $('.restaurant__list').slick({
+      infinite: true,
+      dots: true,
+      arrows: false,
+      slidesToShow: 2,
+      slidesToScroll: 1
+    });
+  }
 
-  
 
 
+  //$('.restaurant__list').slick({
+ // responsive: [
+   // {
+  //    breakpoint: 1200,
+   //   settings: "unslick"
+  //  },
+  //  {
+  //    breakpoint: 992,
+  //    settings: {
+   //     slidesToShow: 2,
+   //     slidesToScroll: 2
+   //   }
+  //  },
+ // ]
+  //});
 
-  
-  $('.slider').slick({
+
+  //Слайдер отзывов
+  $('.reviews-slider').slick({
     dots: true,
     arrows: true,
     prevArrow: "<div class='prev'></div>",
     nextArrow: "<div class='next'></div>",
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: false,
+        }
+      }
+    ]
   });
 
 
-  $('<div class="slider-management"></div>').appendTo('.slider');
+  //Кастомизация стрелок слайдера отзывов
+  $('<div class="slider-management"></div>').appendTo('.reviews-slider');
   $('.slick-dots').appendTo('.slider-management');
   $('.prev').prependTo('.slider-management');
   $('.next').appendTo('.slider-management');
 
+  //CSS-свойства обертке слайдера отзывов
+  //$('.reviews__inner').css('display', 'flex');
+
+
+ 
+//Слайдер-swiper
+  const swiper = new Swiper('.swiper', {
+
+  
+
+    direction: 'vertical',
+    loop: true,
+
+    pagination: {
+      el: '.swiper-pagination',
+    },
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+    scrollbar: {
+      el: '.swiper-scrollbar',
+    },
+  });
+
+
+//Автоматический слайдер скидок из страницы catalog
   $('.discounts__list').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -101,29 +171,13 @@ $(function(){
     rows: 0,
   });
 
-  
 
-
-
-
-
-
-
-
-  //$('<div class="arrow-slider-first"></div>').prependTo('.slick-dots');
-  //$('.slick-prev').prependTo('.arrow-slider-first');
-
-  //$('<div class="arrow-slider"></div>').appendTo('.slick-dots');
-  //$('.slick-next').appendTo('.arrow-slider');
-
-
-  $('.reviews__inner').css('display','flex');
-
+//mixitup блоку ассортимента главной страницы
   var Mixer = mixitup( '.range__content' );
 });
 
 
-
+//Фильтры из страницы каталога
 var $range = $(".filter-price__input"),
     $inputFrom = $(".filter-price__from"),
     $inputTo = $(".filter-price__to"),
