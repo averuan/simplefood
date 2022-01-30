@@ -377,12 +377,13 @@
         
       </div>
     </section>
-        
+     <!--   
     <section class="reviews">
       <div class="container">
         <h2 class="title">Отзывы клиентов</h2>
 
-        <ul class="reviews-slider">
+        <div class="reviews__slider">
+          <ul class="reviews__list">
 
           <li class="reviews__item">
             <div class="reviews__wrapper">
@@ -465,31 +466,126 @@
               </div>
             </div>
           </li>
-        </ul>
+          </ul>
+          
+        </div>
       </div>
     </section>
-
+  -->
+    <section class="reviews">
+      <div class="container">
+        <h2 class="title">Отзывы клиентов</h2>
 
     <!-- Slider main container -->
-    <div class="swiper">
+    <div class="reviews__slider swiper">
       <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
+      <ul class="reviews__list swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        ...
-      </div>
+        <li class="reviews__item swiper-slide">
+          <div class="reviews__wrapper">
+            <div class="reviews__photo-box">
+              <img class="reviews__img" src="images/darya.jpg" width="300" height="300" alt="Отзыв Дарьи">
+            </div>
+            <div class="reviews__content">
+              <blockquote class="reviews__blockquote">
+                <p>
+                  SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение.
+                  Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку -
+                  однозначно рекомендую!
+                </p>
+              </blockquote>
+              <cite class="reviews__author">
+                Дарья
+                <span class="reviews__author-description">
+                  Ценитель вкусной еды
+                </span>
+              </cite>
+            </div>
+          </div>
+        </li>
+
+        <li class="reviews__item swiper-slide">
+          <div class="reviews__wrapper">
+            <div class="reviews__photo-box">
+              <img class="reviews__img" src="images/darya.jpg" width="300" height="300" alt="Отзыв Дарьи">
+            </div>
+            <div class="reviews__content">
+              <blockquote class="reviews__blockquote">
+                <p>
+                  SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение.
+                  Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку -
+                  однозначно рекомендую!
+                </p>
+              </blockquote>
+              <cite class="reviews__author">
+                Дарья
+                <span class="reviews__author-description">
+                  Ценитель вкусной еды
+                </span>
+              </cite>
+            </div>
+          </div>
+        </li>
+
+        <li class="reviews__item swiper-slide">
+          <div class="reviews__wrapper">
+            <div class="reviews__photo-box">
+              <img class="reviews__img" src="images/darya.jpg" width="300" height="300" alt="Отзыв Дарьи">
+            </div>
+            <div class="reviews__content">
+              <blockquote class="reviews__blockquote">
+                <p>
+                  SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение.
+                  Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку -
+                  однозначно рекомендую!
+                </p>
+              </blockquote>
+              <cite class="reviews__author">
+                Дарья
+                <span class="reviews__author-description">
+                  Ценитель вкусной еды
+                </span>
+              </cite>
+            </div>
+          </div>
+        </li>
+
+        <li class="reviews__item swiper-slide">
+          <div class="reviews__wrapper">
+            <div class="reviews__photo-box">
+              <img class="reviews__img" src="images/darya.jpg" width="300" height="300" alt="Отзыв Дарьи">
+            </div>
+            <div class="reviews__content">
+              <blockquote class="reviews__blockquote">
+                <p>
+                  SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение.
+                  Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку -
+                  однозначно рекомендую!
+                </p>
+              </blockquote>
+              <cite class="reviews__author">
+                Дарья
+                <span class="reviews__author-description">
+                  Ценитель вкусной еды
+                </span>
+              </cite>
+            </div>
+          </div>
+        </li>
+      </ul>
       <!-- If we need pagination -->
-      <div class="swiper-pagination"></div>
-    
+      
+    <div class="reviews__management">
+      
       <!-- If we need navigation buttons -->
       <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
-    
-      <!-- If we need scrollbar -->
-      <div class="swiper-scrollbar"></div>
     </div>
+    </div>
+    </div>
+    </section>
+    <div class="hui" style="background-color: brown; width: 300px; height: 300px;"></div>
         <!--
     <section class="mobile-app">
       <div class="container">
@@ -665,7 +761,92 @@
       </div>
     </div>
   </footer>-->
-  
+<!--
+  <ul class="reviews-slider">
+
+          <li class="reviews__item">
+            <div class="reviews__wrapper">
+              <img class="reviews__img" src="images/darya_review.jpg" width="300" height="300" alt="Отзыв Дарьи">
+              <div class="reviews__content">
+                <blockquote class="reviews__blockquote">
+                  <p>
+                    SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку - однозначно рекомендую!
+                  </p>
+                </blockquote>
+                <cite class="reviews__author">
+                  Дарья
+                  <span class="reviews__author-description">
+                    Ценитель вкусной еды
+                  </span>
+                </cite>
+              </div>
+            </div>
+          </li>
+
+          <li class="reviews__item">
+            <div class="reviews__wrapper">
+              <img class="reviews__img" src="images/darya_review.jpg" width="300" height="300" alt="Отзыв Дарьи">
+              <div class="reviews__content">
+                <blockquote class="reviews__blockquote">
+                  <p>
+                    SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение.
+                    Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку -
+                    однозначно рекомендую!
+                  </p>
+                </blockquote>
+                <cite class="reviews__author">
+                  Дарья
+                  <span class="reviews__author-description">
+                    Ценитель вкусной еды
+                  </span>
+                </cite>
+              </div>
+            </div>
+          </li>
+
+          <li class="reviews__item">
+            <div class="reviews__wrapper">
+              <img class="reviews__img" src="images/darya_review.jpg" width="300" height="300" alt="Отзыв Дарьи">
+              <div class="reviews__content">
+                <blockquote class="reviews__blockquote">
+                  <p>
+                    SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение.
+                    Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку -
+                    однозначно рекомендую!
+                  </p>
+                </blockquote>
+                <cite class="reviews__author">
+                  Дарья
+                  <span class="reviews__author-description">
+                    Ценитель вкусной еды
+                  </span>
+                </cite>
+              </div>
+            </div>
+          </li>
+
+          <li class="reviews__item">
+            <div class="reviews__wrapper">
+                <img class="reviews__img" src="images/darya_review.jpg" width="300" height="300" alt="Отзыв Дарьи">
+              <div class="reviews__content">
+                <blockquote class="reviews__blockquote">
+                  <p>
+                    SimpleFood - одна из лучших служб доставки продуктов из ресторанов в городе. Очень удобный сайт и приложение.
+                    Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит скидки на доставку -
+                    однозначно рекомендую!
+                  </p>
+                </blockquote>
+                <cite class="reviews__author">
+                  Дарья
+                  <span class="reviews__author-description">
+                    Ценитель вкусной еды
+                  </span>
+                </cite>
+              </div>
+            </div>
+          </li>
+        </ul>
+      -->
   <script src="js/main.min.js"></script>
 </body>
 </html>

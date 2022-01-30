@@ -109,44 +109,19 @@ $(function(){
   //});
 
 
-  //Слайдер отзывов
-  $('.reviews-slider').slick({
-    dots: true,
-    arrows: true,
-    prevArrow: "<div class='prev'></div>",
-    nextArrow: "<div class='next'></div>",
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          dots: false,
-        }
-      }
-    ]
-  });
-
-
-  //Кастомизация стрелок слайдера отзывов
-  $('<div class="slider-management"></div>').appendTo('.reviews-slider');
-  $('.slick-dots').appendTo('.slider-management');
-  $('.prev').prependTo('.slider-management');
-  $('.next').appendTo('.slider-management');
-
-  //CSS-свойства обертке слайдера отзывов
-  //$('.reviews__inner').css('display', 'flex');
+  
 
 
  
 //Слайдер-swiper
-  const swiper = new Swiper('.swiper', {
+  const swiper = new Swiper('.reviews__slider', {
 
-  
-
-    direction: 'vertical',
+    direction: 'horizontal',
     loop: true,
 
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     },
 
     navigation: {
@@ -154,9 +129,9 @@ $(function(){
       prevEl: '.swiper-button-prev',
     },
 
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
+    //scrollbar: {
+    //  el: '.swiper-scrollbar',
+   // },
   });
 
 
