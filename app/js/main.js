@@ -1,8 +1,8 @@
-$(function(){
+$(function () {
 
-//Фиксированный хэдер при скролле
+  //Фиксированный хэдер при скролле
   $('.select-style').styler();
-  
+
   $(window).scroll(function () {
 
     if ($(this).scrollTop() >= 25) {
@@ -23,35 +23,35 @@ $(function(){
   //Навигация по странице при клике на ссылки
   $(".header__inner a, .hero__content a, footer a").on("click", function (event) {
     event.preventDefault();
-    var id  = $(this).attr('href'),
- 
-    top = $(id).offset().top;
-    $('body,html').animate({scrollTop: top}, 1500);
+    var id = $(this).attr('href'),
+
+      top = $(id).offset().top;
+    $('body,html').animate({ scrollTop: top }, 1500);
   });
 
 
-//устанавливает высоту в зависимости от ширины
- // $(function () {
-   // $('.hero__img').height($('.hero__img').width() / 1.179);
+  //устанавливает высоту в зависимости от ширины
+  // $(function () {
+  // $('.hero__img').height($('.hero__img').width() / 1.179);
   //  $(window).resize(function () {
   //    $('.hero__img').height($('.hero__img').width() / 0.85);
   //  });
- // });
+  // });
 
 
-//Добавляет слой-затемнение в DOM
+  //Добавляет слой-затемнение в DOM
   $('<div class="overlay"></div>').prependTo('body');
 
 
-//Функция отключения Сайдбара по клику в любом месте страницы
+  //Функция отключения Сайдбара по клику в любом месте страницы
   const body = document.querySelector('body');
   const burger = document.querySelector('.burger');
   const sidebar = document.querySelector('.sidebar');
   const menu = document.querySelector('.menu');
   const overlay = document.querySelector('.overlay');
 
-  document.onclick = function(e) {
-    if(!(e.target.classList.contains('sidebar')) && !(e.target.classList.contains('burger'))) {
+  document.onclick = function (e) {
+    if (!(e.target.classList.contains('sidebar')) && !(e.target.classList.contains('burger'))) {
       burger.classList.remove('burger--active');
       sidebar.classList.remove('sidebar--active');
       body.classList.remove('lock');
@@ -61,7 +61,7 @@ $(function(){
   }
 
 
-//События при клике на бургер - активация затемняющего слоя, класса .lock у body, активация сайдбара, наполнение сайдбара контентом
+  //События при клике на бургер - активация затемняющего слоя, класса .lock у body, активация сайдбара, наполнение сайдбара контентом
   $('.burger').on('click', function (e) {
     $('.overlay').toggleClass('overlay--active');
     $('.burger').toggleClass('burger--active');
@@ -93,27 +93,25 @@ $(function(){
 
 
   //$('.restaurant__list').slick({
- // responsive: [
-   // {
+  // responsive: [
+  // {
   //    breakpoint: 1200,
-   //   settings: "unslick"
+  //   settings: "unslick"
   //  },
   //  {
   //    breakpoint: 992,
   //    settings: {
-   //     slidesToShow: 2,
-   //     slidesToScroll: 2
-   //   }
+  //     slidesToShow: 2,
+  //     slidesToScroll: 2
+  //   }
   //  },
- // ]
+  // ]
   //});
 
 
-  
 
 
- 
-//Слайдер-swiper
+  //Слайдер-swiper
   const swiper = new Swiper('.reviews__slider', {
 
     direction: 'horizontal',
@@ -131,11 +129,11 @@ $(function(){
 
     //scrollbar: {
     //  el: '.swiper-scrollbar',
-   // },
+    // },
   });
 
 
-//Автоматический слайдер скидок из страницы catalog
+  //Автоматический слайдер скидок из страницы catalog
   $('.discounts__list').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -147,67 +145,70 @@ $(function(){
   });
 
 
-//mixitup блоку ассортимента главной страницы
-  var Mixer = mixitup( '.range__content' );
+  //mixitup блоку ассортимента главной страницы
+  var Mixer = mixitup('.range__content');
 });
 
 
 //Фильтры из страницы каталога
 var $range = $(".filter-price__input"),
-    $inputFrom = $(".filter-price__from"),
-    $inputTo = $(".filter-price__to"),
-    instance,
-    min = 0,
-    max = 99999,
-    from = 0,
-    to = 0;
+  $inputFrom = $(".filter-price__from"),
+  $inputTo = $(".filter-price__to"),
+  instance,
+  min = 0,
+  max = 99999,
+  from = 0,
+  to = 0;
 
 $range.ionRangeSlider({
-	skin: "round",
-    type: "double",
-    //min: min,
-    //max: max,
-    //from: 200,
-    //to: 800,
-    onStart: updateInputs,
-    onChange: updateInputs
+  skin: "round",
+  type: "double",
+  //min: min,
+  //max: max,
+  //from: 200,
+  //to: 800,
+  onStart: updateInputs,
+  onChange: updateInputs
 });
 instance = $range.data("ionRangeSlider");
 
-function updateInputs (data) {
-	from = data.from;
-    to = data.to;
-    
-    $inputFrom.prop("value", from);
-    $inputTo.prop("value", to);	
+function updateInputs(data) {
+  from = data.from;
+  to = data.to;
+
+  $inputFrom.prop("value", from);
+  $inputTo.prop("value", to);
 }
 
 $inputFrom.on("input", function () {
-    var val = $(this).prop("value");
-    
-    // validate
-    if (val < min) {
-        val = min;
-    } else if (val > to) {
-        val = to;
-    }
-    
-    instance.update({
-        from: val
-    });
+  var val = $(this).prop("value");
+
+  // validate
+  if (val < min) {
+    val = min;
+  } else if (val > to) {
+    val = to;
+  }
+
+  instance.update({
+    from: val
+  });
 });
 
 $inputTo.on("input", function () {
-    var val = $(this).prop("value");
-    
-    // validate
-    if (val < from) {
-        val = from;
-    } else if (val > max) {
-        val = max;
-    }
-    
-    instance.update({
-        to: val
-    });
+  var val = $(this).prop("value");
+
+  // validate
+  if (val < from) {
+    val = from;
+  } else if (val > max) {
+    val = max;
+  }
+
+  instance.update({
+    to: val
+  });
 });
+
+$('.rev-prev').prependTo('.reviews__management');
+  $('.rev-next').appendTo('.reviews__management');
