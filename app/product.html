@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleFood - Сервис доставки | Главная страница</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#da532c">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+  <header class="header">
+
+    <div class="container">
+      <div class="header__inner">
+        <nav class="header__navigation">
+          <a class="logo logo--top" href="#body">
+            <img class="logo__img logo__img--top" src="images/logo.svg" alt="Логотип">
+          </a>
+
+          <ul data-da=".sidebar__nav, 992, 1 " class="menu">
+            <li class="menu__item">
+              <a class="menu__link menu__link--active animation-link" href="#home">Главная</a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link animation-link" href="#popular">Блюда</a>
+            </li>
+            <li class="menu__item">
+              <a class="menu__link animation-link" href="#connection">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="user-nav">
+          <button class="user-nav__btn user-nav__btn--search animation-icon" type="button" value="search">
+            <span class="visually-hidden">Открыть поиск</span>
+          </button>
+
+          <button class="user-nav__btn user-nav__btn--cart animation-icon" type="button" value="cart">
+            <span class="user-nav__order">4</span>
+            <span class="visually-hidden">Корзина</span>
+          </button>
+        </div>
+
+        <button class="burger" type="button">
+          <span class="visually-hidden">Открыть меню</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <div class="sidebar__control"></div>
+    <div class="line line--silver-darker"></div>
+    <div class="sidebar__nav"></div>
+    <div class="line line--silver-darker"></div>
+    <div class="sidebar__contacts"></div>
+  </div>
+
+  <main class="main">
+    <h1 class="visually-hidden">
+      Сервис быстрой доставки еды SimpleFood
+    </h1>
+
+    <div class="breadcrumbs">
+      <div class="breadcrumbs__inner">
+        <div class="container">
+          <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="#">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">
+              <a class="breadcrumbs__link" href="#">Каталог товаров</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <section class="product-one">
+      <div class="container">
+
+        <div class="product-one__item">
+          <div class="product-one__inner">
+            <div class="product-one__slider swiper">
+              <ul class="product-one swiper-wrapper">
+                <li class="product-one__item swiper-slide">
+                  <img class="main-card__image" src="images/product-one/cheeseburger-lettuce.jpg" width="400" height="400"
+                  alt="Чизбургер с листьями салата">
+                </li>
+
+                <li class="product-one__item swiper-slide">
+                  <img class="main-card__image" src="images/product-one/cheeseburger-lettuce.jpg" width="400" height="400"
+                  alt="Чизбургер с листьями салата">
+                </li>
+
+                <li class="product-one__item swiper-slide">
+                  <img class="main-card__image" src="images/product-one/cheeseburger-lettuce.jpg" width="400" height="400"
+                  alt="Чизбургер с листьями салата">
+                </li>
+              </ul>
+            </div>
+              
+            <div class="product-one__content">
+              <h2 class="title title--left title--bottom-30">
+                Чизбургер с листьями салата
+              </h2>
+
+              <div class="star" data-rateyo-rating="4">
+              </div>
+
+              <span class="product-one__price">
+                160 
+                <span>руб.</span>
+              </span>
+
+              <form class="product-one__form" action="#">
+                <input class="product-one__input" type="number" value="1" min="1">
+                <button class="button button--product animation-btn" type="submit">
+                  Добавить в корзину
+                </button>
+              </form>
+
+              <div class="line line--silver"></div>
+
+              <div class="product-one__text">
+                <h3 class="product-one__title">
+                  Доставка и оплата
+                </h3>
+                <p>Минимальная сумма заказа — 160 руб.</p>
+                <p>Время доставки заказа — 80-140 мин.</p>
+                <p>Оплата осуществляется только банковской картой.</p>
+                <p>Окончательная сумма заказа формируется после сбора товаров.</p>
+                <button class="add-btn animation-link" type="button">Подробнее</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="line line--silver"></div>
+      <div class="container">
+        <div class="product-tabs">
+          <div class="product-tabs__top">
+            <a class="product-tabs__top-item" href="#tab-1">
+              Описание
+            </a>
+            <a class="product-tabs__top-item" href="#tab-2">
+              Характеристики
+            </a>
+            <a class="product-tabs__top-item product-tabs__top-item--active" href="#tab-3">
+              Отзывы
+              <span>(2)</span>
+            </a>
+          </div>
+
+          <div class="product-tabs__content">
+            <div class="product-tabs__content-item" id="tab-1">
+              <p>
+                Рубленый бифштекс из натуральной говядины на карамелизованной булочке, с ломтиком сыра «Чеддер», кетчупом, горчицей, луком и маринованными огурчиками.
+              </p>
+              <p>
+                Аллергены: Глютен, Молоко, Горчица, Может содержать сою, яйцо, следы кунжута
+              </p>
+              <p>
+                Внешний вид товара может отличаться от изображений, представленных на сайте.
+              </p>
+            </div>
+
+            <div class="product-tabs__content-item" id="tab-2">
+              <h3 class="product-tabs__title">
+                Мнения наших клиентов
+              </h3>
+              <div class="comment">
+                <div class="comment__content">
+                  <div class="comment__content-top">
+                    <div class="comment__content-author">
+                      <div class="comment__photo-box">
+                        <img class="comment__img" src="images/product-one/comment/review.jpg" width="70" height="70" alt="Фото автора отзыва">
+                      </div>
+                      <div class="comment__content-info">
+                        <p class="comment__content-name">
+                          Андрей
+                        </p>
+                        <span class="comment__content-date">
+                          10.06.2021
+                        </span>
+                      </div>
+                    </div>
+                    <div class="star" data-rateyo-rating="5">
+                    </div>
+                  </div>
+                  <p class="comment__content-text">
+                    Доставили быстро. Товар свежий и очень вкусный, буду пробовать еще!))
+                  </p>
+                </div>
+              </div>
+
+              <div class="comment">
+                <div class="comment__content">
+                  <div class="comment__content-top">
+                    <div class="comment__content-author">
+                      <div class="comment__photo-box">
+                        <img class="comment__img" src="images/product-one/comment/review.jpg" width="70" height="70" alt="Фото автора отзыва">
+                      </div>
+                      <div class="comment__content-info">
+                        <p class="comment__content-name">
+                          Екатерина Белая
+                        </p>
+                        <span class="comment__content-date">
+                          7.06.2021
+                        </span>
+                      </div>
+                    </div>
+                    <div class="star" data-rateyo-rating="5">
+                    </div>
+                  </div>
+                  <p class="comment__content-text">
+                    этот бургер неплохой чтобы перекусить, когда нет возможности или времени что-нибудь приготовить. Это отличный вариант, чтобы съесть на ходу, но чтобы побаловать себя, я больше предпочту пиццу
+                  </p>
+                </div>
+              </div>
+
+              <form class="comments-form">
+                <h3 class="comments-form__title">
+                  Оставить отзыв
+                </h3>
+                <div class="comments-form__grade">
+                  <span class="comments-form__grade-text">
+                    Ваша оценка *
+                  </span>
+                  <div class="star-empty"></div>
+                </div>
+
+                <label class="comments-form__message">
+                  <span class="comments-form__descr">
+                    Ваш отзыв *
+                  </span>
+                  <textarea class="comments-form__field" name="user_message" placeholder="Введите текст отзыва" required></textarea>
+                </label>
+
+                <div class="comments-form__inputs">
+                  <label class="comments-form__item">
+                    <span class="comments-form__descr">
+                      Имя
+                    </span>
+                    <input class="comments-form__field" type="text" name="user_name" placeholder="Введите ваше имя" required>
+                  </label>
+
+                  <label class="comments-form__item">
+                    <span class="comments-form__descr">
+                      Email *
+                    </span>
+                    <input class="comments-form__field" type="email" name="user_email" placeholder="youremail@mail.com" required>
+                  </label>
+                </div>
+
+                <button class="button" type="submit">
+                  Оставить отзыв
+                </button>
+              </form>
+            </div>
+
+            
+
+
+            <div class="product-tabs__content-item product-tabs__content-item--active" id="tab-3">
+
+              <div class="comment">
+                <img class="comment__img" src="images/users/1.jpg" alt="">
+                <div class="comment__content">
+                  <div class="comment__content-top">
+                    <p class="comment__content-name">
+                      Mike Mike
+                    </p>
+                    <span class="comment__content-date">
+                      2 days ago
+                    </span>
+                    <div class="star comment__content-star" data-rateyo-rating="4"></div>
+                  </div>
+                  <p class="comment__content-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ullam ipsam iusto, aperiam velit harum
+                    vitae debitis laudantium molestias ipsum similique quia quis eligendi eum explicabo tempore qui
+                    aliquid at.
+                  </p>
+                  <a class="comment__content-link" href="#">
+                    Reply
+                  </a>
+                </div>
+              </div>
+
+              <div class="comment">
+                <img class="comment__img" src="images/users/2.jpg" alt="">
+                <div class="comment__content">
+                  <div class="comment__content-top">
+                    <p class="comment__content-name">
+                      Mike Mike
+                    </p>
+                    <span class="comment__content-date">
+                      2 days ago
+                    </span>
+                    <div class="star comment__content-star" data-rateyo-rating="4"></div>
+                  </div>
+                  <p class="comment__content-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ullam ipsam iusto, aperiam velit harum
+                    vitae debitis laudantium molestias ipsum similique quia quis eligendi eum explicabo tempore qui
+                    aliquid at.
+                  </p>
+                  <a class="comment__content-link" href="#">
+                    Reply
+                  </a>
+                </div>
+              </div>
+
+              <div class="comment">
+                <img class="comment__img" src="images/users/3.jpg" alt="">
+                <div class="comment__content">
+                  <div class="comment__content-top">
+                    <p class="comment__content-name">
+                      Mike Mike
+                    </p>
+                    <span class="comment__content-date">
+                      2 days ago
+                    </span>
+                    <div class="star comment__content-star" data-rateyo-rating="4"></div>
+                  </div>
+                  <p class="comment__content-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ullam ipsam iusto, aperiam velit harum
+                    vitae debitis laudantium molestias ipsum similique quia quis eligendi eum explicabo tempore qui
+                    aliquid at.
+                  </p>
+                  <a class="comment__content-link" href="#">
+                    Reply
+                  </a>
+                </div>
+              </div>
+
+              <form class="comments-form" action="#">
+                <p class="comments-form__title">
+                  Add your review
+                </p>
+                <div class="comments-form__top">
+                  <span class="comments-form__top-title">
+                    Your Rating
+                  </span>
+                  <label class="comments-form__label">
+                    <input class="comments-form__input" type="radio" name="star">
+                    <span class="comments-form__radio">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                    </span>
+                  </label>
+                  <label class="comments-form__label">
+                    <input class="comments-form__input" type="radio" name="star">
+                    <span class="comments-form__radio">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                    </span>
+                  </label>
+                  <label class="comments-form__label">
+                    <input class="comments-form__input" type="radio" name="star">
+                    <span class="comments-form__radio">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+
+                    </span>
+                  </label>
+                  <label class="comments-form__label">
+                    <input class="comments-form__input" type="radio" name="star">
+                    <span class="comments-form__radio">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                    </span>
+                  </label>
+                  <label class="comments-form__label">
+                    <input class="comments-form__input" type="radio" name="star" checked>
+                    <span class="comments-form__radio">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M0.022973 6.16429C0.0780978 5.99457 0.224753 5.87088 0.401315 5.84526L5.36139 5.12448L7.57966 0.629902C7.6586 0.469903 7.82157 0.368622 7.99997 0.368622C8.17841 0.368622 8.34135 0.469903 8.42032 0.629902L10.6387 5.12448L15.5987 5.84526C15.7752 5.87088 15.9219 5.99457 15.977 6.16426C16.0322 6.33397 15.9862 6.52025 15.8584 6.64478L12.2694 10.1433L13.1165 15.0834C13.1467 15.2593 13.0744 15.437 12.9301 15.5419C12.8484 15.6012 12.7517 15.6314 12.6545 15.6314C12.5799 15.6314 12.505 15.6136 12.4365 15.5775L8 13.2451L3.56374 15.5775C3.40577 15.6605 3.21443 15.6467 3.07009 15.5418C2.92574 15.437 2.8534 15.2592 2.88356 15.0833L3.73096 10.1433L0.141567 6.64475C0.0138172 6.52025 -0.0322143 6.33397 0.022973 6.16429Z"
+                          fill="#ccccce" />
+                      </svg>
+                    </span>
+                  </label>
+                </div>
+                <div class="comments-form__box">
+                  <input class="comments-form__text-input" type="text" placeholder="Your name">
+                  <input class="comments-form__text-input" type="text" placeholder="E-mail address">
+                </div>
+                <textarea class="comments-form__textarea" placeholder="Your text here"></textarea>
+                <button class="comments-form__btn" type="submit">
+                  Leave Review
+                </button>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="product">
+      <div class="container container--product-slider">
+
+        <div class="product__slider swiper">
+          <h2 class="title title--left title--bottom-60">
+            Вас может заинтересовать
+          </h2>
+          <!--<div class="product__management">-->
+          <div class="swiper-button-prev rev-prev"></div>
+          <div class="swiper-button-next rev-next"></div>
+          <!--</div>-->
+
+          <ul class="product__list swiper-wrapper">
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
+                <h3 class="main-card__title">
+                  Чизбургер с листьями салата
+                </h3>
+                <span class="main-card__price">160   <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
+                <h3 class="main-card__title">
+                  Бифбургер
+                </h3>
+                <span class="main-card__price">190  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
+                <h3 class="main-card__title">
+                  Королевский чизбургер
+                </h3>
+                <span class="main-card__price">260   <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
+                <h3 class="main-card__title">
+                  Черный гамбургер
+                </h3>
+                <span class="main-card__price">199  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
+                <h3 class="main-card__title">
+                  Чизбургер с листьями салата
+                </h3>
+                <span class="main-card__price">160  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
+                <h3 class="main-card__title">Бифбургер</h3>
+                <span class="main-card__price">190  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
+                <h3 class="main-card__title">
+                  Королевский чизбургер
+                </h3>
+                <span class="main-card__price">260  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
+                <h3 class="main-card__title">
+                  Черный гамбургер
+                </h3>
+                <span class="main-card__price">199  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/cheeseburger-lettuce.png" width="140" height="140" alt="Чизбургер с листьями салата">
+                <h3 class="main-card__title">
+                  Чизбургер с листьями салата
+                </h3>
+                <span class="main-card__price">160  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/bifburger.png" width="140" height="140" alt="Бифбургер">
+                <h3 class="main-card__title">
+                  Бифбургер
+                </h3>
+                <span class="main-card__price">190  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/royal-cheeseburger.png" width="140" height="140" alt="Королевский чизбургер">
+                <h3 class="main-card__title">
+                  Королевский чизбургер
+                </h3>
+                <span class="main-card__price">260  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+
+            <li class="product__item swiper-slide">
+              <article class="main-card">
+                <img class="main-card__image" src="images/cards/black-hamburger.png" width="140" height="140" alt="Черный гамбургер">
+                <h3 class="main-card__title">
+                  Черный гамбургер
+                </h3>
+                <span class="main-card__price">199  <span>руб.</span></span>
+                <button class="button button--card animation-btn" type="button">
+                  В корзину
+                </button>
+              </article>
+            </li>
+          </ul>
+          
+          
+          <div class="swiper-dots"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+
+        <div class="footer__content">
+          <a class="logo footer__logo" href="#body">
+            <img class="logo__img" src="images/logo.svg" alt="Логотип">
+          </a>
+          
+          <form class="subscribe" name="subscribe-form" method="post">
+            <label class="subscribe__label" for="subscribe-field">
+              <span class="visually-hidden">Ваш email</span>
+            </label>
+            <input class="subscribe__input animation-form" type="email" id="subscribe-field" name="subscribe" placeholder="Ваш email" required>
+            <button class="button button--form animation-btn" type="submit" value="subscribe">
+              Подписаться
+            </button>
+          </form>
+        </div>
+        
+        <div class="footer__nav">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Как это работает
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Продукты
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Блюда
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Меню
+              </a>
+            </li>
+          </ul>
+
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                О нас
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Новости
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Партнеры
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                ЧаВо
+              </a>
+            </li>
+          </ul>
+
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Скачать приложение
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Блог
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Что нового?
+              </a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__link animation-link" href="#">
+                Карта сайта
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <adress class="contacts">
+          <ul class="contacts__content">
+            <li class="contacts__item">
+              <a class="contacts__link contacts__link--location animation-link" href="#">ул. Смирнова 2/3</a>
+            </li>
+            <li class="contacts__item">
+              <a class="contacts__link contacts__link--calling animation-link" href="tel:+79068057043">79068057043</a>
+            </li>
+            <li class="contacts__item">
+              <a class="contacts__link contacts__link--message animation-link" href="mailto:support@sfood.com">support@sfood.com</a>
+            </li>
+          </ul>
+  
+          <ul class="social">
+
+            <li class="social__item">
+              <a class="social__link animation-icon" href="#" target="_blank">
+                <svg class="social__svg social__svg--facebook">
+                  <use xlink:href="images/sprite.svg#social--facebook"></use>
+                </svg>
+
+                <span class="visually-hidden">Фейсбук</span>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link animation-icon" href="#" target="_blank">
+                <svg class="social__svg social__svg--twitter">
+                  <use xlink:href="images/sprite.svg#social--twitter"></use>
+                </svg>
+                <span class="visually-hidden">Твиттер</span>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__link animation-icon" href="#" target="_blank">
+                <svg class="social__svg social__svg--instagram">
+                  <use xlink:href="images/sprite.svg#social--instagram"></use>
+                </svg>
+                <span class="visually-hidden">Инстаграм</span>
+              </a>
+            </li>
+          </ul>
+        </adress>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="container">
+      <div class="footer__copyright">
+        <span class="footer__copyright-text">
+          &copy; 2021 Simple Food
+        </span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.min.js"></script>
+</body>
+</html>

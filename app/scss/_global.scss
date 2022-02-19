@@ -1,0 +1,518 @@
+@mixin max-w($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-size: 20px;
+  line-height: 1.3;
+  color: $dark;
+  background-color: $silver-100;
+  font-family: "Rubik-Regular", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  &.lock {
+    @include max-w($xg) {
+      overflow: hidden;
+    }
+  }
+
+  &.lock-filter {
+    @include max-w($xg) {
+      overflow: hidden;
+    }
+  }
+}
+
+.main {
+  flex-grow: 1;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  &--flex {
+    max-width: 1230px;
+    padding: 0 7px;
+  }
+  &--product-slider {
+    max-width: 1192px;
+    padding: 0 7px;
+  }
+}
+
+.title {
+  font-size: 36px;
+  font-family: "Rubik-Medium", sans-serif;
+  font-weight: 500;
+  color: $darkBlue-900;
+  margin-bottom: 45px;
+  text-align: center;
+  @include max-w($xl) {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  @include max-w($sm) {
+    font-size: 24px;
+  }
+
+  &--left {
+    text-align: start;
+  }
+
+  &--bottom-60 {
+    margin-bottom: 60px;
+    @include max-w($xl) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &--bottom-30 {
+    margin-bottom: 30px;
+  }
+
+  &--bottom-15 {
+    @include max-w($md) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &--bottom-0 {
+    margin-bottom: 0;
+  }
+}
+
+.add-btn {
+  display: block;
+  line-height: 1.5;
+  color: $darkBlue-900;
+  text-decoration: underline;
+
+  &--center {
+  margin: 0 auto;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+%checkbox-hidden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: $silver-200;
+  &--silver-darker {
+    background-color: $silver-400;
+  }
+  &--silver {
+    background-color: $silver-600;
+  }
+}
+
+.sidebar {
+display: none;
+  @include max-w($xg) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    max-width: 300px;
+    padding: 25px 0 15px;
+    background-color: $white;
+    display: block;
+    transform: translateX(-200%);
+    transition: transform 0.5s;
+    overflow: auto;
+    height: 100vh;
+    z-index: 200;
+  }
+
+    &--active {
+      transform: translateX(0);
+    }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px 25px 15px;
+  }
+  &__nav {
+    padding: 25px 25px 25px 15px;
+  }
+  &__contacts {
+    padding: 15px 25px 15px 15px;
+  }
+}
+/*
+.filter-sidebar {
+  display: none;
+
+  @include max-w($xg) {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    max-width: 300px;
+    padding: 25px 0 15px;
+    background-color: $white;
+    display: block;
+    transform: translateX(-200%);
+    transition: transform 0.5s;
+    overflow: auto;
+    height: 100vh;
+    z-index: 200;
+  }
+
+  &--active {
+    transform: translateX(0);
+  }
+
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px 25px 15px;
+  }
+
+  &__inner {
+    padding: 15px 25px 15px 15px;
+  }
+}
+*/
+.burger {
+  display: none;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  margin-right: 7px;
+  mask-image: url(../images/sprite.svg#burger-menu);
+  background-color: $darkBlue-900;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+
+  @include max-w($xg) {
+    display: block;
+  }
+}
+
+.close-btn {
+  display: block;
+  position: relative;
+  width: 30px;
+  height: 20px;
+  mask-image: url(../images/sprite.svg#close-sadebar-btn);
+  background-color: $darkBlue-900;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  mask-size: cover;
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
+
+  &--hidden {
+    display: none;
+  }
+
+  &--filter {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+  &:focus {
+    background-color: $orange-200;
+    box-shadow: 0 0 0 2px $orange-600;
+    outline: 0;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: $orange-700;
+  }
+
+  &:active {
+    color: $orange-900;
+    box-shadow: none;
+    background-color: $orange-200;
+  }
+}
+
+.overlay {
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $black;
+  opacity: 0.5;
+  transition: opacity 0.5s;
+  position: fixed;
+  z-index: 100;
+
+  &--active {
+    display: block;
+  }
+
+  &--active-filter {
+    display: block;
+  }
+}
+
+.filter-button {
+  display: none;
+  position: relative;
+  width: 47px;
+  height: 47px;
+  background-color: $orange-450;
+  margin-right: 10px;
+  transition: box-shadow 0.5s, background-color 0.5s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 36px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    mask-image: url(../images/sprite.svg#filter-button);
+    background-color: $orange-900;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: cover;
+    transition: background-color 0.5s;
+  }
+
+  &:focus {
+    background-color: $orange-200;
+    box-shadow: 0 0 0 2px $orange-600;
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: $orange-800;
+
+    &::after {
+      background-color: $white;
+    }
+  }
+
+  &:active {
+    box-shadow: none;
+    background-color: $white;
+
+    &::after {
+      background-color: $orange-900;
+    }
+  }
+  
+
+  @include max-w($xg) {
+    display: block;
+  }
+}
+
+.breadcrumbs {
+  padding-top: 158px;
+  color: $darkBlue-500;
+  line-height: 1.2;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+
+  &__inner{
+    padding: 24px 0;
+    background-color: $orange-300;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    padding-right: 16px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5px;
+      width: 6px;
+      height: 10px;
+      mask-image: url(../images/sprite.svg#reviews-slider--next);
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $darkBlue-500;
+    }
+
+    &:last-child {
+      padding-right: 0;
+
+      &::after {
+        mask-image: none;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: $darkBlue-900;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 6px;
+
+    @include max-w($md) {
+      display: none;
+    }
+
+    &--dots {
+      display: block;
+    }
+  }
+
+  &__item:first-child {
+    display: block;
+  }
+
+  &__item:last-child {
+    display: block;
+  }
+
+  &__link {
+    display: block;
+    background-color: $orange-450;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    padding: 15px 0;
+    border-radius: 3px;
+
+    &--active {
+      border: 1px solid $darkBlue-900;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange-900;
+      border: none;
+      outline: 0;
+    }
+
+    &:hover {
+      background-color: $orange-900;
+      color: $white;
+    }
+
+    &:active {
+      border: none;
+      background-color: $orange-450;
+      color: $darkBlue-900;
+      box-shadow: inset 0 -1px 4px 2px $silver-500;
+    }
+  }
+
+  &__arrow {
+    position: relative;
+    display: block;
+    background-color: $orange-450;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    padding: 15px 0;
+    border-radius: 3px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 10px;
+      height: 18px;
+      background-color: $darkBlue-900;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+    }
+
+    &--prev {
+      margin-right: 6px;
+
+      &::after {
+        mask-image: url(../images/sprite.svg#reviews-slider--prev);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &--next {
+
+      &::after {
+        mask-image: url(../images/sprite.svg#reviews-slider--next);
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange-900;
+      border: none;
+      outline: 0;
+    }
+
+    &:hover {
+      background-color: $orange-900;
+      
+      &::after {
+        background-color: $white;
+      }
+    }
+
+    &:active {
+      border: none;
+      background-color: $orange-450;
+      box-shadow: inset 0 -1px 4px 2px $silver-500;
+
+      &::after {
+        background-color: $darkBlue-900;
+        ;
+      }
+    }
+  }
+}
