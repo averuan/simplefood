@@ -4,7 +4,6 @@
 @import 'libs';
 @import 'global';
 @import 'line';
-
 .header {
   font-size: 18px;
   position: fixed;
@@ -1809,7 +1808,6 @@
     line-height: 2;
     position: relative;
     padding-left: 31px;
-
     &::before {
       content: '';
       position: absolute;
@@ -1864,7 +1862,6 @@
     height: 39px;
     width: 39px;
     background-color: $silver-200;
-
   }
 
   &__svg {
@@ -2066,7 +2063,6 @@
     border-color: $orange-900;
   }
 }
-
 .jq-selectbox.focused .jq-selectbox__select {
   border-color: $orange-900;
 }
