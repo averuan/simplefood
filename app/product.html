@@ -239,27 +239,29 @@
                   <div class="star-empty"></div>
                 </div>
 
-                <label class="comments-form__message">
-                  <span class="comments-form__descr">
-                    Ваш отзыв *
-                  </span>
-                  <textarea class="comments-form__field" name="user_message" placeholder="Введите текст отзыва" required></textarea>
-                </label>
-
-                <div class="comments-form__inputs">
-                  <label class="comments-form__item">
+                <div class="comments-form__box">
+                  <label class="comments-form__message">
                     <span class="comments-form__descr">
-                      Имя
+                      Ваш отзыв *
                     </span>
-                    <input class="comments-form__field" type="text" name="user_name" placeholder="Введите ваше имя" required>
+                    <textarea class="comments-form__textarea" name="user_message" placeholder="Введите текст отзыва" required></textarea>
                   </label>
 
-                  <label class="comments-form__item">
-                    <span class="comments-form__descr">
-                      Email *
-                    </span>
-                    <input class="comments-form__field" type="email" name="user_email" placeholder="youremail@mail.com" required>
-                  </label>
+                  <div class="comments-form__inputs">
+                    <label class="comments-form__item">
+                      <span class="comments-form__descr">
+                        Имя
+                      </span>
+                      <input class="comments-form__field name" type="text" name="user_name" placeholder="Введите ваше имя" required>
+                    </label>
+
+                    <label class="comments-form__item">
+                      <span class="comments-form__descr">
+                        Email *
+                      </span>
+                      <input class="comments-form__field" type="email" name="user_email" placeholder="youremail@mail.com" required>
+                    </label>
+                  </div>
                 </div>
 
                 <button class="button" type="submit">
