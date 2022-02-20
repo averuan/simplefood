@@ -1,0 +1,44 @@
+@mixin font-face($font-family, $url, $weight) {
+  
+  @font-face {
+    font-family: "#{$font-family}";
+    src: 
+        url('../fonts/#{$url}.woff2') format("woff2"),
+        url('../fonts/#{$url}.woff') format("woff");
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
+
+@font-face {
+  font-family: 'Rubik-Italic';
+  src: 
+       url('../fonts/Rubik-Italic.woff2') format('woff2'),
+       url('../fonts/Rubik-Italic.woff') format('woff');
+        font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik-Light';
+  src: 
+       url('../fonts/Rubik-Light.woff2') format('woff2'),
+       url('../fonts/Rubik-Light.woff') format('woff');
+       font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik-Medium';
+  src: 
+       url('../fonts/Rubik-Medium.woff2') format('woff2'),
+       url('../fonts/Rubik-Medium.woff') format('woff');
+       font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik-Regular';
+  src: 
+       url('../fonts/Rubik-Regular.woff2') format('woff2'),
+       url('../fonts/Rubik-Regular.woff') format('woff');
+       font-display: swap;
+}
