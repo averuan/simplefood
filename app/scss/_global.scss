@@ -89,6 +89,10 @@ body {
   &--bottom-0 {
     margin-bottom: 0;
   }
+
+  &--font-20 {
+    font-size: 20px;
+  }
 }
 
 .add-btn {
@@ -96,6 +100,11 @@ body {
   line-height: 1.5;
   color: $darkBlue-900;
   text-decoration: underline;
+  text-decoration-skip-ink: none;
+
+  @include max-w($sm) {
+    font-size: 16px;
+  }
 
   &--center {
   margin: 0 auto;
@@ -226,7 +235,7 @@ display: none;
   position: relative;
   width: 30px;
   height: 20px;
-  mask-image: url(../images/sprite.svg#close-sadebar-btn);
+  mask-image: url(../images/sprite.svg#close-btn);
   background-color: $darkBlue-900;
   mask-repeat: no-repeat;
   mask-position: center center;
@@ -343,6 +352,18 @@ display: none;
   line-height: 1.2;
   font-size: 14px;
   letter-spacing: 0.03em;
+
+  @include max-w($xl) {
+    padding-top: 120px;
+  }
+
+  @include max-w($xg) {
+    padding-top: 90px;
+  }
+
+  @include max-w($sm) {
+    padding-top: 72px;
+  }
 
   &__inner{
     padding: 24px 0;

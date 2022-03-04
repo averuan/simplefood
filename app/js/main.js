@@ -166,6 +166,30 @@ $(function () {
 var catalogSlider = null;
 var mediaQuerySize = 768;
 
+  $(document).ready(function () {
+    function checkWidth() {
+      var windowMainWidth = $('body').innerWidth(),
+        elem = $(".restaurant__item"); // лучше сохранять объект в переменную, многократно чтобы не насиловать 
+      // страницу для поиска нужного элемента
+      if (windowMainWidth < 769) {
+
+        elem.addClass('swiper-slide');
+      }
+      else {
+        elem.removeClass('swiper-slide');
+
+      }
+    }
+
+    checkWidth(); // проверит при загрузке страницы
+
+    $(window).resize(function () {
+      checkWidth(); // проверит при изменении размера окна клиента
+    });
+  });
+
+
+
 function catalogSliderInit () {
   if (!catalogSlider) {
     catalogSlider = new Swiper('.restaurant__list', {
@@ -175,6 +199,11 @@ function catalogSliderInit () {
       //simulateTouch: true,
       slidesPerView: 1,
       spaceBetween: 10,
+
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
     });
   }
 }
@@ -267,12 +296,12 @@ $(window).on('load resize', function () {
     // },
   });
 
-  const productOneSwiper = new Swiper('.product-one__slider', {
+  //const productOneSwiper = new Swiper('.product-one__slider', {
 
-    direction: 'horizontal',
+   // direction: 'horizontal',
     //slideClass: 'discounts__item',
     //loop: true,
-    slidesPerView: 1,
+   // slidesPerView: 1,
     //slideClass: 'product__item',
 
     //pagination: {
@@ -295,7 +324,77 @@ $(window).on('load resize', function () {
     //scrollbar: {
     //  el: '.swiper-scrollbar',
     // },
+  //});
+
+
+
+
+  const productOneSwiper = new Swiper('.product-one__slider', {
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 1,
+    //centeredSlides: true,
+    // paginationClickable: true,
+    //spaceBetween: 10,
+    loop: true,
   });
+
+    $('.product-one__slider .product-one__slide-item').on('click', function () {
+      var slideId = $(this).attr('id');
+      openFullscreenSwiper(slideId);
+    });
+
+    function openFullscreenSwiper(initialSlideNumber) {
+      var mainSwiperMarkup = $('.product-one__slider').html();
+
+      $('#fullscreen-swiper')
+        .append(mainSwiperMarkup + "<button id='fullscreen-swiper-close'></button>")
+        .fadeIn();
+
+      const fullscreenSwiper = new Swiper('#fullscreen-swiper', {
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        slidesPerView: 1,
+        centeredSlides: true,
+        paginationClickable: true,
+        spaceBetween: 10,
+        loop: true,
+        initialSlide: initialSlideNumber - 1,
+      });
+
+      $('#fullscreen-swiper-backdrop').fadeIn();
+      $('body, html').addClass('no-scroll');
+
+      $('#fullscreen-swiper-close').on('click', function () {
+        $('#fullscreen-swiper').hide().empty();
+        $('#fullscreen-swiper-backdrop').fadeOut();
+        $('body, html').removeClass('no-scroll');
+      });
+
+    }
+
+    ;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -305,8 +404,10 @@ $(window).on('load resize', function () {
     direction: 'horizontal',
     //slideClass: 'discounts__item',
     //loop: true,
-    slidesPerView: 1,
-    //slideClass: 'product__item',
+    slidesPerView: 2,
+    spaceBetween: 5,
+    slidesPerGroup: 2,
+    slideClass: 'product__item',
 
     pagination: {
       el: '.swiper-dots',
@@ -320,16 +421,24 @@ $(window).on('load resize', function () {
 
     breakpoints: {
 
-      1200: {
+      1201: {
         slidesPerView: 5,
+        spaceBetween: 30,
       },
 
-      992: {
+      993: {
         slidesPerView: 4,
+        spaceBetween: 25,
       },
 
-      768: {
-        slidesPerView: 2,
+      769: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+
+      577: {
+        spaceBetween: 10,
+        slidesPerGroup: 1,
       },
     },
 
