@@ -28,6 +28,7 @@
   "dependencies": {
     "-": "0.0.1",
     "jquery-form-styler": "^2.0.2",
+    "jquery-raty-js": "^2.8.0",
     "mixitup": "^3.3.1",
     "save-dev": "0.0.1-security",
     "swiper": "^7.4.1"
