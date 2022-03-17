@@ -32,6 +32,77 @@ body {
   }
 }
 
+.header {
+  font-size: 18px;
+  position: fixed;
+  padding: 60px 0 0;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  transition: padding-top 0.5s, background-color 0.5s;
+
+  @include max-w($xl) {
+    padding: 14px 0;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: 62px;
+  }
+
+  &--fix {
+    padding-top: 0;
+    background-color: $orange-550;
+
+    @include max-w($xg) {
+      padding: 10px 0;
+    }
+  }
+}
+
+.logo {
+  display: inline-block;
+  flex-grow: 1;
+  max-width: 200px;
+  transition: opacity 0.5s, box-shadow 0.5s;
+
+  &__img {
+    height: 39px;
+    width: 200px;
+
+    &--top {
+
+      @include max-w($sm) {
+        height: 23px;
+        width: 115px;
+      }
+    }
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px $orange-600;
+    outline: 0;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.5;
+    box-shadow: none;
+  }
+}
+
 .main {
   flex-grow: 1;
 }
@@ -40,10 +111,12 @@ body {
   max-width: 1200px;
   padding: 0 15px;
   margin: 0 auto;
+
   &--flex {
     max-width: 1230px;
     padding: 0 7px;
   }
+
   &--product-slider {
     max-width: 1192px;
     padding: 0 7px;
@@ -57,10 +130,12 @@ body {
   color: $darkBlue-900;
   margin-bottom: 45px;
   text-align: center;
+
   @include max-w($xl) {
     font-size: 30px;
     margin-bottom: 30px;
   }
+
   @include max-w($sm) {
     font-size: 24px;
   }
@@ -71,6 +146,7 @@ body {
 
   &--bottom-60 {
     margin-bottom: 60px;
+
     @include max-w($xl) {
       margin-bottom: 30px;
     }
@@ -81,6 +157,7 @@ body {
   }
 
   &--bottom-15 {
+
     @include max-w($md) {
       margin-bottom: 15px;
     }
@@ -92,6 +169,366 @@ body {
 
   &--font-20 {
     font-size: 20px;
+  }
+}
+
+.animation-link {
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $orange-600;
+    border-radius: 5px;
+    outline: 0;
+  }
+
+  &:hover {
+    color: $orange-900;
+    text-decoration: none;
+  }
+
+  &:active {
+    color: $dark;
+    text-shadow: 2px 2px 5px $silver-700;
+    box-shadow: none;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: end;
+  flex-grow: 9;
+  z-index: 2;
+
+  &__item:not(:last-child) {
+    margin-right: 45px;
+
+    @include max-w($xg) {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    position: relative;
+
+    &--active {
+      color: $orange-900;
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    @include max-w($xg) {
+      display: inline-block;
+    }
+  }
+
+  @include max-w($xg) {
+    display: none;
+  }
+
+  &--active {
+    display: block;
+  }
+}
+
+.user-nav {
+  display: flex;
+  justify-content: end;
+
+  @include max-w($xg) {
+    padding-right: 30px;
+  }
+
+  &__btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 5px;
+
+    &::before {
+      content: '';
+      top: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      height: 24px;
+      width: 24px;
+      background-color: $darkBlue-900;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+    }
+
+    &--search::before {
+      mask-image: url(../images/sprite.svg#user--search);
+      margin-right: 13px;
+    }
+
+    &--cart::before {
+      mask-image: url(../images/sprite.svg#user--cart);
+    }
+
+    &:hover {
+
+      &::before {
+        background-color: $white;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        background-color: $darkBlue-900;
+      }
+    }
+  }
+
+  &__order {
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    font-size: 10px;
+    line-height: 1.2;
+    color: $white;
+    background-color: $orange-900;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    transform: translate(50%, -25%);
+
+    &:hover {
+      color: $orange-900;
+      background-color: $white;
+    }
+
+    &:active {
+      color: $white;
+      background-color: $orange-900;
+    }
+  }
+}
+
+.animation-icon {
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
+
+  &:focus {
+    background-color: $orange-200;
+    box-shadow: 0 0 0 2px $orange-600;
+    outline: 0;
+  }
+
+  &:hover {
+    color: $white;
+    background-color: $orange-700;
+  }
+
+  &:active {
+    color: $orange-900;
+    box-shadow: none;
+    background-color: $orange-200;
+  }
+}
+
+.button {
+  padding: 12px 32px;
+  font-size: 18px;
+  line-height: 1.3;
+  color: $white;
+  background-color: $orange-900;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+
+  &--order {
+    margin-right: 34px;
+
+    @include max-w($md) {
+      font-size: 16px;
+      padding: 10px 28px;
+      margin-right: 32px;
+    }
+
+    @include max-w($sm) {
+      font-size: 14px;
+      padding: 8px 24px;
+      margin-right: 30px;
+    }
+  }
+
+  &--card {
+    font-size: 14px;
+    padding: 7px 16px;
+    letter-spacing: normal;
+  }
+
+  &--arrow {
+    border-radius: 20px;
+    position: relative;
+    padding: 17px 40px;
+    letter-spacing: normal;
+
+    &::before {
+      content: '';
+      position: absolute;
+      mask-image: url(../images/sprite.svg#arrow-restaurant);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 12px;
+      width: 14px;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $white;
+      transition: transform 0.5s;
+    }
+
+    &:focus {
+
+      &::before {
+        background-color: $orange-900;
+      }
+    }
+
+    &:hover {
+
+      &::before {
+        transform: translate(12px, -50%);
+        background-color: $orange-900;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        transform: translate(-50%, -50%);
+        background-color: $orange-900;
+      }
+    }
+  }
+
+  &--form {
+    font-size: 14px;
+    padding: 13px 38px 13px 70px;
+    font-family: "Rubik-Medium", sans-serif;
+    font-weight: 500;
+    position: relative;
+    text-align: start;
+    letter-spacing: normal;
+
+    &::before {
+      mask-image: url(../images/sprite.svg#frame);
+      content: '';
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      top: 50%;
+      left: 38px;
+      transform: translateY(-50%);
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $white;
+    }
+
+    &:focus {
+
+      &::before {
+        background-color: $orange-900;
+      }
+    }
+
+    &:hover {
+
+      &::before {
+        background-color: $orange-900;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        background-color: $orange-900;
+      }
+    }
+  }
+
+  &--product {
+    padding: 13px 38px 13px 70px;
+    border-radius: 3px;
+    font-family: "Rubik-Medium",
+    sans-serif;
+    font-size: 14px;
+    position: relative;
+    transition: transform 0.5s;
+    letter-spacing: normal;
+
+    &::before {
+      content: '';
+      position: absolute;
+      mask-image: url(../images/sprite.svg#button--cart-bold);
+      top: 50%;
+      left: 38px;
+      transform: translateY(-50%);
+      height: 16px;
+      width: 16px;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      mask-size: cover;
+      background-color: $white;
+      transition: transform 0.5s;
+    }
+
+    &:focus {
+
+      &::before {
+        background-color: $orange-900;
+      }
+    }
+
+    &:hover {
+
+      &::before {
+        background-color: $orange-900;
+      }
+    }
+
+    &:active {
+
+      &::before {
+        transform: translate(-50%, -50%);
+        background-color: $orange-900;
+      }
+    }
+  }
+}
+
+.animation-btn {
+  transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
+
+  &:focus {
+    color: $orange-900;
+    background-color: $orange-300;
+    box-shadow: 0 0 0 2px $orange-600;
+    outline: 0;
+  }
+
+  &:hover {
+    color: $orange-900;
+    background-color: $white;
+    box-shadow: 0 0 0 2px $orange-600;
+  }
+
+  &:active {
+    color: $orange-900;
+    box-shadow: none;
+    border-color: $orange-300;
+    background-color: $orange-300;
   }
 }
 
@@ -143,7 +580,7 @@ body {
 }
 
 .sidebar {
-display: none;
+  display: none;
   @include max-w($xg) {
     position: fixed;
     left: 0;
@@ -170,49 +607,16 @@ display: none;
     justify-content: space-between;
     padding: 0 25px 25px 15px;
   }
+
   &__nav {
     padding: 25px 25px 25px 15px;
   }
+
   &__contacts {
     padding: 15px 25px 15px 15px;
   }
 }
-/*
-.filter-sidebar {
-  display: none;
 
-  @include max-w($xg) {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    max-width: 300px;
-    padding: 25px 0 15px;
-    background-color: $white;
-    display: block;
-    transform: translateX(-200%);
-    transition: transform 0.5s;
-    overflow: auto;
-    height: 100vh;
-    z-index: 200;
-  }
-
-  &--active {
-    transform: translateX(0);
-  }
-
-  &__control {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 25px 25px 15px;
-  }
-
-  &__inner {
-    padding: 15px 25px 15px 15px;
-  }
-}
-*/
 .burger {
   display: none;
   position: relative;
@@ -339,7 +743,6 @@ display: none;
       background-color: $orange-900;
     }
   }
-  
 
   @include max-w($xg) {
     display: block;
@@ -391,7 +794,7 @@ display: none;
       mask-repeat: no-repeat;
       mask-position: center center;
       mask-size: cover;
-      background-color: $darkBlue-500;
+      background-color: $silver-800;
     }
 
     &:last-child {

@@ -1,23 +1,9 @@
 $(function () {
 
 
-//Звездный рейтинг заполненный
-  $(".star").rateYo({
-    starWidth: "16px",
-    normalFill: "#c1c1c14d",
-    ratedlFill: "#ffb800",
-    readOnly: true,
-  });
-
-  //Звездный рейтинг пустой
-  $(".star-empty").rateYo({
-    starWidth: "16px",
-    normalFill: "#c1c1c1",
-    ratedlFill: "#ffb800",
-  });
-
   //Стилизация селектов
   $('.select-style, .product-one__input').styler();
+
 
   //Активные классы табам из страницы товара
   $('.product-tabs__top-item').on('click', function (e) {
@@ -56,15 +42,6 @@ $(function () {
       top = $(id).offset().top;
     $('body,html').animate({ scrollTop: top }, 1500);
   });
-
-
-  //устанавливает высоту в зависимости от ширины
-  // $(function () {
-  // $('.hero__img').height($('.hero__img').width() / 1.179);
-  //  $(window).resize(function () {
-  //    $('.hero__img').height($('.hero__img').width() / 0.85);
-  //  });
-  // });
 
 
   //Добавляет слой-затемнение в DOM
@@ -109,20 +86,7 @@ $(function () {
   });
 
 
- // document.onclick = function (e) {
- //   if (!(e.target.classList.contains('filter-sidebar')) && !(e.target.classList.contains('filter-button'))) {
- //     filterButton.classList.remove('filter-button--active');
- //     filterSidebar.classList.remove('filter-sidebar--active');
-  //    body.classList.remove('lock');
- //     overlay.classList.remove('overlay--active');
- //   }
- // }
-
-
-
-  //События при клике на бургер - активация затемняющего слоя, класса .lock у body, активация сайдбара, наполнение сайдбара контентом
-  
-
+  //События при клике на кнопку-фильтер - активация затемняющего слоя, класса .lock-filter у body, активация фильтра в мобильном меню, наполнение фильтра контентом
   $('.filter-button').on('click', function (e) {
     $('.overlay').addClass('overlay--active-filter');
     $('.catalog__filtres').addClass('catalog__filtres--active');
@@ -131,7 +95,7 @@ $(function () {
     $('.close-btn').addClass('close-btn--filter');
   });
 
-    $('.close-btn').on('click', function (e) {
+  $('.close-btn').on('click', function (e) {
     $('.overlay').removeClass('overlay--active-filter');
     $('.catalog__filtres').removeClass('catalog__filtres--active');
     $('body').removeClass('lock-filter');
@@ -140,37 +104,14 @@ $(function () {
   });
 
 
-
-
-
-
-  //$('.restaurant__list').slick({
-  // responsive: [
-  // {
-  //    breakpoint: 1200,
-  //   settings: "unslick"
-  //  },
-  //  {
-  //    breakpoint: 992,
-  //    settings: {
-  //     slidesToShow: 2,
-  //     slidesToScroll: 2
-  //   }
-  //  },
-  // ]
-  //});
-
-
-
-
-var catalogSlider = null;
-var mediaQuerySize = 768;
+  // Вызов слайдера ресторанов (главная страница) в мобильной версии
+  const catalogSlider = null;
+  const mediaQuerySize = 768;
 
   $(document).ready(function () {
     function checkWidth() {
       var windowMainWidth = $('body').innerWidth(),
-        elem = $(".restaurant__item"); // лучше сохранять объект в переменную, многократно чтобы не насиловать 
-      // страницу для поиска нужного элемента
+        elem = $(".restaurant__item"); 
       if (windowMainWidth < 769) {
 
         elem.addClass('swiper-slide');
@@ -188,60 +129,46 @@ var mediaQuerySize = 768;
     });
   });
 
+  function catalogSliderInit () {
+    if (!catalogSlider) {
+      catalogSlider = new Swiper('.restaurant__list', {
+        direction: 'horizontal',
+        slideClass: 'restaurant__item',
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 10,
 
-
-function catalogSliderInit () {
-  if (!catalogSlider) {
-    catalogSlider = new Swiper('.restaurant__list', {
-      direction: 'horizontal',
-      slideClass: 'restaurant__item',
-      loop: true,
-      //simulateTouch: true,
-      slidesPerView: 1,
-      spaceBetween: 10,
-
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
+    }
   }
-}
 
-function catalogSliderDestroy () {
-  if (catalogSlider) {
-    catalogSlider.destroy();
-    catalogSlider = null;
+  function catalogSliderDestroy () {
+    if (catalogSlider) {
+      catalogSlider.destroy();
+      catalogSlider = null;
+    }
   }
-}
 
-$(window).on('load resize', function () {
-  // Берём текущую ширину экрана
-  var windowWidth = $(this).innerWidth();
+  $(window).on('load resize', function () {
+    // Берём текущую ширину экрана
+    var windowWidth = $(this).innerWidth();
   
-  // Если ширина экрана меньше или равна mediaQuerySize(1024)
-  if (windowWidth <= mediaQuerySize) {
-    // Инициализировать слайдер если он ещё не был инициализирован
-    catalogSliderInit()
-  } else {
-    // Уничтожить слайдер если он был инициализирован
-    catalogSliderDestroy()
-  }
-});
+    // Если ширина экрана меньше или равна mediaQuerySize(1024)
+    if (windowWidth <= mediaQuerySize) {
+      // Инициализировать слайдер если он ещё не был инициализирован
+      catalogSliderInit()
+    } else {
+      // Уничтожить слайдер если он был инициализирован
+      catalogSliderDestroy()
+    }
+  });
 
 
-
-
-
-
-
-
-
-
-
-
-
-  //Слайдер-swiper
+  //Слайдер-ревью (главная страница)
   const swiper = new Swiper('.reviews__slider', {
 
     direction: 'horizontal',
@@ -256,10 +183,6 @@ $(window).on('load resize', function () {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-
-    //scrollbar: {
-    //  el: '.swiper-scrollbar',
-    // },
   });
 
 
@@ -267,8 +190,6 @@ $(window).on('load resize', function () {
   const discountsSwiper = new Swiper('.discounts__slider', {
 
     direction: 'horizontal',
-    //slideClass: 'discounts__item',
-    //loop: true,
     slidesPerView: 1,
 
     pagination: {
@@ -285,59 +206,16 @@ $(window).on('load resize', function () {
         slidesPerView: 2,
       },
     },
-
-    //navigation: {
-     // nextEl: '.swiper-button-next',
-     // prevEl: '.swiper-button-prev',
-    //},
-
-    //scrollbar: {
-    //  el: '.swiper-scrollbar',
-    // },
   });
 
-  //const productOneSwiper = new Swiper('.product-one__slider', {
-
-   // direction: 'horizontal',
-    //slideClass: 'discounts__item',
-    //loop: true,
-   // slidesPerView: 1,
-    //slideClass: 'product__item',
-
-    //pagination: {
-     // el: '.swiper-dots',
-    //  clickable: true,
-    //},
-
-    //navigation: {
-    //  nextEl: '.swiper-button-next',
-   //   prevEl: '.swiper-button-prev',
-    //},
-
-    
-
-    //navigation: {
-     // nextEl: '.swiper-button-next',
-     // prevEl: '.swiper-button-prev',
-    //},
-
-    //scrollbar: {
-    //  el: '.swiper-scrollbar',
-    // },
-  //});
-
-
-
-
+  //Слайдер продукта (с увеличением по клику) со страницы продукта
   const productOneSwiper = new Swiper('.product-one__slider', {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+
     slidesPerView: 1,
-    //centeredSlides: true,
-    // paginationClickable: true,
-    //spaceBetween: 10,
     loop: true,
   });
 
@@ -363,6 +241,7 @@ $(window).on('load resize', function () {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+
         slidesPerView: 1,
         centeredSlides: true,
         paginationClickable: true,
@@ -379,31 +258,13 @@ $(window).on('load resize', function () {
         $('#fullscreen-swiper-backdrop').fadeOut();
         $('body, html').removeClass('no-scroll');
       });
-
-    }
-
-    ;
+    };
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //Слайдер видов продукции из страницы product
+  //Слайдер видов продукции из страницы product
   const productSwiper = new Swiper('.product__slider', {
 
     direction: 'horizontal',
-    //slideClass: 'discounts__item',
-    //loop: true,
     slidesPerView: 2,
     spaceBetween: 5,
     slidesPerGroup: 2,
@@ -441,24 +302,11 @@ $(window).on('load resize', function () {
         slidesPerGroup: 1,
       },
     },
-
-    //navigation: {
-     // nextEl: '.swiper-button-next',
-     // prevEl: '.swiper-button-prev',
-    //},
-
-    //scrollbar: {
-    //  el: '.swiper-scrollbar',
-    // },
   });
 
 
-
-
-
-
   //mixitup блоку ассортимента главной страницы
-  var Mixer = mixitup('.range__content');
+  const Mixer = mixitup('.range__content');
 });
 
 
@@ -475,10 +323,6 @@ var $range = $(".filter-price__input"),
 $range.ionRangeSlider({
   skin: "round",
   type: "double",
-  //min: min,
-  //max: max,
-  //from: 200,
-  //to: 800,
   onStart: updateInputs,
   onChange: updateInputs
 });
@@ -522,5 +366,6 @@ $inputTo.on("input", function () {
   });
 });
 
-$('.rev-prev').prependTo('.reviews__management');
-  $('.rev-next').appendTo('.reviews__management');
+
+  
+  
