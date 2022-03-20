@@ -39,12 +39,22 @@
             </li>
           </ul>
         </nav>
+
         <div class="user-nav">
-          <button class="user-nav__btn user-nav__btn--search animation-icon" type="button" value="search">
-            <span class="visually-hidden">Открыть поиск</span>
-          </button>
-          <button class="user-nav__btn user-nav__btn--cart animation-icon" type="button" value="cart">
-            <span class="user-nav__order">4</span>
+          <form class="search">
+            <div class="search__inner">
+    
+              <input type="text" class="search__input" placeholder="Поиск">
+            </div>
+            <button class="btn btn--search animation-icon" type="button" value="search">
+              <span class="visually-hidden">
+                Открыть поиск
+              </span>
+            </button>
+          </form>
+
+          <button class="btn btn--cart animation-icon" type="button" value="cart">
+            <span class="btn__order">4</span>
             <span class="visually-hidden">Корзина</span>
           </button>
         </div>

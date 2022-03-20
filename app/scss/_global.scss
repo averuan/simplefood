@@ -244,48 +244,87 @@ body {
   @include max-w($xg) {
     padding-right: 30px;
   }
+}
 
-  &__btn {
-    position: relative;
-    width: 44px;
-    height: 44px;
-    border-radius: 5px;
+.search {
+  display: flex;
+
+  &__inner {
+    width: 0;
+    height: 0;
+    border-radius: 7px;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+
+    &--active {
+      width: 240px;
+      height: auto;
+      padding-left: 18px;
+      transition: all 0.6s ease;
+    }
+  }
+
+  &__input {
+    background: transparent;
+    width: 0%;
+    border: 0;
+    outline: 0;
+
+    &::placeholder {
+      color: $gray;
+      opacity: 0.9;
+      transition: color 0.5s;
+    }
+
+    &--active {
+      width: 98%;
+      padding-left: 6px;
+      transition: all 0.4s 0.7s ease;
+    }
+  }
+}
+
+.btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 5px;
+
+  &::before {
+    content: '';
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    height: 24px;
+    width: 24px;
+    background-color: $darkBlue-900;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: cover;
+  }
+
+  &--search::before {
+    mask-image: url(../images/sprite.svg#user--search);
+    margin-right: 13px;
+  }
+
+  &--cart::before {
+    mask-image: url(../images/sprite.svg#user--cart);
+  }
+
+  &:hover {
 
     &::before {
-      content: '';
-      top: 50%;
-      position: absolute;
-      transform: translate(-50%, -50%);
-      left: 50%;
-      height: 24px;
-      width: 24px;
+      background-color: $white;
+    }
+  }
+
+  &:active {
+
+    &::before {
       background-color: $darkBlue-900;
-      mask-repeat: no-repeat;
-      mask-position: center center;
-      mask-size: cover;
-    }
-
-    &--search::before {
-      mask-image: url(../images/sprite.svg#user--search);
-      margin-right: 13px;
-    }
-
-    &--cart::before {
-      mask-image: url(../images/sprite.svg#user--cart);
-    }
-
-    &:hover {
-
-      &::before {
-        background-color: $white;
-      }
-    }
-
-    &:active {
-
-      &::before {
-        background-color: $darkBlue-900;
-      }
     }
   }
 
@@ -313,6 +352,7 @@ body {
     }
   }
 }
+
 
 .animation-icon {
   transition: color 0.5s, box-shadow 0.5s, border 0.5s, background-color 0.5s;
@@ -571,9 +611,15 @@ body {
   height: 1px;
   width: 100%;
   background-color: $silver-200;
+
+  &--silver-900 {
+    background-color: $silver-900;
+  }
+
   &--silver-darker {
     background-color: $silver-400;
   }
+
   &--silver {
     background-color: $silver-600;
   }

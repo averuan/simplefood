@@ -1,6 +1,15 @@
 $(function () {
 
 
+
+  
+
+  
+
+
+
+
+
   //Стилизация селектов
   $('.select-style, .product-one__input').styler();
 
@@ -103,6 +112,13 @@ $(function () {
     $('.close-btn').removeClass('close-btn--filter');
   });
 
+
+  $('.btn--search').on('click', function (e) {
+    $('.search__inner').toggleClass('search__inner--active');
+    $('.search__input').toggleClass('search__input--active');
+
+    //$("input[type='text']").focus();
+  });
 
   // Вызов слайдера ресторанов (главная страница) в мобильной версии
   const catalogSlider = null;

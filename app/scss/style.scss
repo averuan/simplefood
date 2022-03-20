@@ -1310,25 +1310,29 @@
 .filter {
 
   &__item {
-    padding: 15px 8px 25px 15px;
+    /*padding: 15px 8px 25px 15px;*/
     border: 1px solid $silver-200;
+    border-radius: 5px;
     background-color: $white;
     margin-bottom: 29px;
   }
 
   &__title {
+    padding: 15px;
     color: $darkBlue-900;
     font-size: 24px;
     line-height: 1.2;
-    margin-bottom: 40px;
     letter-spacing: 0.03em;
-    border-bottom: 1px solid $silver-200;
   }
 }
 
 .filter-category {
   font-size: 18px;
   letter-spacing: 0.03em;
+
+  &__form {
+    padding: 25px 15px;
+  }
 
   &__label {
     display: block;
@@ -1464,6 +1468,10 @@
   line-height: 1.2;
   letter-spacing: 0.03em;
 
+  &__form {
+    padding: 25px 15px;
+  }
+
   &__label {
     display: block;
 
@@ -1516,6 +1524,7 @@
   &__form {
     display: flex;
     flex-direction: column-reverse;
+    padding: 25px 15px;
   }
 
   &__label {
@@ -2965,3 +2974,63 @@
     }
   }
 }
+
+
+
+
+
+
+
+/*
+.wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0px;
+  height: 55px;
+  background: #7c23b2;
+  line-height: 55px;
+  padding-right: 55px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+}
+
+.input {
+  border: 0;
+  background: transparent;
+  width: 0%;
+  outline: none;
+  font-family: sans-serif;
+  font-size: 18px;
+  color: #fff;
+  font-style: italic;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.wrap .fa {
+  color: #fff;
+  position: absolute;
+  right: 17px;
+  top: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.wrap.active {
+  width: 250px;
+  padding-left: 25px;
+  transition: all 0.5s ease;
+}
+
+.input.active {
+  width: 98%;
+  padding-left: 5px;
+  transition: all 0.5s 0.8s ease;
+}
+
+input::placeholder {
+  color: #fff;
+}*/
