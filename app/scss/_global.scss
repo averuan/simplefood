@@ -168,7 +168,10 @@ body {
   }
 
   &--font-20 {
-    font-size: 20px;
+    
+    @include max-w($md) {
+      font-size: 20px;
+    }
   }
 }
 

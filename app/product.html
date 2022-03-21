@@ -16,7 +16,7 @@
 
   <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body>
+<body id="body">
   <header class="header">
 
     <div class="container">
@@ -38,17 +38,25 @@
             </li>
           </ul>
         </nav>
-        <div class="user-nav">
-          <button class="user-nav__btn user-nav__btn--search animation-icon" type="button" value="search">
-            <span class="visually-hidden">Открыть поиск</span>
-          </button>
 
-          <button class="user-nav__btn user-nav__btn--cart animation-icon" type="button" value="cart">
-            <span class="user-nav__order">4</span>
+        <div class="user-nav">
+          <form class="search">
+            <div class="search__inner">
+              <input type="text" class="search__input" placeholder="Поиск">
+            </div>
+            <button class="btn btn--search animation-icon" type="button" value="search">
+              <span class="visually-hidden">
+                Открыть поиск
+              </span>
+            </button>
+          </form>
+        
+          <button class="btn btn--cart animation-icon" type="button" value="cart">
+            <span class="btn__order">4</span>
             <span class="visually-hidden">Корзина</span>
           </button>
         </div>
-
+        
         <button class="burger" type="button">
           <span class="visually-hidden">Открыть меню</span>
         </button>
@@ -383,7 +391,7 @@
                   </span>
                 </label>
 
-                <button class="button" type="submit">
+                <button class="button animation-btn" type="submit">
                   Оставить отзыв
                 </button>
               </form>
@@ -484,32 +492,13 @@
                 </button>
               </article>
             </li>
-
-
           </ul>
-          
-          
           <div class="swiper-dots"></div>
         </div>
       </div>
     </section>
 
   </main>
-
-  <div class="form__label">Точный рейтинг</div>
-  <div class="rating rating_set">
-    <div class="rating__body">
-      <div class="rating__active"></div>
-      <div class="rating__items">
-        <input class="rating__item" type="radio" value="1" name="rating">
-        <input class="rating__item" type="radio" value="2" name="rating">
-        <input class="rating__item" type="radio" value="3" name="rating">
-        <input class="rating__item" type="radio" value="4" name="rating">
-        <input class="rating__item" type="radio" value="5" name="rating">
-      </div>
-    </div>
-    <div class="rating__value">1.8</div>
-  </div>
 
   <footer class="footer">
     <div class="container">

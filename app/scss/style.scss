@@ -2316,17 +2316,6 @@
     transition: background-color 0.3s;
   }
 
-
-
-
-
-
-
-
-
-
-
-
 .product-tabs {
   padding-top: 30px;
   max-width: 690px;
@@ -2371,6 +2360,22 @@
     display: block;
     color: $darkBlue-900;
     white-space: nowrap;
+    transition: border 0.3s, color 0.3s, opacity 0.3s;
+
+    &:focus {
+      border: 2px solid $orange-600;
+      outline: 0;
+    }
+
+    &:hover {
+      opacity: 0.8;
+      color: $orange-700;
+    }
+
+    &:active {
+      border: none;
+      opacity: 0.8;
+    }
 
     &:not(:last-child) {
       margin-right: 60px;
@@ -2388,6 +2393,7 @@
   &__top-item--active {
     color: $orange-900;
     position: relative;
+    border: none;
 
     &::before {
       position: absolute;

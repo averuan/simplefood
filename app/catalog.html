@@ -16,19 +16,19 @@
 
   <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body>
+<body id="body">
   <header class="header">
 
     <div class="container">
       <div class="header__inner">
-        <nav class="header__navigation">
-          <a class="logo logo--top" href="#body">
+        <nav class="header__navigation" id="header">
+          <a class="logo logo--top" href="/index.html">
             <img class="logo__img logo__img--top" src="images/logo.svg" alt="Логотип">
           </a>
 
           <ul data-da=".sidebar__nav, 992, 1 " class="menu">
             <li class="menu__item">
-              <a class="menu__link menu__link--active animation-link" href="#home">Главная</a>
+              <a class="menu__link menu__link--active animation-link" href="/product.html">Главная</a>
             </li>
             <li class="menu__item">
               <a class="menu__link animation-link" href="#popular">Блюда</a>
@@ -38,16 +38,25 @@
             </li>
           </ul>
         </nav>
+
         <div class="user-nav">
-          <button class="user-nav__btn user-nav__btn--search animation-icon" type="button" value="search">
-            <span class="visually-hidden">Открыть поиск</span>
-          </button>
-          <button class="user-nav__btn user-nav__btn--cart animation-icon" type="button" value="cart">
-            <span class="user-nav__order">4</span>
+          <form class="search">
+            <div class="search__inner">
+              <input type="text" class="search__input" placeholder="Поиск">
+            </div>
+            <button class="btn btn--search animation-icon" type="button" value="search">
+              <span class="visually-hidden">
+                Открыть поиск
+              </span>
+            </button>
+          </form>
+        
+          <button class="btn btn--cart animation-icon" type="button" value="cart">
+            <span class="btn__order">4</span>
             <span class="visually-hidden">Корзина</span>
           </button>
         </div>
-
+        
         <button class="burger" type="button">
           <span class="visually-hidden">Открыть меню</span>
         </button>
